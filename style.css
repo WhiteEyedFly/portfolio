@@ -1,3 +1,29 @@
 .container{
     display: flex;
+
+    /* flex-direction: row; */ /* Default primary axis is row */
+    /*align-items: flex-start;*/ /* Vertical alignment */
+
+    /* Horizontal alignment */
+    justify-content: space-between;
+    /* Wrap when too many items*/
+    flex-wrap: wrap;
+    /* Align all rows top of flex box */
+    align-content: flex-start;
+    /* Gap between items */
+    gap: 1em;
 }
+
+.project{
+    /* flex-grow: 1 */ /* Fills remainder of flex box */
+    /* flex-shrink: 1 */ /* Determines how fast an item will shrink */
+    /* flex: 1 */ /* Combines the above */
+    /* order: 1 */ /* Determines the order the boxes are place in */
+    font-size: 1.5rem;
+}
+
+/*
+
+.css is overwritten by whatever is the nearest property to the item. Item overwrites container1, overwrites container2, ...
+
+*/
