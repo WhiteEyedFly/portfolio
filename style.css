@@ -1,25 +1,40 @@
-.container{
-    display: flex;
-
-    /* flex-direction: row; */ /* Default primary axis is row */
-    /*align-items: flex-start;*/ /* Vertical alignment */
-
-    /* Horizontal alignment */
-    justify-content: space-between;
-    /* Wrap when too many items*/
-    flex-wrap: wrap;
-    /* Align all rows top of flex box */
-    align-content: flex-start;
-    /* Gap between items */
-    gap: 1em;
+div.wrapper{
+    display:grid;
+    /* repeat(#, pattern) */
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 1em;
+    /* Set height */
+    grid-auto-rows:minmax(100px, auto);
 }
 
-.project{
-    /* flex-grow: 1 */ /* Fills remainder of flex box */
-    /* flex-shrink: 1 */ /* Determines how fast an item will shrink */
-    /* flex: 1 */ /* Combines the above */
-    /* order: 1 */ /* Determines the order the boxes are place in */
-    font-size: 1.5rem;
+div.nested{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-auto-rows:minmax(100px, auto);
+}
+
+div.links_list{
+    display:grid;
+    grid-template-columns: repeat(3, 40px);
+}
+
+div.link_box{
+    max-width:30px;
+}
+
+div.skills_list{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
+}
+
+div.wrapper > div{
+    background:#eee;
+    padding: 1em;
+}
+div.wrapper > div:nth-child(odd){
+    background:#ddd;
 }
 
 /*
