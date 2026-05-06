@@ -1,4 +1,4 @@
-const { log } = require('console');
+//const { log } = require('console');
 let fs = require('fs/promises');
 let path = require('path');
 
@@ -22,7 +22,7 @@ async function makeProject(jsonLink){
 
     // Add the project structure
     const projects = await document.querySelector("projects");
-    projects.innerHTML += `<div class="project"><img src=${jsonProjectFile.image} alt="Project photo"><div><p>${jsonProjectFile.title}</p><div class="skills_list" #skillList><!--Skills--></div><p>${jsonProjectFile.info}</p><a href=${jsonProjectFile.link}>Read more</a></div></div>`
+    projects.innerHTML += `<div class="project"><img src=${jsonProjectFile.image} alt="Project photo"><div><p>${jsonProjectFile.title}</p><div class="skills_list" #skillList></div><p>${jsonProjectFile.info}</p><a href=${jsonProjectFile.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
     const skillList = projects.lastChild.querySelector("skillList");
