@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import(fs);
+import(path);
 
 export async function main(){
     const files = await fs.readdir("/projectpages", { withFileTypes: true });
