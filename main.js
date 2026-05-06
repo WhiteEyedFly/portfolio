@@ -24,8 +24,6 @@ const educationList = [
     }
 ]
 
-lists = [projectList, experienceList, educationList]
-
 
 async function main(){
     for (let i = 0; i < projectList.length; i++){
@@ -42,7 +40,7 @@ async function main(){
 async function makeProject(projectDict){
 
     // Add the project structure
-    const projects = await document.querySelector("projects");
+    const projects = await document.querySelector("nested");
     projects.innerHTML += `<div class="project"><img src=${projectDict.image} alt="Project photo"><div><p>${projectDict.title}</p><div class="skills_list" #skillList></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
