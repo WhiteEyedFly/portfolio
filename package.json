@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "Joshua Woodbridge",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/WhiteEyedFly/portfolio/issues"
   },

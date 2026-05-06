@@ -1,24 +1,27 @@
-import(fs);
-import(path);
+const { log } = require('console');
+let fs = require('fs/promises');
+let path = require('path');
 
-export async function main(){
-    const files = await fs.readdir("/projectpages", { withFileTypes: true });
+async function main(){
+    const dirPath = "./projectpages"
+    const files = await fs.readdir(dirPath, { withFileTypes: true });
 
     // For each project listed, add a project item
     await Promise.all(
         files.map(file => {
             const fullPath = path.join(dirPath, file.name)
-            makeProject(fullPath)
+            makeProject("/home/dw/Desktop/Docs/Projects/Portfolio/".concat(fullPath))
         })
     )
 }
 
-export async function makeProject(jsonLink){
-    const response = await fetch(jsonLink);
-    const jsonProjectFile = await response.json();
+async function makeProject(jsonLink){
+    jsonProjectFile = fetch(jsonLink)
+        .then(response => response.json())
+        .then(json => console.log(json));
 
     // Add the project structure
-    const projects = document.querySelector("projects");
+    const projects = await document.querySelector("projects");
     projects.innerHTML += `<div class="project"><img src=${jsonProjectFile.image} alt="Project photo"><div><p>${jsonProjectFile.title}</p><div class="skills_list" #skillList><!--Skills--></div><p>${jsonProjectFile.info}</p><a href=${jsonProjectFile.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
