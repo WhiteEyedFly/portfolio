@@ -1,5 +1,5 @@
 //const { log } = require('console');
-let fs = require('fs/promises');
+let fs = require('fs');
 let path = require('path');
 
 async function main(){
