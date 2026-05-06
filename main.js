@@ -24,17 +24,18 @@ const educationList = [
     }
 ]
 
+lists = [projectList, experienceList, educationList]
+
 
 async function main(){
-    // For each project listed, add a project item
     for (let i = 0; i < projectList.length; i++){
         makeProject(projectList[i])
     }
     for (let i = 0; i < experienceList.length; i++){
-        makeExperience(exp)
+        makeExperience(experienceList[i])
     }
     for (let i = 0; i < educationList.length; i++){
-        makeEducation(edu)
+        makeEducation(projectList[i])
     }
 }
 
