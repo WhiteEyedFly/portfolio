@@ -1,34 +1,62 @@
 //const { log } = require('console');
-let fs = require('fs');
-let path = require('path');
+const projectList = [
+    {
+        title: "Proj1",
+        info: "I did a thing",
+        skills: ["Python"],
+        image: "blankImage.jpg",
+        link: "link"
+    }
+]
+const experienceList = [
+    {
+        dates: "",
+        title: "",
+        skills: []
+    }
+]
+const educationList = [
+    {
+        years: "",
+        course: "",
+        place: "",
+        description:""
+    }
+]
+
 
 async function main(){
-    const dirPath = "./projectpages"
-    const files = await fs.readdir(dirPath, { withFileTypes: true });
-
     // For each project listed, add a project item
-    await Promise.all(
-        files.map(file => {
-            const fullPath = path.join(dirPath, file.name)
-            makeProject("/home/dw/Desktop/Docs/Projects/Portfolio/".concat(fullPath))
-        })
-    )
+    for (let i = 0; i < projectList.length; i++){
+        makeProject(projectList[i])
+    }
+    for (let i = 0; i < experienceList.length; i++){
+        makeExperience(exp)
+    }
+    for (let i = 0; i < educationList.length; i++){
+        makeEducation(edu)
+    }
 }
 
-async function makeProject(jsonLink){
-    jsonProjectFile = fetch(jsonLink)
-        .then(response => response.json())
-        .then(json => console.log(json));
+async function makeProject(projectDict){
 
     // Add the project structure
     const projects = await document.querySelector("projects");
-    projects.innerHTML += `<div class="project"><img src=${jsonProjectFile.image} alt="Project photo"><div><p>${jsonProjectFile.title}</p><div class="skills_list" #skillList></div><p>${jsonProjectFile.info}</p><a href=${jsonProjectFile.link}>Read more</a></div></div>`
+    projects.innerHTML += `<div class="project"><img src=${projectDict.image} alt="Project photo"><div><p>${projectDict.title}</p><div class="skills_list" #skillList></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
-    const skillList = projects.lastChild.querySelector("skillList");
-    for (skill in jsonProjectFile.skills){
+    const skillList = await projects.lastChild.querySelector("skillList");
+    for (skill in projectDict.skills){
         skillList.innerHTML += `<button>${skill}</button>`
     }
+}
+
+async function makeExperience(experienceDict){
+
+}
+
+async function makeEducation(educationDict){
+
 }
 
 main()
