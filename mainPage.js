@@ -52,17 +52,44 @@ const projectList = [
 ]
 const experienceList = [
     {
-        dates: "",
-        title: "",
+        dates: "2025-2026",
+        title: "Executive Treasurer - SU Bath",
+        skills: [""]
+    },
+    {
+        dates: "2025",
+        title: "Financial Assistant - ESUK",
+        skills: [""]
+    },
+    {
+        dates: "2023-2025",
+        title: "Financial Assistant - HellermannTyton UK",
+        skills: [""]
+    },
+    {
+        dates: "2018-2022",
+        title: "E6 Tutor - Matthew Moss High School",
         skills: [""]
     }
 ]
 const educationList = [
     {
-        years: "",
-        course: "",
-        place: "",
-        description:""
+        years: "2022-Present",
+        course: "BSc Mathematics",
+        place: "University of Bath",
+        description:"Studying"
+    },
+    {
+        years: "2024-Present",
+        course: "ACCA",
+        place: "Kaplan",
+        description:"Year 1: 70% average <br>Year 2: Studying"
+    },
+    {
+        years: "2020-2022",
+        course: "A Level",
+        place: "Rochdale Sixth Form College",
+        description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`
     }
 ]
 
@@ -127,7 +154,7 @@ async function makeProject(projectDict){
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div><p>${experienceDict.dates}</p><p>${experienceDict.title}</p><div class="skillList"></div></div>`
+    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillList"></div></div>`
 
     const skillList = experiences.lastChild.querySelector(".skillList");
     for (let i = 0; i < experienceDict.skills.length; i++){
@@ -137,7 +164,7 @@ async function makeExperience(experienceDict){
 
 async function makeEducation(educationDict){
     const education = document.querySelector(".educationList");
-    education.innerHTML +=`<div><p>${educationDict.years}</p><p>${educationDict.course}</p><p>${educationDict.place}</p><p>${educationDict.description}</p></div>`
+    education.innerHTML +=`<div class="project"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p>${educationDict.description}</p></div>`
 }
 
 main()

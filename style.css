@@ -71,7 +71,7 @@ div.detail{
     position: sticky;
     top: 3.5em;
 
-    height: 55em;
+    height: 50em;
     overflow-y: scroll;
     border-width: 20px;
     border-color: #9c9c9c;
@@ -100,11 +100,13 @@ div.project{
 }
 
 div.experienceList{
-
+    display: grid;
+    grid-row-gap: 1em;
 }
 
 div.educationList{
-
+    display: grid;
+    grid-row-gap: 1em;
 }
 
 div.skillsList{
@@ -114,11 +116,6 @@ div.skillsList{
 }
 
 button.skill{
-    color: #404f1c;
-    fill: aliceblue;
-    border-style: solid;
-    border-color: #404f1c;
-    border-radius: 10px;
 }
 
 p.title{
