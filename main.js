@@ -6,6 +6,48 @@ const projectList = [
         skills: [""],
         image: "",
         link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
     }
 ]
 const experienceList = [
@@ -57,7 +99,7 @@ async function main(){
 
 async function makeSkill(skill){
     const skills = document.querySelector(".skillsList");
-    skills.innerHTML += `<button>${skill}</button>`
+    skills.innerHTML += `<button class="skill">${skill}</button>`
 }
 
 async function makeLink(pageDict){
@@ -74,7 +116,7 @@ async function makeProject(projectDict){
     // Add a skill for each listed
     const skillList = projects.lastChild.querySelector(".skillList");
     for (let i = 0; i < projectDict.skills.length; i++){
-        skillList.innerHTML += `<button>${projectDict.skills[i]}</button>`
+        skillList.innerHTML += `<button class="skill">${projectDict.skills[i]}</button>`
     }
 }
 
@@ -84,7 +126,7 @@ async function makeExperience(experienceDict){
 
     const skillList = experiences.lastChild.querySelector(".skillList");
     for (let i = 0; i < experienceDict.skills.length; i++){
-        skillList.innerHTML += `<button>${experienceDict.skills[i]}</button>`
+        skillList.innerHTML += `<button class="skill">${experienceDict.skills[i]}</button>`
     }
 }
 

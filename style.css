@@ -1,17 +1,32 @@
 div.wrapper{
     display:grid;
-    /* repeat(#, pattern) */
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1em;
     /* Set height */
-    grid-auto-rows:minmax(100px, auto);
 }
 div.wrapper > div{
-    background:#eee;
+    background:#9c9c9c;
     padding: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 25px;
+    border-color: #717171;
 }
-div.wrapper > div:nth-child(odd){
-    background:#ddd;
+
+div.about{
+    position: sticky;
+    top: 0.5em;
+    height: fit-content;
+}
+
+div.info{
+
+}
+
+img.image{
+    border-radius: 15px;
 }
 
 div.projectList{
@@ -23,9 +38,12 @@ div.projectList{
 }
 
 div.project{
-    background:#8aab87;
+    background:#95a472;
     padding: 1em;
+    border-style: solid;
+    border-width: 5px;
     border-radius: 25px;
+    border-color: #75815a;
 }
 
 div.experienceList{
@@ -51,8 +69,16 @@ div.skillsList{
     gap: 0.2em;
 }
 
+button.skill{
+    color: #404f1c;
+    fill: aliceblue;
+    border-style: solid;
+    border-color: #404f1c;
+    border-radius: 10px;
+}
+
 div.pageList{
-    
+
 }
 
 p.title{
