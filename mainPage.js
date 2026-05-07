@@ -2,22 +2,22 @@
 const projectList = [
     {
         title: "Portfolio",
-        info: "",
-        skills: [""],
+        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Make buttons and links prettier <br> Make the scroller look nicer",
+        skills: ["CSS", "HTML", "JS"],
         image: "",
         link: ""
     },
     {
         title: "Web Scraper",
-        info: "",
-        skills: [""],
+        info: "Following and playing with a free tutorial on accessing information from APIs in preparation for a future larger project. Resulting in the development of my first SEO tool",
+        skills: ["API", "JS", "SEO"],
         image: "",
         link: ""
     },
     {
-        title: "Pokemon & AI",
+        title: "Remaking Pokemon & AI",
         info: "",
-        skills: [""],
+        skills: ["Excel", "Python", "R"],
         image: "",
         link: ""
     },
@@ -61,22 +61,26 @@ const experienceList = [
     {
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
-        skills: ["Excel", "Outlook"]
+        skills: ["Excel", "Outlook"],
+        description: ""
     },
     {
         dates: "2025",
         title: "Financial Assistant - ESUK",
-        skills: ["Aurora","Excel", "PowerBI"]
+        skills: ["Aurora","Excel", "PowerBI"],
+        description: ""
     },
     {
         dates: "2023-2025",
         title: "Financial Assistant - HellermannTyton UK",
-        skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"]
+        skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"],
+        description: ""
     },
     {
         dates: "2018-2022",
         title: "E6 Tutor - Matthew Moss High School",
-        skills: ["Tutoring"]
+        skills: ["Tutoring"],
+        description: ""
     }
 ]
 const educationList = [
@@ -150,7 +154,7 @@ async function makeProject(projectDict){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
-    projects.innerHTML += `<div class="project"><img src=${projectDict.image} alt="Project photo" height="200px"><div><p>${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+    projects.innerHTML += `<div class="project"><img src=${projectDict.image} alt="Project photo" height="200px"><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
     const skillList = projects.lastChild.querySelector(".skillList");
@@ -161,7 +165,7 @@ async function makeProject(projectDict){
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillList"></div></div>`
+    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillList"></div><p>${experienceDict.description}</p></div>`
 
     const skillList = experiences.lastChild.querySelector(".skillList");
     for (let i = 0; i < experienceDict.skills.length; i++){
