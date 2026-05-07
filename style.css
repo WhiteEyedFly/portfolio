@@ -14,7 +14,7 @@ div.wrapper > div:nth-child(odd){
     background:#ddd;
 }
 
-div.nested{
+div.projectList{
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
@@ -28,16 +28,24 @@ div.project{
     border-radius: 25px;
 }
 
-div.links_list{
+div.experienceList{
+
+}
+
+div.educationList{
+
+}
+
+div.linksList{
     display:grid;
     grid-template-columns: repeat(3, 40px);
 }
 
-div.link_box{
+div.linkBox{
     max-width:30px;
 }
 
-div.skills_list{
+div.skillsList{
     display:flex;
     flex-wrap: wrap;
     gap: 0.2em;
