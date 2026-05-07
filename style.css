@@ -51,6 +51,10 @@ div.skillsList{
     gap: 0.2em;
 }
 
+div.pageList{
+    
+}
+
 p.title{
     text-align: center; 
     font-size: 20;

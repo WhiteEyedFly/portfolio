@@ -1,18 +1,18 @@
 //const { log } = require('console');
 const projectList = [
     {
-        title: "Proj1",
-        info: "I did a thing",
-        skills: ["Python"],
-        image: "projectimages/blankImage.jpg",
-        link: "link"
+        title: "",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
     }
 ]
 const experienceList = [
     {
-        dates: "1",
-        title: "1",
-        skills: ["1"]
+        dates: "",
+        title: "",
+        skills: [""]
     }
 ]
 const educationList = [
@@ -24,8 +24,26 @@ const educationList = [
     }
 ]
 
+const skillsList = ["AHK", "C", "CSS, HTML & JS", "Excel", "PowerBI", "Python & Pandas", "R"]
+const otherPages = [
+    {
+        text: "Personal Projects & Writing (OOD)",
+        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
+    },
+    {
+        text: "Blog",
+        link: "blog.html"
+    }
+]
+
 
 async function main(){
+    for (let i = 0; i < skillsList.length; i++){
+        makeSkill(skillsList[i])
+    }
+    for (let i = 0; i < otherPages.length; i++){
+        makeLink(otherPages[i])
+    }
     for (let i = 0; i < projectList.length; i++){
         makeProject(projectList[i])
     }
@@ -33,8 +51,18 @@ async function main(){
         makeExperience(experienceList[i])
     }
     for (let i = 0; i < educationList.length; i++){
-        makeEducation(projectList[i])
+        makeEducation(educationList[i])
     }
+}
+
+async function makeSkill(skill){
+    const skills = document.querySelector(".skillsList");
+    skills.innerHTML += `<button>${skill}</button>`
+}
+
+async function makeLink(pageDict){
+    const pages = document.querySelector(".pageList");
+    pages.innerHTML += `<div><a href="${pageDict.link}">${pageDict.text}</a></div>`
 }
 
 async function makeProject(projectDict){
