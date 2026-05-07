@@ -7,50 +7,33 @@ div.struct > div{
 }
 
 div.header{
+    display:grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-column-gap: 1em;
+    place-items: center;
+
     position: sticky;
-    top: 0.5em;
-    height: 5px;
+    height:fit-content;
 
     background:#9c9c9c;
-    padding: 1em;
     border-radius: 10px;
-
-    display:grid;
-    grid-template-columns: 1fr 8fr 1fr;
-    grid-column-gap: 1em;
-}
-
-div.header > div:nth-child(even){
-    position: absolute;
-    top: 1em;
-    right: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-div.header > div:nth-child(odd){
-    position: absolute;
-    height: fit-content;
-    top: 20px;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 div.linksList{
     display:grid;
-    grid-template-columns: repeat(3, 2em);
-    right: 0%;
+    grid-template-columns: repeat(3, 4em);
+    height: fit-content;
 }
 
 div.linkBox{
-    max-width: 1.5em;
-    top:50%;
+    
 }
 
 p.pageName{
+    font-size: 35px;
     text-align: center;
     vertical-align: top;
-    font-size: 25px;
+    line-height: 1px;
 }
 
 div.pageList{
@@ -58,14 +41,9 @@ div.pageList{
 }
 
 div.page{
-    background:#c1c1c1;
-    border-style: solid;
-    border-width: 1px;
-    height: 1 em;
-    width: auto;
-    border-radius: 1em;
-    padding: 0.2em;
+    font-size: 20px;
 }
+
 
 div.wrapper{
     display:grid;
@@ -90,6 +68,9 @@ div.about{
 }
 
 div.detail{
+    position: sticky;
+    top: 3.5em;
+
     height: 55em;
     overflow-y: scroll;
     border-width: 20px;

@@ -109,7 +109,7 @@ async function makeSkill(skill){
 
 async function makeLink(pageDict){
     const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div class="page"><a href="${pageDict.link}">${pageDict.text}</a></div>`
+    pages.innerHTML += `<div class="page"><a href="${pageDict.link}"><button>${pageDict.text}</button></a></div>`
 }
 
 async function makeProject(projectDict){
