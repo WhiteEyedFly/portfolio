@@ -1,39 +1,110 @@
+html{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div.struct > div{
+    padding: 1em;
+}
+
+div.header{
+    position: sticky;
+    top: 0.5em;
+    height: 5px;
+
+    background:#9c9c9c;
+    padding: 1em;
+    border-radius: 10px;
+
+    display:grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-column-gap: 1em;
+}
+
+div.header > div:nth-child(even){
+    position: absolute;
+    top: 1em;
+    right: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+div.header > div:nth-child(odd){
+    position: absolute;
+    height: fit-content;
+    top: 20px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+div.linksList{
+    display:grid;
+    grid-template-columns: repeat(3, 2em);
+    right: 0%;
+}
+
+div.linkBox{
+    max-width: 1.5em;
+    top:50%;
+}
+
+p.pageName{
+    text-align: center;
+    vertical-align: top;
+    font-size: 25px;
+}
+
+div.pageList{
+    display: flex;
+}
+
+div.page{
+    background:#c1c1c1;
+    border-style: solid;
+    border-width: 1px;
+    height: 1 em;
+    width: auto;
+    border-radius: 1em;
+    padding: 0.2em;
+}
+
 div.wrapper{
     display:grid;
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1em;
-    /* Set height */
 }
 div.wrapper > div{
     background:#9c9c9c;
     padding: 1em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    border-style: solid;
+    /*border-style: solid;
     border-width: 5px;
-    border-radius: 25px;
-    border-color: #717171;
+    border-color: #717171;*/
+    border-radius: 10px;
+    /*box-shadow: 2px 2px 5px 5px rgb(109, 108, 108) inset;*/
 }
 
 div.about{
     position: sticky;
-    top: 0.5em;
+    top: 3.5em;
     height: fit-content;
 }
 
-div.info{
-
+div.detail{
+    height: 55em;
+    overflow-y: scroll;
+    border-width: 20px;
+    border-color: #9c9c9c;
 }
 
 img.image{
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 div.projectList{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1em;
-    grid-row-gap: 1em;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
     grid-auto-rows:minmax(100px, auto);
 }
 
@@ -44,6 +115,7 @@ div.project{
     border-width: 5px;
     border-radius: 25px;
     border-color: #75815a;
+    /*box-shadow: 5px 5px 5px 5px rgb(109, 108, 108);*/
 }
 
 div.experienceList{
@@ -52,15 +124,6 @@ div.experienceList{
 
 div.educationList{
 
-}
-
-div.linksList{
-    display:grid;
-    grid-template-columns: repeat(3, 40px);
-}
-
-div.linkBox{
-    max-width:30px;
 }
 
 div.skillsList{
@@ -77,13 +140,30 @@ button.skill{
     border-radius: 10px;
 }
 
-div.pageList{
-
+p.title{
+    text-align:center; 
+    vertical-align: text-top;
+    font-size: 1.5em;
+    position:static;
+    line-height: 1px;
 }
 
-p.title{
-    text-align: center; 
-    font-size: 20;
+/* Blog specific css*/
+
+div.blogPosts{
+    display: grid;
+    padding: 1em;
+    background:#9c9c9c ;
+    border-radius: 25px;
+    grid-row-gap: 1em;
+}
+
+div.post{
+    background:#75815a;
+    border-radius: 15px;
+    padding: 0.2em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 /*

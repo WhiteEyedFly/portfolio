@@ -68,13 +68,18 @@ const educationList = [
 
 const skillsList = ["AHK", "C", "CSS, HTML & JS", "Excel", "PowerBI", "Python & Pandas", "R"]
 const otherPages = [
+    
     {
-        text: "Personal Projects & Writing (OOD)",
-        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
+        text: "Portfolio",
+        link: "https://whiteeyedfly.github.io/portfolio/index.html"
     },
     {
         text: "Blog",
         link: "blog.html"
+    },
+    {
+        text: "Personal Projects",
+        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
     }
 ]
 
@@ -104,7 +109,7 @@ async function makeSkill(skill){
 
 async function makeLink(pageDict){
     const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div><a href="${pageDict.link}">${pageDict.text}</a></div>`
+    pages.innerHTML += `<div class="page"><a href="${pageDict.link}">${pageDict.text}</a></div>`
 }
 
 async function makeProject(projectDict){
