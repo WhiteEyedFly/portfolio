@@ -1,49 +1,56 @@
 //const { log } = require('console');
 const projectList = [
     {
-        title: "",
+        title: "Portfolio",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Web Scraper",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Pokemon & AI",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Choose Your Own Adventure - Excel",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Finance Tracker - Excel",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Denise's Time Crypt",
         info: "",
         skills: [""],
         image: "",
         link: ""
     },
     {
-        title: "",
+        title: "Hunter x Hunter RPG",
+        info: "",
+        skills: [""],
+        image: "",
+        link: ""
+    },
+    {
+        title: "Project Site",
         info: "",
         skills: [""],
         image: "",
@@ -54,22 +61,22 @@ const experienceList = [
     {
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
-        skills: [""]
+        skills: ["Excel", "Outlook"]
     },
     {
         dates: "2025",
         title: "Financial Assistant - ESUK",
-        skills: [""]
+        skills: ["Aurora","Excel", "PowerBI"]
     },
     {
         dates: "2023-2025",
         title: "Financial Assistant - HellermannTyton UK",
-        skills: [""]
+        skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"]
     },
     {
         dates: "2018-2022",
         title: "E6 Tutor - Matthew Moss High School",
-        skills: [""]
+        skills: ["Tutoring"]
     }
 ]
 const educationList = [
