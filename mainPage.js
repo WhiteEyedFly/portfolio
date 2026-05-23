@@ -1,71 +1,86 @@
 //const { log } = require('console');
 const projectList = [
     {
+        title: "Slay the Spire AI",
+        info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions against to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
+        skills: ["Machine Learning", "Python", "TKinter"],
+        image: "projectimages/STS.png",
+        link: ""
+    },
+    
+    {
+        title: "Kilordle Solver",
+        info: "Ongoing Project: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
+        skills: ["CSS, HTML & JS", "DFS & Backtracking", "Python"],
+        image: "projectimages/Kilordle.png",
+        link: ""
+    },
+    {
         title: "Portfolio",
-        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages",
+        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project specific pages (following read more links)",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
-        link: ""
+        link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
     },
     {
         title: "Web Scraper",
         info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
         skills: ["GitHub", "JS", "SEO"],
         image: "projectimages/Webscraper.png",
-        link: ""
+        link: "https://github.com/WhiteEyedFly/First-Webscraper/blob/main/README.md"
     },
     {
         title: "Pokemon Battle Simulator",
-        info: "",
+        info: "Managed a small team of game developers to remake Pokemon and make a better Pokemon AI for University of Bath's 2026 Hackathon. <br><br>Ideas for continuation of project: <br>Extend the project to become a Pokemon AI trainer or a new, more difficult Pokemon fangame.",
         skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
         image: "projectimages/Pokemon.png",
         link: "https://github.com/NW643/BattleSim"
     },
     {
         title: "Choose Your Own Adventure - Excel",
-        info: "",
+        info: "Used VBA and Excel to create a 'page' switcher (pulling from a page bank on another sheet) based on button presses.",
         skills: ["Excel", "VBA"],
         image: "projectimages/UniversitySimulator.png",
         link: ""
     },
     {
         title: "Finance Tracker - Excel",
-        info: "",
+        info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Revisit and move the project over to SQL and Streamlit.",
         skills: ["Excel", "VBA"],
         image: "projectimages/FinanceTracker.png",
         link: ""
     },
     {
         title: "Denise's Time Crypt",
-        info: "",
-        skills: ["Godot", "Team Management"],
+        info: "Managed a small team of game developers and artists to make a calculator-based Roguelike for University of Bath's 2025 GameJam.",
+        skills: ["Game Dev", "Godot", "Team Management"],
         image: "projectimages/Denise'sTimeCrypt.png",
         link: ""
     },
     {
         title: "Autocorrect",
-        info: "",
+        info: "Frustrated by the autocorrect that comes with my phone, I learnt AHK and the theory behind Levenshtein distances to code my own autocorrect.",
         skills: ["AHK"],
         image: "projectimages/Levenshtein.png",
         link: ""
     },
     {
         title: "Debt Simplifier",
-        info: "",
+        info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
         image: "projectimages/DebtSimplifier.png",
         link: ""
     },
     {
         title: "Hunter x Hunter RPG",
-        info: "",
-        skills: [""],
+        info: "Designed a Hunter x Hunter inspired tabletop system for personal use.",
+        skills: ["Game Dev"],
         image: "projectimages/HunterHunter.png",
         link: ""
     },
     {
         title: "Project Site",
-        info: "",
+        info: "A prequel to this portfolio use to post personal projects - art and writing for the most part. <br>This was built using a html template however, rather than from scratch.",
         skills: ["GitHub"],
         image: "projectimages/ProjectsPage.png",
         link: ""
