@@ -4,15 +4,15 @@ const projectList = [
         title: "Slay the Spire AI",
         info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions against to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
-        image: "projectimages/STS.png",
+        image: "projectimages/.png",
         link: ""
     },
     
     {
         title: "Kilordle Solver",
-        info: "Ongoing Project: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
+        info: "Ongoing Project: <br><br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
         skills: ["CSS, HTML & JS", "DFS & Backtracking", "Python"],
-        image: "projectimages/Kilordle.png",
+        image: "projectimages/.png",
         link: ""
     },
     {
@@ -27,110 +27,94 @@ const projectList = [
         info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
         skills: ["GitHub", "JS", "SEO"],
         image: "projectimages/Webscraper.png",
-        link: "https://github.com/WhiteEyedFly/First-Webscraper/blob/main/README.md"
-    },
+        link: "https://github.com/WhiteEyedFly/First-Webscraper/blob/main/README.md"},
     {
         title: "Pokemon Battle Simulator",
         info: "Managed a small team of game developers to remake Pokemon and make a better Pokemon AI for University of Bath's 2026 Hackathon. <br><br>Ideas for continuation of project: <br>Extend the project to become a Pokemon AI trainer or a new, more difficult Pokemon fangame.",
         skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
         image: "projectimages/Pokemon.png",
-        link: "https://github.com/NW643/BattleSim"
-    },
+        link: "https://github.com/NW643/BattleSim"},
     {
         title: "Choose Your Own Adventure - Excel",
         info: "Used VBA and Excel to create a 'page' switcher (pulling from a page bank on another sheet) based on button presses.",
         skills: ["Excel", "VBA"],
         image: "projectimages/UniversitySimulator.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Finance Tracker - Excel",
         info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Revisit and move the project over to SQL and Streamlit.",
         skills: ["Excel", "VBA"],
         image: "projectimages/FinanceTracker.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Denise's Time Crypt",
         info: "Managed a small team of game developers and artists to make a calculator-based Roguelike for University of Bath's 2025 GameJam.",
         skills: ["Game Dev", "Godot", "Team Management"],
         image: "projectimages/Denise'sTimeCrypt.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Autocorrect",
         info: "Frustrated by the autocorrect that comes with my phone, I learnt AHK and the theory behind Levenshtein distances to code my own autocorrect.",
         skills: ["AHK"],
         image: "projectimages/Levenshtein.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Debt Simplifier",
         info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
         image: "projectimages/DebtSimplifier.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Hunter x Hunter RPG",
         info: "Designed a Hunter x Hunter inspired tabletop system for personal use.",
         skills: ["Game Dev"],
         image: "projectimages/HunterHunter.png",
-        link: ""
-    },
+        link: ""},
     {
         title: "Project Site",
         info: "A prequel to this portfolio use to post personal projects - art and writing for the most part. <br>This was built using a html template however, rather than from scratch.",
         skills: ["GitHub"],
         image: "projectimages/ProjectsPage.png",
-        link: ""
-    }
+        link: ""}
 ]
 const experienceList = [
     {
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
         skills: ["Excel", "Outlook"],
-        description: ""
-    },
+        description: ""},
     {
         dates: "2025",
         title: "Financial Assistant - ESUK",
         skills: ["Aurora","Excel", "PowerBI"],
-        description: ""
-    },
+        description: ""},
     {
         dates: "2023-2025",
         title: "Financial Assistant - HellermannTyton UK",
         skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"],
-        description: ""
-    },
+        description: ""},
     {
         dates: "2018-2022",
         title: "E6 Tutor - Matthew Moss High School",
         skills: ["Tutoring"],
-        description: ""
-    }
+        description: ""}
 ]
 const educationList = [
     {
         years: "2022-Present",
         course: "BSc Mathematics",
         place: "University of Bath",
-        description:"Studying"
-    },
+        description:"Awaiting Certificate"},
     {
         years: "2024-Present",
         course: "ACCA",
         place: "Kaplan",
-        description:"Year 1: 70% average <br>Year 2: Studying"
-    },
+        description:"Year 1: 70% average <br>Year 2: Studying"},
     {
         years: "2020-2022",
         course: "A Level",
         place: "Rochdale Sixth Form College",
-        description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`
-    }
+        description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`}
 ]
 
 const skillsList = ["AHK", "C", "CSS, HTML & JS", "Excel", "PowerBI", "Python & Pandas", "R"]
@@ -183,7 +167,20 @@ async function makeProject(projectDict){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
-    projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+
+    if (projectDict.link === ""){
+        if (projectDict.image === "projectimages/.png"){
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p></div></div>`
+        } else {
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p></div></div>`
+        }
+    } else {
+        if (projectDict.image === "projectimages/.png"){
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+        } else {
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+        }
+    }
     
     // Add a skill for each listed
     const skillList = projects.lastChild.querySelector(".skillList");
