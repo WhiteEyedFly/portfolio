@@ -133,6 +133,28 @@ div.project{
     border-width: 3px;
 }
 
+div.centerer{
+    display: grid;
+    place-items: center;
+}
+
+div.projImg{
+    height: 15em;
+    width:fit-content;
+    overflow: hidden;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+}
+
+div.projImg > img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: 100% 0%;
+}
+
 div.experienceList{
     display: grid;
     grid-row-gap: 1em;

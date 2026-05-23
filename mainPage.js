@@ -2,72 +2,72 @@
 const projectList = [
     {
         title: "Portfolio",
-        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Make buttons and links prettier <br> Make the scroller look nicer",
+        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages",
         skills: ["CSS", "GitHub", "HTML", "JS"],
-        image: "",
+        image: "projectimages/Portfolio.png",
         link: ""
     },
     {
         title: "Web Scraper",
-        info: "Following and playing with a free tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
+        info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
         skills: ["GitHub", "JS", "SEO"],
-        image: "",
+        image: "projectimages/Webscraper.png",
         link: ""
     },
     {
         title: "Pokemon Battle Simulator",
         info: "",
         skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
-        image: "/projectimages/pokemon.jpg",
+        image: "projectimages/Pokemon.png",
         link: "https://github.com/NW643/BattleSim"
     },
     {
         title: "Choose Your Own Adventure - Excel",
         info: "",
         skills: ["Excel", "VBA"],
-        image: "",
+        image: "projectimages/UniversitySimulator.png",
         link: ""
     },
     {
         title: "Finance Tracker - Excel",
         info: "",
         skills: ["Excel", "VBA"],
-        image: "",
+        image: "projectimages/FinanceTracker.png",
         link: ""
     },
     {
         title: "Denise's Time Crypt",
         info: "",
         skills: ["Godot", "Team Management"],
-        image: "",
+        image: "projectimages/Denise'sTimeCrypt.png",
         link: ""
     },
     {
         title: "Autocorrect",
         info: "",
         skills: ["AHK"],
-        image: "",
+        image: "projectimages/Levenshtein.png",
         link: ""
     },
     {
         title: "Debt Simplifier",
         info: "",
         skills: ["Excel", "R"],
-        image: "",
+        image: "projectimages/DebtSimplifier.png",
         link: ""
     },
     {
         title: "Hunter x Hunter RPG",
         info: "",
         skills: [""],
-        image: "",
+        image: "projectimages/HunterHunter.png",
         link: ""
     },
     {
         title: "Project Site",
         info: "",
         skills: ["GitHub"],
-        image: "",
+        image: "projectimages/ProjectsPage.png",
         link: ""
     }
 ]
@@ -168,7 +168,7 @@ async function makeProject(projectDict){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
-    projects.innerHTML += `<div class="project"><img src=${projectDict.image} alt="Project photo" height="200px"><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+    projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
     
     // Add a skill for each listed
     const skillList = projects.lastChild.querySelector(".skillList");
