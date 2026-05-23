@@ -57,34 +57,24 @@ div.wrapper{
 div.wrapper > div{
     padding: 1em;
 
+    position: sticky;
+    top: 3.5em;
+
     border-radius: 10px;
+    background:#d0d0d0;
+    border-style: solid;
+    border-color: #717171;
+
+    max-height: 81dvh;
+    overflow-y: scroll;
 }
 
 div.about{
-    position: sticky;
-    top: 3.5em;
-
     height: fit-content;
-    max-height: 81dvh;
-    overflow-y: scroll;
-
-    background:#d0d0d0;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #717171;
 }
 
 div.detail{
-    position: sticky;
-    top: 3.5em;
 
-    background:#d0d0d0;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #717171;
-
-    height: 81dvh;
-    overflow-y: scroll;
 }
 
 div.pfp{
@@ -112,21 +102,10 @@ div.project{
     background:#95a472;
     padding: 1em;
 
-
-    border-style: solid;
-
     border-style: solid;
     border-color: #484848;
     border-radius: 7px;
-
-    border-width: 5px;
-    border-radius: 7px;
-    border-color: #75815a;
-
-    border-style: solid;
-    border-color: #484848;
-    border-radius: 7px;
-    /*box-shadow: 5px 5px 5px 5px rgb(109, 108, 108);*/
+    border-width: 3px;
 }
 
 div.experienceList{
