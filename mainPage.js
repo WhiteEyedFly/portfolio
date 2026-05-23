@@ -3,42 +3,56 @@ const projectList = [
     {
         title: "Portfolio",
         info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Make buttons and links prettier <br> Make the scroller look nicer",
-        skills: ["CSS", "HTML", "JS"],
+        skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "",
         link: ""
     },
     {
         title: "Web Scraper",
-        info: "Following and playing with a free tutorial on accessing information from APIs in preparation for a future larger project. Resulting in the development of my first SEO tool",
-        skills: ["API", "JS", "SEO"],
+        info: "Following and playing with a free tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
+        skills: ["GitHub", "JS", "SEO"],
         image: "",
         link: ""
     },
     {
-        title: "Remaking Pokemon & AI",
+        title: "Pokemon Battle Simulator",
         info: "",
-        skills: ["Excel", "Python", "R"],
-        image: "",
-        link: ""
+        skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
+        image: "/projectimages/pokemon.jpg",
+        link: "https://github.com/NW643/BattleSim"
     },
     {
         title: "Choose Your Own Adventure - Excel",
         info: "",
-        skills: [""],
+        skills: ["Excel", "VBA"],
         image: "",
         link: ""
     },
     {
         title: "Finance Tracker - Excel",
         info: "",
-        skills: [""],
+        skills: ["Excel", "VBA"],
         image: "",
         link: ""
     },
     {
         title: "Denise's Time Crypt",
         info: "",
-        skills: [""],
+        skills: ["Godot", "Team Management"],
+        image: "",
+        link: ""
+    },
+    {
+        title: "Autocorrect",
+        info: "",
+        skills: ["AHK"],
+        image: "",
+        link: ""
+    },
+    {
+        title: "Debt Simplifier",
+        info: "",
+        skills: ["Excel", "R"],
         image: "",
         link: ""
     },
@@ -52,7 +66,7 @@ const projectList = [
     {
         title: "Project Site",
         info: "",
-        skills: [""],
+        skills: ["GitHub"],
         image: "",
         link: ""
     }
@@ -165,9 +179,9 @@ async function makeProject(projectDict){
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillList"></div><p>${experienceDict.description}</p></div>`
+    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p>${experienceDict.description}</p></div>`
 
-    const skillList = experiences.lastChild.querySelector(".skillList");
+    const skillList = experiences.lastChild.querySelector(".skillsList");
     for (let i = 0; i < experienceDict.skills.length; i++){
         skillList.innerHTML += `<button class="skill">${experienceDict.skills[i]}</button>`
     }

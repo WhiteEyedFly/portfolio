@@ -21,12 +21,12 @@ div.header{
 
 div.linksList{
     display:grid;
-    grid-template-columns: repeat(3, 4em);
+    grid-template-columns: repeat(3, 4.5em);
     height: fit-content;
 }
 
 div.linkBox{
-    
+    padding: 0.4em;
 }
 
 p.pageName{
@@ -64,14 +64,14 @@ div.wrapper > div{
 div.about{
     position: sticky;
     top: 3.5em;
-    height: fit-content;
+    height: 81dvh;
 }
 
 div.detail{
     position: sticky;
     top: 3.5em;
 
-    height: 50em;
+    height: 81dvh;
     overflow-y: scroll;
     border-width: 20px;
     border-color: #9c9c9c;
@@ -84,8 +84,8 @@ img.image{
 div.projectList{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2em;
-    grid-row-gap: 2em;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
     grid-auto-rows:minmax(100px, auto);
 }
 
@@ -102,11 +102,19 @@ div.project{
 div.experienceList{
     display: grid;
     grid-row-gap: 1em;
+
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
 }
 
 div.educationList{
     display: grid;
     grid-row-gap: 1em;
+
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
 }
 
 div.skillsList{
