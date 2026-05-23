@@ -7,10 +7,10 @@ div.struct > div{
 }
 
 div.header{
-    display:grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1em;
-    place-items: center;
+    /*place-items: center;*/
 
     position: sticky;
     height:fit-content;
@@ -25,6 +25,7 @@ div.linksList{
     display:grid;
     grid-template-columns: repeat(3, 4.5em);
     height: fit-content;
+    justify-content: left;
 }
 
 div.linkBox{
@@ -39,13 +40,47 @@ p.pageName{
 }
 
 div.pageList{
-    display:flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    
+    grid-column-gap: 1em;
+    grid-auto-rows:minmax(10px, auto);
+    justify-content: end;
+
+
+    /*display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    justify-content: right;
+    align-items: right;
+    
     gap: 0.2em;
+
+    grid-auto-rows:minmax(80px, auto);*/
 }
 
 div.page{
-    font-size: 20px;
+    /*font-size: 20px;*/
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000;
+    background-color: #95a472;
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    min-width: 20px;
+    max-width: 100px;
+    padding: 3px;
+}
+
+a.link{
+    color: #000000;
+    text-decoration: none;
 }
 
 
@@ -92,6 +127,7 @@ img.image{
 
 div.projectList{
     display:grid;
+
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
     grid-row-gap: 1em;
@@ -142,10 +178,8 @@ div.skill{
     background-color: #95a472;
 
     text-align: center;
-    display: inline-block;
     min-width: 20px;
-    width: max-content;
-
+    padding: 2px;
 }
 
 p.title{
