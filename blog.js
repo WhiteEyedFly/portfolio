@@ -43,7 +43,7 @@ async function addPost(post){
 
 async function makeLink(pageDict){
     const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div class="page"><a href="${pageDict.link}"><button>${pageDict.text}</button></a></div>`
+    pages.innerHTML += `<div class="page"><a class="link" href="${pageDict.link}">${pageDict.text}</a></div>`
 }
 
 mainBlog()

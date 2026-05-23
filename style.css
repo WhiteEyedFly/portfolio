@@ -46,17 +46,6 @@ div.pageList{
     grid-column-gap: 1em;
     grid-auto-rows:minmax(10px, auto);
     justify-content: end;
-
-
-    /*display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    justify-content: right;
-    align-items: right;
-    
-    gap: 0.2em;
-
-    grid-auto-rows:minmax(80px, auto);*/
 }
 
 div.page{
@@ -65,7 +54,7 @@ div.page{
     border-width: 2px;
     border-color: #000000;
     background-color: #95a472;
-    border-radius: 15px;
+    border-radius: 10px;
 
     display: flex;
 
@@ -195,13 +184,17 @@ p.title{
 div.blogPosts{
     display: grid;
     padding: 1em;
-    background:#9c9c9c ;
-    border-radius: 25px;
+    background:#d0d0d0 ;
+
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 10px;
+
     grid-row-gap: 1em;
 }
 
 div.post{
-    background:#75815a;
+    background:#95a472;
     border-radius: 15px;
     padding: 0.2em;
     padding-left: 1em;
