@@ -156,7 +156,7 @@ async function main(){
 
 async function makeSkill(skill){
     const skills = document.querySelector(".skillsList");
-    skills.innerHTML += `<button class="skill">${skill}</button>`
+    skills.innerHTML += `<div class="skill">${skill}</button>`
 }
 
 async function makeLink(pageDict){

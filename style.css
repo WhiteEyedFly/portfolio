@@ -15,8 +15,10 @@ div.header{
     position: sticky;
     height:fit-content;
 
-    background:#9c9c9c;
+    background:#d0d0d0;
+    border-style: solid;
     border-radius: 10px;
+    border-color: #717171;
 }
 
 div.linksList{
@@ -37,7 +39,9 @@ p.pageName{
 }
 
 div.pageList{
-    display: flex;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
 }
 
 div.page{
@@ -51,34 +55,49 @@ div.wrapper{
     grid-column-gap: 1em;
 }
 div.wrapper > div{
-    background:#9c9c9c;
     padding: 1em;
 
-    /*border-style: solid;
-    border-width: 5px;
-    border-color: #717171;*/
     border-radius: 10px;
-    /*box-shadow: 2px 2px 5px 5px rgb(109, 108, 108) inset;*/
 }
 
 div.about{
     position: sticky;
     top: 3.5em;
-    height: 81dvh;
+
+    height: fit-content;
+    max-height: 81dvh;
+    overflow-y: scroll;
+
+    background:#d0d0d0;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #717171;
 }
 
 div.detail{
     position: sticky;
     top: 3.5em;
 
+    background:#d0d0d0;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #717171;
+
     height: 81dvh;
     overflow-y: scroll;
-    border-width: 20px;
-    border-color: #9c9c9c;
+}
+
+div.pfp{
+    height: 300px;
+    overflow: hidden;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
 }
 
 img.image{
-    border-radius: 5px;
+    height: 300px;
 }
 
 div.projectList{
@@ -92,10 +111,21 @@ div.projectList{
 div.project{
     background:#95a472;
     padding: 1em;
+
+
     border-style: solid;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+
     border-width: 5px;
-    border-radius: 25px;
+    border-radius: 7px;
     border-color: #75815a;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
     /*box-shadow: 5px 5px 5px 5px rgb(109, 108, 108);*/
 }
 
@@ -123,7 +153,20 @@ div.skillsList{
     gap: 0.2em;
 }
 
-button.skill{
+div.skill{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #75815a;
+    background-color: #95a472;
+    border-radius: 10px;
+    
+    background-color: #95a472;
+
+    text-align: center;
+    display: inline-block;
+    min-width: 20px;
+    width: max-content;
+
 }
 
 p.title{
