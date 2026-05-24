@@ -108,13 +108,25 @@ div.about{
 }
 
 div.pfp{
-    max-width: 20em;
-    height: 20em;
+    max-width: 22em;
+    height: fit-content;
     overflow: hidden;
 
     border-style: solid;
     border-color: #484848;
     border-radius: 7px;
+}
+
+div.pfp > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    max-width: 40em;
+    max-height: 25em;
+
+    object-fit:contain;
+    object-position: 100% 0%;
 }
 
 img.image{
@@ -147,7 +159,7 @@ div.centerer{
 
 div.projImg{
     width:fit-content;
-    height: min-content;
+    height: fit-content;
     overflow: hidden;
 
     border-style: solid;
