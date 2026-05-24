@@ -15,7 +15,7 @@ const projectList = [
     },
     {
         title: "Portfolio",
-        info: "Ongoing Project: <br><br>Goals: <br>Skill search function on the blog & portfolio pages <br>Make the site mobile compatible",
+        info: "Ongoing Project: <br><br>Goals: <br>Skill search function on the blog & portfolio pages",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
@@ -60,7 +60,7 @@ const projectList = [
         title: "Debt Simplifier",
         info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
-        image: "projectimages/DebtSimplifier.png",
+        image: "projectimages/.png",
         link: ""},
     {
         title: "Hunter x Hunter RPG",
