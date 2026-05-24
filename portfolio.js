@@ -123,7 +123,7 @@ const otherPages = [
     
     {
         text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/index.html"
+        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
     },
     {
         text: "Blog",
