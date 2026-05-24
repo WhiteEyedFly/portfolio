@@ -156,7 +156,7 @@ async function main(){
 
 async function makeSkill(skill){
     const skills = document.querySelector(".skillsList");
-    skills.innerHTML += `<div class="skill">${skill}</button>`
+    skills.innerHTML += `<div class="skill">${skill}</div>`
 }
 
 async function makeLink(pageDict){
@@ -200,8 +200,9 @@ async function makeSkills(object, dict){
     // Add a skill for each listed
     const skillList = object.lastChild.querySelector(".skillsList");
     const orderedSkillList = dict.skills.sort()
+
     for (let i = 0; i < dict.skills.length; i++){
-        skillList.innerHTML += `<button class="skill">${orderedSkillList[i]}</button>`
+        skillList.innerHTML += `<div class="projSkill">${orderedSkillList[i]}</div>`
     }
 }
 
