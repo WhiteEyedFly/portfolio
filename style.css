@@ -215,6 +215,10 @@ p.title{
         grid-template-columns: 1fr;
         grid-row-gap: 1em;
     }
+    div.wrapper > div{
+        position:relative;
+        top: 1em;
+    }
     div.projectList{
         grid-template-columns: 1fr;
     }
