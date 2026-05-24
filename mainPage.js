@@ -1,4 +1,3 @@
-//const { log } = require('console');
 const projectList = [
     {
         title: "Slay the Spire AI",
@@ -51,7 +50,7 @@ const projectList = [
         info: "Managed a small team of game developers and artists to make a calculator-based Roguelike for University of Bath's 2025 GameJam.",
         skills: ["Game Dev", "Godot", "Team Management"],
         image: "projectimages/Denise'sTimeCrypt.png",
-        link: ""},
+        link: "https://github.com/Gender-Bender-Studios/GenderBentCalc/blob/main/README.md"},
     {
         title: "Autocorrect",
         info: "Frustrated by the autocorrect that comes with my phone, I learnt AHK and the theory behind Levenshtein distances to code my own autocorrect.",
@@ -82,7 +81,7 @@ const experienceList = [
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
         skills: ["Excel", "Outlook"],
-        description: ""},
+        description: "Day to day processing and approval of expenses for 160 student societies <br>Used Excel to create an accountability system to better track any approval back to it's approver <br>Rebuilt the Treasury Outlook to better track requests, their progress and resolution to save time on picking up tasks"},
     {
         dates: "2025",
         title: "Financial Assistant - ESUK",
@@ -92,13 +91,14 @@ const experienceList = [
         dates: "2023-2025",
         title: "Financial Assistant - HellermannTyton UK",
         skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"],
-        description: ""},
+        description: "Day to day processing and analysis of financial statements using Excel <br>Used Excel & VBA to speed up processing of invoices <br>Used Python to automatically check statement items against the system to save company processing time"},
     {
         dates: "2018-2022",
         title: "E6 Tutor - Matthew Moss High School",
         skills: ["Tutoring"],
-        description: ""}
+        description: "Tutored several GCSE level students 1 to 1 and in small groups. Achieved an average grade of 8 across all taught students and all subjects taught."}
 ]
+
 const educationList = [
     {
         years: "2022-Present",
@@ -118,6 +118,7 @@ const educationList = [
 ]
 
 const skillsList = ["AHK", "C", "CSS, HTML & JS", "Excel", "PowerBI", "Python & Pandas", "R"]
+
 const otherPages = [
     
     {
