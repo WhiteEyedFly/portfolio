@@ -163,22 +163,22 @@ async function makeProject(projectDict){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
+    let htmlAdded = `<div class="project"><div class="centerer"><div class="projImg">`
 
-    if (projectDict.link === ""){
-        if (projectDict.image === "projectimages/.png"){
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p></div></div>`
-        } else {
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p></div></div>`
-        }
+    if (projectDict.image === "projectimages/.png"){
+        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px">`
     } else {
-        if (projectDict.image === "projectimages/.png"){
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
-        } else {
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
-        }
+        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo" height="200px">`
     }
+    htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p>`
+
+    if (projectDict.link === ""){} else {
+        htmlAdded += `<a href=${projectDict.link}>Read more</a>`
+    }
+    htmlAdded += `</div></div>`
+
+    projects.innerHTML += htmlAdded
     
-    // Add a skill for each listed
     makeSkills(projects, projectDict)
 }
 
@@ -190,6 +190,7 @@ async function makeExperience(experienceDict){
 }
 
 async function makeSkills(object, dict){
+    // Add a skill for each listed
     const skillList = object.lastChild.querySelector(".skillsList");
     const orderedSkillList = dict.skills.sort()
     for (let i = 0; i < dict.skills.length; i++){
