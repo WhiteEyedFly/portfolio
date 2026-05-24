@@ -15,7 +15,7 @@ const projectList = [
     },
     {
         title: "Portfolio",
-        info: "Ongoing Project: <br>I<br>Goals>: <br>Skill search function on the blog & portfolio pages <br>Make the site mobile compatible",
+        info: "Ongoing Project: <br><br>Goals: <br>Skill search function on the blog & portfolio pages <br>Make the site mobile compatible",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
