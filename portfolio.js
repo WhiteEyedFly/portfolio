@@ -1,7 +1,7 @@
 const projectList = [
     {
         title: "Slay the Spire AI",
-        info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions against to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
+        info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
         image: "projectimages/.png",
         link: "https://github.com/WhiteEyedFly/Slay-the-Spire-AI"

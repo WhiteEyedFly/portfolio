@@ -104,7 +104,7 @@ div.wrapper > div{
 
 div.about{
     height: fit-content;
-    min-width: 22em;
+    min-width: 20em;
 }
 
 div.pfp{
@@ -199,7 +199,7 @@ div.skillsList{
 div.skill{
     border-style: solid;
     border-width: 2px;
-    border-color: #75815a;
+    border-color: #5f6848;
     border-radius: 10px;
 
     background-color: #95a472;
@@ -207,6 +207,8 @@ div.skill{
     text-align: center;
     min-width: 20px;
     padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 div.projSkill{
@@ -220,6 +222,8 @@ div.projSkill{
     text-align: center;
     min-width: 20px;
     padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 p.title{
