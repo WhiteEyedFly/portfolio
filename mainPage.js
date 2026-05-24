@@ -16,7 +16,7 @@ const projectList = [
     },
     {
         title: "Portfolio",
-        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project specific pages (following read more links)",
+        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project explanation pages",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
@@ -82,11 +82,6 @@ const experienceList = [
         title: "Executive Treasurer - SU Bath",
         skills: ["Excel", "Outlook"],
         description: "Day to day processing and approval of expenses for 160 student societies <br>Used Excel to create an accountability system to better track any approval back to it's approver <br>Rebuilt the Treasury Outlook to better track requests, their progress and resolution to save time on picking up tasks"},
-    {
-        dates: "2025",
-        title: "Financial Assistant - ESUK",
-        skills: ["Aurora","Excel", "PowerBI"],
-        description: ""},
     {
         dates: "2023-2025",
         title: "Financial Assistant - HellermannTyton UK",

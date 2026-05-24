@@ -16,14 +16,9 @@ const otherPages = [
 
 posts = [
     {
-        date: "07/05/2026",
+        date: "24/05/2026",
         title: "Portfolio launched",
-        text: "Today I launched the portfolio."
-    },
-    {
-        date: "08/01/2004",
-        title: "Birth",
-        text: "I was born."
+        text: "Today I launched the portfolio. It's been rather a long time coming, I've really enjoyed getting to grips with HTML, CSS and JS over the course of the past couple weeks working on this."
     }
 ]
 

@@ -158,16 +158,9 @@ div.projImg > img{
 div.experienceList{
     display: grid;
     grid-row-gap: 1em;
-
-    display:flex;
-    flex-wrap: wrap;
-    gap: 0.2em;
 }
 
 div.educationList{
-    display: grid;
-    grid-row-gap: 1em;
-
     display:flex;
     flex-wrap: wrap;
     gap: 0.2em;
