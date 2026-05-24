@@ -107,9 +107,6 @@ div.about{
     min-width: 22em;
 }
 
-div.detail{
-}
-
 div.pfp{
     max-width: 20em;
     height: 20em;
@@ -149,8 +146,8 @@ div.centerer{
 }
 
 div.projImg{
-    height: 15em;
     width:fit-content;
+    height: min-content;
     overflow: hidden;
 
     border-style: solid;
@@ -159,9 +156,14 @@ div.projImg{
 }
 
 div.projImg > img{
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit:cover;
+
+    max-width: 40em;
+    max-height: 25em;
+
+    object-fit:contain;
     object-position: 100% 0%;
 }
 
@@ -208,16 +210,38 @@ p.title{
 }
 
 /* Handling responsive screen size */
-
 @media screen and (max-width: 1000px) {
     div.wrapper{
-        display:grid;
         grid-template-columns: 1fr;
-        grid-column-gap: 1em;
         grid-row-gap: 1em;
     }
     div.projectList{
         grid-template-columns: 1fr;
+    }
+    div.educationList{
+    display: grid;
+    grid-row-gap: 1em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    div.header{
+        grid-template-columns: 1fr 1fr;
+    }
+    div.header.p{
+        grid-row: 1 / span 2;
+    }
+    div.header > div{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.header{
+        grid-template-columns: 1fr;
+    }
+    div.header > div{
+        justify-content: center;
     }
 }
 
