@@ -163,7 +163,7 @@ div.experienceList{
 div.educationList{
     display:flex;
     flex-wrap: wrap;
-    gap: 0.2em;
+    gap: 1em;
 }
 
 div.skillsList{

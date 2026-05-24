@@ -88,7 +88,7 @@ const experienceList = [
         skills: ["AHK", "Aurora", "Coaching", "Excel", "PowerBI", "Team Management"],
         description: "Day to day processing and analysis of financial statements using Excel <br>Used Excel & VBA to speed up processing of invoices <br>Used Python to automatically check statement items against the system to save company processing time"},
     {
-        dates: "2018-2022",
+        dates: "2021-2022",
         title: "E6 Tutor - Matthew Moss High School",
         skills: ["Tutoring"],
         description: "Tutored several GCSE level students 1 to 1 and in small groups. Achieved an average grade of 8 across all taught students and all subjects taught."}
