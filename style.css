@@ -237,7 +237,38 @@ p.title{
     overflow-wrap: break-word;
 }
 
+
+
+/* Search bar specific css */
+
+.searchBar {
+    overflow: hidden;
+    background-color: #d0d0d0;
+}
+
+.searchBar p {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.searchBar input[type=text] {
+    float: right;
+    padding: 10px 10px;
+
+    border: solid;
+    border-color: #484848;
+    border-radius: 7px;
+
+    font-size: 15px;
+}
+
 /* Handling responsive screen size */
+
 @media screen and (max-width: 1000px) {
     div.wrapper{
         grid-template-columns: 1fr;
@@ -246,6 +277,8 @@ p.title{
     div.wrapper > div{
         position:relative;
         top: 1em;
+
+        max-height: none;
     }
     div.projectList{
         grid-template-columns: 1fr;
@@ -275,38 +308,6 @@ p.title{
     div.header > div{
         justify-content: center;
     }
-}
-
-/* Search bar specific css */
-
-.searchBar {
-    overflow: hidden;
-    background-color: #d0d0d0;
-}
-
-.searchBar p {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.searchBar input[type=text] {
-    float: right;
-    padding: 14px 16px;
-
-    border: solid;
-    border-color: #484848;
-    border-radius: 7px;
-
-    position:absolute;
-    right: 2%;
-    top: 5%;
-
-    font-size: 17px;
 }
 
 /* Blog specific css*/
