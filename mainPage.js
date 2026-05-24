@@ -179,20 +179,20 @@ async function makeProject(projectDict){
     }
     
     // Add a skill for each listed
-    const skillList = projects.lastChild.querySelector(".skillsList");
-    const orderedSkillList = projectDict.skills.sort()
-    for (let i = 0; i < projectDict.skills.length; i++){
-        skillList.innerHTML += `<button class="skill">${orderedSkillList[i]}</button>`
-    }
+    makeSkills(projects, projectDict)
 }
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
     experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p>${experienceDict.description}</p></div>`
 
-    const skillList = experiences.lastChild.querySelector(".skillsList");
-    const orderedSkillList = experienceDict.skills.sort()
-    for (let i = 0; i < experienceDict.skills.length; i++){
+    makeSkills(experiences, experienceDict)
+}
+
+async function makeSkills(object, dict){
+    const skillList = object.lastChild.querySelector(".skillsList");
+    const orderedSkillList = dict.skills.sort()
+    for (let i = 0; i < dict.skills.length; i++){
         skillList.innerHTML += `<button class="skill">${orderedSkillList[i]}</button>`
     }
 }
