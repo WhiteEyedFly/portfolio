@@ -10,13 +10,13 @@ const projectList = [
     {
         title: "Kilordle Solver",
         info: "Ongoing Project: <br><br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
-        skills: ["CSS, HTML & JS", "DFS & Backtracking", "Python"],
+        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python"],
         image: "projectimages/.png",
         link: ""
     },
     {
         title: "Portfolio",
-        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project explanation pages",
+        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project explanation pages <br>Make the site mobile compatible",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
@@ -80,7 +80,7 @@ const experienceList = [
     {
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
-        skills: ["Excel", "Outlook"],
+        skills: ["Excel", "Outlook", "Student Expenses"],
         description: "Day to day processing and approval of expenses for 160 student societies <br>Used Excel to create an accountability system to better track any approval back to it's approver <br>Rebuilt the Treasury Outlook to better track requests, their progress and resolution to save time on picking up tasks"},
     {
         dates: "2023-2025",
@@ -112,7 +112,7 @@ const educationList = [
         description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`}
 ]
 
-const skillsList = ["AHK", "C", "CSS, HTML & JS", "Excel", "PowerBI", "Python & Pandas", "R"]
+const skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", "Python", "R"]
 
 const otherPages = [
     
@@ -166,22 +166,23 @@ async function makeProject(projectDict){
 
     if (projectDict.link === ""){
         if (projectDict.image === "projectimages/.png"){
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p></div></div>`
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p></div></div>`
         } else {
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p></div></div>`
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p></div></div>`
         }
     } else {
         if (projectDict.image === "projectimages/.png"){
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
         } else {
-            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
+            projects.innerHTML += `<div class="project"><div class="centerer"><div class="projImg"><img pfp src=${projectDict.image} alt="Project photo" height="200px"></div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p><a href=${projectDict.link}>Read more</a></div></div>`
         }
     }
     
     // Add a skill for each listed
-    const skillList = projects.lastChild.querySelector(".skillList");
+    const skillList = projects.lastChild.querySelector(".skillsList");
+    const orderedSkillList = projectDict.skills.sort()
     for (let i = 0; i < projectDict.skills.length; i++){
-        skillList.innerHTML += `<button class="skill">${projectDict.skills[i]}</button>`
+        skillList.innerHTML += `<button class="skill">${orderedSkillList[i]}</button>`
     }
 }
 
@@ -190,8 +191,9 @@ async function makeExperience(experienceDict){
     experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p>${experienceDict.description}</p></div>`
 
     const skillList = experiences.lastChild.querySelector(".skillsList");
+    const orderedSkillList = experienceDict.skills.sort()
     for (let i = 0; i < experienceDict.skills.length; i++){
-        skillList.innerHTML += `<button class="skill">${experienceDict.skills[i]}</button>`
+        skillList.innerHTML += `<button class="skill">${orderedSkillList[i]}</button>`
     }
 }
 
