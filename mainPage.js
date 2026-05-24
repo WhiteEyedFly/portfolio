@@ -4,19 +4,18 @@ const projectList = [
         info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions against to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
         image: "projectimages/.png",
-        link: ""
+        link: "https://github.com/WhiteEyedFly/Slay-the-Spire-AI"
     },
-    
     {
         title: "Kilordle Solver",
-        info: "Ongoing Project: <br><br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
+        info: "Ongoing Project: <br><br>Goals: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously and find the optimal solution to any set of words and wordles for the game.",
         skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python"],
         image: "projectimages/.png",
-        link: ""
+        link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
     },
     {
         title: "Portfolio",
-        info: "Ongoing <br>Ideas for improvement: <br><br>Skill search function on the blog & portfolio pages <br>Project explanation pages <br>Make the site mobile compatible",
+        info: "Ongoing Project: <br>I<br>Goals>: <br>Skill search function on the blog & portfolio pages <br>Make the site mobile compatible",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
@@ -109,10 +108,16 @@ const educationList = [
         years: "2020-2022",
         course: "A Level",
         place: "Rochdale Sixth Form College",
-        description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`}
+        description:`Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*`},
+    {
+        years: "2015-2020",
+        course: "GCSE",
+        place: "Newhouse Academy",
+        description:`Maths: 9 <br>Further Maths: 9 <br>Statistics: 8 <br>Chemistry: 9 <br>Biology: 9 <br>Physics: 9 <br>Electronics: 9 <br>History: 9 <br> English Literature: 9 <br>English Language: 9`}
 ]
 
-const skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", "Python", "R"]
+let skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", "Python", "R"]
+skillsList.sort()
 
 const otherPages = [
     
@@ -156,7 +161,7 @@ async function makeSkill(skill){
 
 async function makeLink(pageDict){
     const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div class="page"><a class="link" href="${pageDict.link}">${pageDict.text}</a></div>`
+    pages.innerHTML += `<a class="link" href="${pageDict.link}"><div class="page">${pageDict.text}</div></a>`
 }
 
 async function makeProject(projectDict){
@@ -165,6 +170,7 @@ async function makeProject(projectDict){
     const projects = document.querySelector(".projectList");
     let htmlAdded = `<div class="project"><div class="centerer"><div class="projImg">`
 
+    // Add images
     if (projectDict.image === "projectimages/.png"){
         htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px">`
     } else {
@@ -172,6 +178,7 @@ async function makeProject(projectDict){
     }
     htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p>`
 
+    // Add link if present
     if (projectDict.link === ""){} else {
         htmlAdded += `<a href=${projectDict.link}>Read more</a>`
     }

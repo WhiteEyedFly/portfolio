@@ -48,6 +48,11 @@ div.pageList{
     justify-content: end;
 }
 
+a.link{
+    color: #000000;
+    text-decoration: none;
+}
+
 div.page{
     /*font-size: 20px;*/
     border-style: solid;
@@ -64,14 +69,14 @@ div.page{
 
     min-width: 20px;
     max-width: 100px;
+    height: 67px;
     padding: 3px;
 }
 
-a.link{
-    color: #000000;
-    text-decoration: none;
+div.page:hover {
+  background-color: #748058;
+  color: black;
 }
-
 
 div.wrapper{
     display:grid;
@@ -91,17 +96,22 @@ div.wrapper > div{
 
     max-height: 81dvh;
     overflow-y: scroll;
+
+    /*Hide scrollbar*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 div.about{
     height: fit-content;
+    min-width: 22em;
 }
 
 div.detail{
-
 }
 
 div.pfp{
+    max-width: 20em;
     height: 20em;
     overflow: hidden;
 
@@ -189,9 +199,58 @@ div.skill{
 p.title{
     text-align:center; 
     vertical-align: text-top;
-    font-size: 1.5em;
+
+    font-size: 25px;
+    line-height: 30px;  
+
     position:static;
-    line-height: 1px;
+    overflow-wrap: break-word;
+}
+
+/* Handling responsive screen size */
+
+@media screen and (max-width: 1000px) {
+    div.wrapper{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 1em;
+        grid-row-gap: 1em;
+    }
+    div.projectList{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Search bar specific css */
+
+.searchBar {
+    overflow: hidden;
+    background-color: #d0d0d0;
+}
+
+.searchBar p {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.searchBar input[type=text] {
+    float: right;
+    padding: 14px 16px;
+
+    border: solid;
+    border-color: #484848;
+    border-radius: 7px;
+
+    position:absolute;
+    right: 2%;
+    top: 5%;
+
+    font-size: 17px;
 }
 
 /* Blog specific css*/
@@ -215,9 +274,3 @@ div.post{
     padding-left: 1em;
     padding-right: 1em;
 }
-
-/*
-
-.css is overwritten by whatever is the nearest property to the item. Item overwrites container1, overwrites container2, ...
-
-*/
