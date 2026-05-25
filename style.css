@@ -32,6 +32,14 @@ div.linkBox{
     padding: 0.4em;
 }
 
+div.linkBox > a > svg{
+  fill:black;
+}
+
+div.linkBox:hover > a > svg{
+  fill:#4d5537;
+}
+
 p.pageName{
     font-size: 35px;
     text-align: center;

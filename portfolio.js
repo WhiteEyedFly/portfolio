@@ -40,7 +40,7 @@ const projectList = [
         link: ""},
     {
         title: "Finance Tracker - Excel",
-        info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Revisit and move the project over to SQL and Streamlit.",
+        info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Ideas for continuation of project: <br>Move the project over to SQL and Streamlit.",
         skills: ["Excel", "VBA", "Pivot Tables"],
         image: "projectimages/FinanceTracker.png",
         link: ""},
