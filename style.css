@@ -334,7 +334,12 @@ div.blogPosts{
 
 div.post{
     background:#95a472;
-    border-radius: 15px;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+    border-width: 3px;
+    
     padding: 0.2em;
     padding-left: 1em;
     padding-right: 1em;
