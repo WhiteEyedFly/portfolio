@@ -1,5 +1,12 @@
 const projectList = [
     {
+        title: "Debt Simplifier - Pandas",
+        info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
+        skills: ["Excel", "Pandas", "Python", "Matplotlib", "Numpy"],
+        image: "projectimages/DebtSimplifierPandas.png",
+        link: "https://github.com/WhiteEyedFly/Debt-Simplifier/blob/main/README.md"
+    },
+    {
         title: "Slay the Spire AI",
         info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
@@ -60,7 +67,7 @@ const projectList = [
         title: "Debt Simplifier",
         info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
-        image: "projectimages/.png",
+        image: "projectimages/DebtSimplifierPandas.png",
         link: ""},
     {
         title: "Hunter x Hunter RPG",
