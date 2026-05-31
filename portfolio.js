@@ -17,9 +17,9 @@ const projectList = [
     },
     {
         title: "Kilordle Solver",
-        info: "Ongoing Project: <br><br>Goals: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulataneously) and find the optimal solution to any set of words and wordles for the game.",
-        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis"],
-        image: "projectimages/.png",
+        info: "Find the optimal solution to the Webgame Kilordle (30 words).",
+        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis", "Divide & Conquer"],
+        image: "projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
     },
