@@ -4,6 +4,7 @@ const projectList = [
         info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "Pandas", "Python", "Matplotlib", "Numpy"],
         image: "projectimages/DebtSimplifierPandas.png",
+        contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/Debt-Simplifier/blob/main/README.md"
     },
     {
@@ -11,6 +12,7 @@ const projectList = [
         info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
         image: "projectimages/.png",
+        contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/Slay-the-Spire-AI"
     },
     {
@@ -18,6 +20,7 @@ const projectList = [
         info: "Ongoing Project: <br><br>Goals: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously) and find the optimal solution to any set of words and wordles for the game.",
         skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "Sat Solvers"],
         image: "projectimages/.png",
+        contributions: "Myself: Full project <br>Inspiration & Discussion: George and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
     },
     {
@@ -25,6 +28,7 @@ const projectList = [
         info: "Ongoing Project: <br><br>Goals: <br>Skill search function on the blog & portfolio pages",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
+        contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
     },
     {
@@ -32,54 +36,63 @@ const projectList = [
         info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
         skills: ["GitHub", "JS", "SEO"],
         image: "projectimages/Webscraper.png",
+        contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/First-Webscraper/blob/main/README.md"},
     {
         title: "Pokemon Battle Simulator",
         info: "Managed a small team of game developers to remake Pokemon and make a better Pokemon AI for University of Bath's 2026 Hackathon. <br><br>Ideas for continuation of project: <br>Extend the project to become a Pokemon AI trainer or a new, more difficult Pokemon fangame.",
         skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
         image: "projectimages/Pokemon.png",
+        contributions: "Myself: Project Management, UI, Database Generation <br>Natalie Welsh: UI, Systems <br>James Ferguson: AI", 
         link: "https://github.com/NW643/BattleSim"},
     {
         title: "Choose Your Own Adventure - Excel",
         info: "Used VBA and Excel to create a 'page' switcher (pulling from a page bank on another sheet) based on button presses.",
         skills: ["Excel", "VBA"],
         image: "projectimages/UniversitySimulator.png",
+        contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Finance Tracker - Excel",
         info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Ideas for continuation of project: <br>Move the project over to SQL and Streamlit.",
         skills: ["Excel", "VBA", "Pivot Tables"],
         image: "projectimages/FinanceTracker.png",
+        contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Denise's Time Crypt",
         info: "Managed a small team of game developers and artists to make a calculator-based Roguelike for University of Bath's 2025 GameJam.",
         skills: ["Game Dev", "Godot", "Team Management"],
         image: "projectimages/Denise'sTimeCrypt.png",
+        contributions: "Myself: Project Management, UI <br>Natalie Welsh: Systems Design <br>Samuel Ndenecho: Text Editing Software <br>James Ferguson: AI <br>QingZhi Li: Art & Design", 
         link: "https://github.com/Gender-Bender-Studios/GenderBentCalc/blob/main/README.md"},
     {
         title: "Autocorrect",
         info: "Frustrated by the autocorrect that comes with my phone, I learnt AHK and the theory behind Levenshtein distances to code my own autocorrect.",
         skills: ["AHK"],
         image: "projectimages/Levenshtein.png",
+        contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Debt Simplifier",
         info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
         image: "projectimages/DebtSimplifierPandas.png",
+        contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Hunter x Hunter RPG",
         info: "Designed a Hunter x Hunter inspired tabletop system for personal use.",
         skills: ["Game Dev"],
         image: "projectimages/HunterHunter.png",
+        contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Project Site",
         info: "A prequel to this portfolio use to post personal projects - art and writing for the most part. <br>This was built using a html template however, rather than from scratch.",
         skills: ["GitHub"],
         image: "projectimages/ProjectsPage.png",
+        contributions: "Myself: Full project <br>Support: Samuel Ndenecho, Tom Bluu", 
         link: ""}
 ]
 const experienceList = [
