@@ -42,14 +42,15 @@ div.linkBox:hover > a > svg{
 
 p.pageName{
     font-size: 35px;
+    line-height: 40px;
+
     text-align: center;
     vertical-align: top;
-    line-height: 1px;
 }
 
 div.pageList{
     display: grid;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px;
     
     grid-column-gap: 1em;
     grid-auto-rows:minmax(10px, auto);
@@ -314,7 +315,7 @@ p.subtext{
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     div.header{
         grid-template-columns: 1fr 1fr;
     }

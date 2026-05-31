@@ -140,19 +140,22 @@ let skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI",
 skillsList.sort()
 
 const otherPages = [
-    
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
-    },
     {
         text: "Blog",
         link: "blog.html"
     },
     {
+        text: "Contributors",
+        link: "contributors.html"
+    },
+    {
         text: "Personal Projects",
         link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    }
+    },
+    {
+        text: "Portfolio",
+        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
+    },
 ]
 
 

@@ -1,17 +1,20 @@
 const otherPages = [
-    
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/index.html"
-    },
     {
         text: "Blog",
         link: "blog.html"
     },
     {
+        text: "Contributors",
+        link: "contributors.html"
+    },
+    {
         text: "Personal Projects",
         link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    }
+    },
+    {
+        text: "Portfolio",
+        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
+    },
 ]
 
 contributors = [
