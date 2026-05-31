@@ -42,7 +42,7 @@ div.linkBox:hover > a > svg{
 
 p.pageName{
     font-size: 35px;
-    line-height: 40px;
+    line-height: 0px;
 
     text-align: center;
     vertical-align: top;
@@ -321,6 +321,9 @@ p.subtext{
     }
     div.header.p{
         grid-row: 1 / span 2;
+    }
+    p.pageName{
+        line-height: 40px;
     }
     div.header > div{
         justify-content: center;
