@@ -241,7 +241,7 @@ p.title{
     vertical-align: text-top;
 
     font-size: 25px;
-    line-height: 10px;  
+    line-height: 30px;  
 
     position:static;
     overflow-wrap: break-word;
@@ -307,7 +307,7 @@ p.subtext{
         max-height: none;
     }
     div.projectList{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     div.educationList{
     display: grid;
