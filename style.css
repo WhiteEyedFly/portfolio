@@ -315,19 +315,12 @@ p.subtext{
     div.header > div{
         justify-content: center;
     }
-    div.wrapper{
-        grid-template-columns: 1fr;
-        grid-row-gap: 1em;
-    }
-    div.wrapper > div{
-        position:relative;
-        top: 1em;
-
-        max-height: none;
-    }
     div.educationList{
     display: grid;
     grid-row-gap: 1em;
+    }
+    div.projectList{
+        grid-template-columns: 1fr;
     }
 }
 
@@ -338,14 +331,26 @@ p.subtext{
     div.header > div{
         justify-content: center;
     }
-    div.projectList{
+    div.wrapper{
         grid-template-columns: 1fr;
+        grid-row-gap: 1em;
     }
+    div.wrapper > div{
+        position:relative;
+        top: 1em;
+
+        max-height: none;
+    }
+    
 }
 
 @media screen and (max-width: 500px) {
     div.pageList{
         grid-template-columns: 100px 100px;
+    }
+    div.about{
+        height: fit-content;
+        min-width: None;
     }
 }
 
