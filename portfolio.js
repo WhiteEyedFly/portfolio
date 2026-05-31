@@ -17,10 +17,10 @@ const projectList = [
     },
     {
         title: "Kilordle Solver",
-        info: "Ongoing Project: <br><br>Goals: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulatenously) and find the optimal solution to any set of words and wordles for the game.",
-        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "Sat Solvers"],
+        info: "Ongoing Project: <br><br>Goals: <br>Remaking the webgame Kilordle (the aim of which is to solve 1,000 wordles simulataneously) and find the optimal solution to any set of words and wordles for the game.",
+        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis"],
         image: "projectimages/.png",
-        contributions: "Myself: Full project <br>Inspiration & Discussion: George and Natalie Welsh", 
+        contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
     },
     {
@@ -196,12 +196,16 @@ async function makeProject(projectDict){
     } else {
         htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo" height="200px">`
     }
-    htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p>${projectDict.info}</p>`
+    htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p class=subtext>${projectDict.info}</p>`
+
+    // Add contributors
+    htmlAdded += `<p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p>`
 
     // Add link if present
     if (projectDict.link === ""){} else {
         htmlAdded += `<a href=${projectDict.link}>Read more</a>`
     }
+
     htmlAdded += `</div></div>`
 
     projects.innerHTML += htmlAdded

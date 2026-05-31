@@ -245,7 +245,23 @@ p.title{
     overflow-wrap: break-word;
 }
 
+p.title2{
+    font-size: 20px;
+    line-height: 10px;  
 
+    position:static;
+    overflow-wrap: break-word;
+}
+
+p.subtext{
+    font-size: 15px;
+    line-height: 20px; 
+    
+    color:#292929;
+
+    position:static;
+    overflow-wrap: break-word;
+}
 
 /* Search bar specific css */
 
