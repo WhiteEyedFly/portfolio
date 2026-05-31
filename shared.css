@@ -268,31 +268,7 @@ p.subtext{
 
 /* Search bar specific css */
 
-.searchBar {
-    overflow: hidden;
-    background-color: #d0d0d0;
-}
 
-.searchBar p {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.searchBar input[type=text] {
-    float: right;
-    padding: 10px 10px;
-
-    border: solid;
-    border-color: #484848;
-    border-radius: 7px;
-
-    font-size: 15px;
-}
 
 /* Handling responsive screen size */
 
@@ -304,10 +280,10 @@ p.subtext{
 
 @media screen and (max-width: 1000px) {
     div.header{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
-    div.header.p{
-        grid-row: 1 / span 2;
+    div.header > div{
+        justify-content: center;
     }
     p.pageName{
         line-height: 40px;
@@ -325,12 +301,6 @@ p.subtext{
 }
 
 @media screen and (max-width: 700px) {
-    div.header{
-        grid-template-columns: 1fr;
-    }
-    div.header > div{
-        justify-content: center;
-    }
     div.wrapper{
         grid-template-columns: 1fr;
         grid-row-gap: 1em;
@@ -352,38 +322,4 @@ p.subtext{
         height: fit-content;
         min-width: None;
     }
-}
-
-/* Blog specific css*/
-
-div.blogPosts{
-    display: grid;
-    padding: 1em;
-    background:#d0d0d0 ;
-
-    border-style: solid;
-    border-color: #717171;
-    border-radius: 10px;
-
-    grid-row-gap: 1em;
-}
-
-div.post{
-    background:#95a472;
-
-    border-style: solid;
-    border-color: #484848;
-    border-radius: 7px;
-    border-width: 3px;
-    
-    padding: 0.2em;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-/* Contributors specific css */
-div.contributorsList{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 1em;
 }

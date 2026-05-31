@@ -53,7 +53,7 @@ async function mainContributors(){
 
 async function addContributor(contributor){
     const contributors = document.querySelector(".contributorsList");
-    contributors.innerHTML += `<div class="post"><div><p>${contributor.name}</p><a href="${contributor.git}">Github</a></div></div>`
+    contributors.innerHTML += `<div class="contributor"><div><p>${contributor.name}</p><a href="${contributor.git}">Github</a></div></div>`
 }
 
 async function makeLink(pageDict){

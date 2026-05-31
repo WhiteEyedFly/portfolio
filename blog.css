@@ -1,0 +1,24 @@
+div.blogPosts{
+    display: grid;
+    padding: 1em;
+    background:#d0d0d0 ;
+
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 10px;
+
+    grid-row-gap: 1em;
+}
+
+div.post{
+    background:#95a472;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+    border-width: 3px;
+    
+    padding: 0.2em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
