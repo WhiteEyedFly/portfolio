@@ -91,6 +91,7 @@ div.wrapper{
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1em;
 }
+
 div.wrapper > div{
     padding: 1dvh;
 
@@ -144,7 +145,7 @@ img.image{
 div.projectList{
     display:grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1em;
     grid-row-gap: 1em;
     grid-auto-rows:minmax(100px, auto);
@@ -239,7 +240,7 @@ p.title{
     vertical-align: text-top;
 
     font-size: 25px;
-    line-height: 30px;  
+    line-height: 10px;  
 
     position:static;
     overflow-wrap: break-word;
@@ -359,4 +360,11 @@ div.post{
     padding: 0.2em;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+/* Contributors specific css */
+div.contributorsList{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1em;
 }

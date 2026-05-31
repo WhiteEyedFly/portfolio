@@ -192,9 +192,9 @@ async function makeProject(projectDict){
 
     // Add images
     if (projectDict.image === "projectimages/.png"){
-        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo" height="200px">`
+        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
     } else {
-        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo" height="200px">`
+        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
     }
     htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p class=subtext>${projectDict.info}</p>`
 
@@ -215,7 +215,7 @@ async function makeProject(projectDict){
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p>${experienceDict.description}</p></div>`
+    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p class=subtext>${experienceDict.description}</p></div>`
 
     makeSkills(experiences, experienceDict)
 }
@@ -232,7 +232,7 @@ async function makeSkills(object, dict){
 
 async function makeEducation(educationDict){
     const education = document.querySelector(".educationList");
-    education.innerHTML +=`<div class="project"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p>${educationDict.description}</p></div>`
+    education.innerHTML +=`<div class="project"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
 }
 
 main()
