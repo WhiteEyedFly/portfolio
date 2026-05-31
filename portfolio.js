@@ -18,7 +18,7 @@ const projectList = [
     {
         title: "Kilordle Solver",
         info: "Find the optimal solution to the Webgame Kilordle (30 words).",
-        skills: ["Backtracking", "CSS", "DFS", "Greedy Algorithm", "HTML", "JS", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis", "Divide & Conquer", "Dynamic Programming"],
+        skills: ["Backtracking", "DFS", "Greedy Algorithm", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis", "Divide & Conquer", "Dynamic Programming"],
         image: "projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
