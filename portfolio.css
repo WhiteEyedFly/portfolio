@@ -28,6 +28,12 @@ div.about{
     min-width: 20em;
 }
 
+div.topOfList{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 div.pfp{
     max-width: 22em;
     height: fit-content;

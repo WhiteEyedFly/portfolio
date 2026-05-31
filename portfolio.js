@@ -25,7 +25,7 @@ const projectList = [
     },
     {
         title: "Portfolio",
-        info: "Ongoing Project: <br><br>Goals: <br>Skill search function on the blog & portfolio pages",
+        info: "You're looking at it.",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         contributions: "Myself: Full project", 
@@ -175,6 +175,7 @@ async function main(){
     for (let i = 0; i < educationList.length; i++){
         makeEducation(educationList[i])
     }
+    
 }
 
 async function makeSkill(skill){
@@ -236,6 +237,27 @@ async function makeSkills(object, dict){
 async function makeEducation(educationDict){
     const education = document.querySelector(".educationList");
     education.innerHTML +=`<div class="project"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
+}
+
+function searcher(){
+    let search = document.getElementById("search").value
+    document.getElementById("projectList").innerHTML = "";
+
+    for (let i = 0; i < projectList.length; i++){
+        if (search == ""){
+            makeProject(projectList[i])
+        }
+        else{
+            //console.log(projectList[i])
+            for (let j = 0; j < projectList[i].skills.length; j++){
+                console.log(i)
+                if (projectList[i].skills[j].toUpperCase().includes(search.toUpperCase())){
+                    makeProject(projectList[i])
+                    break
+                }
+            }
+        }
+    }
 }
 
 main()

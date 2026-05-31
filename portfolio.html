@@ -65,12 +65,14 @@
                 <!--Main body, all self populating-->
                 <div class="detail">
                     <!-- Search bar code - testing -->
-                    <div class="searchBar">
-                        <p>Projects</p>
-                        <input type="text" placeholder="Search by skill..." name="search">
+                    <div class="topOfList">
+                        <p class="title">Projects</p>
+                        <div class="searchBar">
+                            <input type="text" placeholder="Search by skill..." id="search" oninput="searcher()">
+                        </div>
                     </div>
 
-                    <div class="projectList"></div>
+                    <div class="projectList" id="projectList"></div>
 
                     <p class="title">Work</p>
                     <div class="experienceList"></div>
