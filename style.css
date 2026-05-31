@@ -53,6 +53,7 @@ div.pageList{
     grid-template-columns: 100px 100px 100px 100px;
     
     grid-column-gap: 1em;
+    grid-row-gap: 1em;
     grid-auto-rows:minmax(10px, auto);
     justify-content: end;
 }
@@ -295,23 +296,9 @@ p.subtext{
 
 /* Handling responsive screen size */
 
-@media screen and (max-width: 1000px) {
-    div.wrapper{
-        grid-template-columns: 1fr;
-        grid-row-gap: 1em;
-    }
-    div.wrapper > div{
-        position:relative;
-        top: 1em;
-
-        max-height: none;
-    }
+@media screen and (max-width: 1200px) {
     div.projectList{
         grid-template-columns: 1fr 1fr;
-    }
-    div.educationList{
-    display: grid;
-    grid-row-gap: 1em;
     }
 }
 
@@ -328,14 +315,37 @@ p.subtext{
     div.header > div{
         justify-content: center;
     }
+    div.wrapper{
+        grid-template-columns: 1fr;
+        grid-row-gap: 1em;
+    }
+    div.wrapper > div{
+        position:relative;
+        top: 1em;
+
+        max-height: none;
+    }
+    div.educationList{
+    display: grid;
+    grid-row-gap: 1em;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     div.header{
         grid-template-columns: 1fr;
     }
     div.header > div{
         justify-content: center;
+    }
+    div.projectList{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.pageList{
+        grid-template-columns: 100px 100px;
     }
 }
 
