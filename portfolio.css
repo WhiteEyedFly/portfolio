@@ -188,7 +188,7 @@ div.projSkill{
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     div.wrapper{
         grid-template-columns: 1fr;
         grid-row-gap: 1em;
