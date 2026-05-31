@@ -1,3 +1,149 @@
+div.wrapper{
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 1em;
+}
+
+div.wrapper > div{
+    padding: 1dvh;
+
+    position: sticky;
+    top: 3.5em;
+
+    border-radius: 10px;
+    background:#d0d0d0;
+    border-style: solid;
+    border-color: #717171;
+
+    max-height: 81dvh;
+    overflow-y: scroll;
+
+    /*Hide scrollbar*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+div.about{
+    height: fit-content;
+    min-width: 20em;
+}
+
+div.pfp{
+    max-width: 22em;
+    height: fit-content;
+    overflow: hidden;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+}
+
+div.pfp > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    max-width: 40em;
+    max-height: 25em;
+
+    object-fit:contain;
+    object-position: 100% 0%;
+}
+
+img.image{
+    height: 20em;
+}
+
+div.projectList{
+    display:grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-auto-rows:minmax(100px, auto);
+}
+
+div.project{
+    background:#95a472;
+    padding: 1em;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+    border-width: 3px;
+}
+
+div.projImg{
+    width:fit-content;
+    height: fit-content;
+    overflow: hidden;
+
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+}
+
+div.projImg > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    max-width: 40em;
+    max-height: 25em;
+
+    object-fit:contain;
+    object-position: 100% 0%;
+}
+
+div.experienceList{
+    display: grid;
+    grid-row-gap: 1em;
+}
+
+div.educationList{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+div.skillsList{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
+}
+
+div.skill{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #5f6848;
+    border-radius: 10px;
+
+    background-color: #95a472;
+
+    text-align: center;
+    min-width: 20px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+div.projSkill{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #484848;
+    border-radius: 10px;
+    
+    background-color:#bababa;
+
+    text-align: center;
+    min-width: 20px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* Search bar functionality */
+
 .searchBar {
     overflow: hidden;
     background-color: #d0d0d0;
@@ -22,4 +168,45 @@
     border-radius: 7px;
 
     font-size: 15px;
+}
+
+/* Screen width adjustments */
+
+@media screen and (max-width: 1200px) {
+    div.projectList{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    div.educationList{
+    display: grid;
+    grid-row-gap: 1em;
+    }
+    div.projectList{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    div.wrapper{
+        grid-template-columns: 1fr;
+        grid-row-gap: 1em;
+    }
+    div.wrapper > div{
+        position:relative;
+        top: 1em;
+
+        max-height: none;
+    }
+    div.pfp{
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.about{
+        height: fit-content;
+        min-width: None;
+    }
 }
