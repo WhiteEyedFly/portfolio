@@ -1,5 +1,14 @@
 const projectList = [
     {
+        title: "Polish to English revision tool",
+        info: "Ongoing Project: <br>Recently I've been trying to pick up Polish for my partner so I figured I'd whip up a little tool to help with my revision. <br><br>Goals: <br>Create an effective revision tool for English people learning Polish <br>Make it a web app for easy accessibility <br>Extend the project to a sentence generator for people taking the next step in learning",
+        skills: ["Python", "TKinter", "JSON", "HTML", "CSS", "JS"],
+        image: "projectimages/Translate.png",
+        contributions: "Myself: Full project", 
+        link: "https://github.com/WhiteEyedFly/polish/blob/main/README.md"
+    },
+
+    {
         title: "Debt Simplifier - Pandas",
         info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "Pandas", "Python", "Matplotlib", "Numpy"],
@@ -21,16 +30,14 @@ const projectList = [
         skills: ["Backtracking", "DFS", "Greedy Algorithm", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis", "Divide & Conquer", "Dynamic Programming"],
         image: "projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
-        link: "https://github.com/WhiteEyedFly/Kilordle-Solver"
-    },
+        link: "https://github.com/WhiteEyedFly/Kilordle-Solver"},
     {
         title: "Portfolio",
         info: "You're looking at it.",
         skills: ["CSS", "GitHub", "HTML", "JS"],
         image: "projectimages/Portfolio.png",
         contributions: "Myself: Full project", 
-        link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"
-    },
+        link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"},
     {
         title: "Web Scraper",
         info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
