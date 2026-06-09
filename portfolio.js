@@ -1,13 +1,12 @@
 const projectList = [
     {
         title: "Polish to English revision tool",
-        info: "Ongoing Project: <br>Recently I've been trying to pick up Polish for my partner so I figured I'd whip up a little tool to help with my revision. <br><br>Goals: <br>Create an effective revision tool for English people learning Polish <br>Make it a web app for easy accessibility <br>Extend the project to a sentence generator for people taking the next step in learning",
-        skills: ["Python", "TKinter", "JSON", "HTML", "CSS", "JS"],
+        info: "Ongoing Project: <br>Recently I've been trying to pick up Polish for my partner so I figured I'd whip up a little tool to help with my revision. <br><br>Ripped kaikki JSONLs and Polish wikipedia to create a Polish to English Dictionary <br>Made a Polish to English translator <br>Made a Polish sentence generator tool <br>Made a TKinter app that allows users to choose their difficulty and revision type when practicing learning Polish",
+        skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish"],
         image: "projectimages/Translate.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/polish/blob/main/README.md"
     },
-
     {
         title: "Debt Simplifier - Pandas",
         info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
