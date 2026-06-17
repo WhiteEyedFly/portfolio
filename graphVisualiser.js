@@ -32,3 +32,4 @@ const bars = container.selectAll(".bar").data(commits).enter()
 .append("rect").classed("bar", true)
 .attr("width", 50 + "px")
 .attr("height", data => (data.date * 15) + "px");
+console.log("hello world")
