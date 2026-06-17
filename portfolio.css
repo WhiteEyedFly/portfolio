@@ -24,6 +24,8 @@ div.wrapper > div{
 }
 
 div.about{
+    z-index: 0;
+
     height: fit-content;
     min-width: 20em;
 }
