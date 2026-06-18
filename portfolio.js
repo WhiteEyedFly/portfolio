@@ -1,5 +1,13 @@
 const projectList = [
     {
+        title: "Mini Games",
+        info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
+        skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish", "Data Cleaning"],
+        image: "projectimages/Minigames.png",
+        contributions: "Myself: Full project", 
+        link: "https://github.com/WhiteEyedFly?tab=repositories"
+    },
+    {
         title: "Polish to English revision tool",
         info: "Ongoing Project: <br>Recently I've been trying to pick up Polish for my partner so I figured I'd whip up a little tool to help with my revision. <br><br>Ripped kaikki JSONLs and Polish wikipedia to create a Polish to English Dictionary <br>Made a Polish to English translator <br>Made a Polish sentence generator tool <br>Made a TKinter app that allows users to choose their difficulty and revision type when practicing learning Polish <br>Made an English Thesaurus tool <br>Prioritised translations by word frequency based on analysis of Polish Wikipedia <br>Made tools highly extendable to other languages if others wish to add to the project",
         skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish", "Data Cleaning"],
