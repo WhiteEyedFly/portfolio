@@ -10,12 +10,7 @@ div.wrapper > div{
     position: sticky;
     top: 3.5em;
 
-    border-radius: 10px;
-    background:#d0d0d0;
-    border-style: solid;
-    border-color: #717171;
-
-    max-height: 81dvh;
+    max-height: 80dvh;
     overflow-y: scroll;
 
     /*Hide scrollbar*/
@@ -23,8 +18,32 @@ div.wrapper > div{
     scrollbar-width: none;
 }
 
+div.detail{
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 3%,
+    black 95%,
+    transparent 100%
+  );
+}
+
 div.about{
     z-index: 0;
+
+    border-radius: 10px;
+    opacity: 90%;
+    background:#d0d0d0;
+    border-style: solid;
+    border-color: #484848;
 
     height: fit-content;
     min-width: 20em;
@@ -72,7 +91,8 @@ div.projectList{
 }
 
 div.project{
-    background:#95a472;
+    background:#d0d0d0;
+    opacity: 90%;
     padding: 1em;
 
     border-style: solid;
@@ -85,6 +105,8 @@ div.projImg{
     width:fit-content;
     height: fit-content;
     overflow: hidden;
+
+    opacity: 100%;
 
     border-style: solid;
     border-color: #484848;
@@ -126,6 +148,8 @@ div.skill{
     border-color: #5f6848;
     border-radius: 10px;
 
+    opacity: 100%;
+
     background-color: #95a472;
 
     text-align: center;
@@ -141,7 +165,7 @@ div.projSkill{
     border-color: #484848;
     border-radius: 10px;
     
-    background-color:#bababa;
+    background-color:#95a472;
 
     text-align: center;
     min-width: 20px;
@@ -150,11 +174,14 @@ div.projSkill{
     padding-right: 4px;
 }
 
+p{
+    opacity: 100%;
+}
+
 /* Search bar functionality */
 
 .searchBar {
     overflow: hidden;
-    background-color: #d0d0d0;
 }
 
 .searchBar p {
@@ -216,5 +243,8 @@ div.projSkill{
     div.about{
         height: fit-content;
         min-width: None;
+
+        position: relative;
+        overflow-y:auto;
     }
 }
