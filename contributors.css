@@ -13,7 +13,9 @@ div.contributorsList{
 }
 
 div.contributor{
-    background:#95a472;
+    background: #d0d0d0;
+
+    opacity: 90%;
 
     border-style: solid;
     border-color: #484848;

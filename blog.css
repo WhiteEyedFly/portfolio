@@ -1,17 +1,14 @@
 div.blogPosts{
     display: grid;
     padding: 1em;
-    background:#d0d0d0 ;
-
-    border-style: solid;
-    border-color: #717171;
-    border-radius: 10px;
 
     grid-row-gap: 1em;
 }
 
 div.post{
-    background:#95a472;
+    background: #d0d0d0;
+
+    opacity: 80%;
 
     border-style: solid;
     border-color: #484848;
