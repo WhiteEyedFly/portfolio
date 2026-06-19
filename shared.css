@@ -141,7 +141,7 @@ div.linkBox:hover > a > svg{
   fill:#3c422b;
 }
 
-p.pageName{
+h1.pageName{
     font-size: 35px;
     line-height: 0px;
 

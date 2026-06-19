@@ -255,12 +255,12 @@ div.projSkill{
 @media screen and (max-width: 500px) {
     div.about{
         height: fit-content;
-        min-width: None;
+        min-width: unset;
 
         position: relative;
         overflow-y:auto;
     }
     div.project{
-        max-height: none;
+        max-height: unset;
     }
 }
