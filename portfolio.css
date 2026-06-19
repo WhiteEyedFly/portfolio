@@ -12,10 +12,7 @@ div.wrapper > div{
     position: sticky;
     overflow-y: scroll;
     max-height: 80dvh;
-    top: 3.5em;
-
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: 4.5em; 
+    top: 3.5em; 
 
     /*Hide scrollbar*/
     -ms-overflow-style: none;
@@ -24,7 +21,12 @@ div.wrapper > div{
 
 div.detail{
     overflow-y: scroll;
-    max-height: 86dvh;
+    max-height: 71dvh;
+
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 4.5em; 
+
+    scrollbar-width: none;
 
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -85,6 +87,10 @@ div.pfp > img{
 
 img.image{
     height: 20em;
+}
+
+div.spacer{
+    height:15px;
 }
 
 div.projectList{
@@ -264,5 +270,8 @@ div.projSkill{
     }
     div.project{
         max-height: unset;
+    }
+    div.spacer{
+        height:unset;
     }
 }
