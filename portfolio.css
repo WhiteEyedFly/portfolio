@@ -266,6 +266,10 @@ div.projSkill{
         position: relative;
         overflow-y:auto;
     }
+    div.detail{
+        height: fit-content;
+        max-height: unset;
+    }
     div.project{
         max-height: unset;
     }
