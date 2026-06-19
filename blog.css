@@ -6,12 +6,12 @@ div.blogPosts{
 }
 
 div.post{
-    background: #d0d0d0;
+    background: rgba(208, 208, 208, 0.6);
 
     opacity: 80%;
 
     border-style: solid;
-    border-color: #484848;
+    border-color: RGBa(72, 72, 72, 0.6);
     border-radius: 7px;
     border-width: 3px;
     

@@ -2,6 +2,10 @@ html{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 div.struct > div{
     padding: 1em;
 }
@@ -16,10 +20,10 @@ div.header{
     z-index: 100;
     height:fit-content;
 
-    background:#d0d0d0;
+    background: rgba(208, 208, 208, 0.6);
     border-style: solid;
     border-radius: 10px;
-    border-color: #484848;
+    border-color: RGBa(72, 72, 72, 0.6);
 }
 
 div.linksList{
@@ -27,7 +31,7 @@ div.linksList{
 
     border-style: solid;
     border-width: 2px;
-    border-color: #000000;
+    border-color: RGBa(72, 72, 72);
     background-color: #95a472;
     border-radius: 10px;
 
@@ -62,7 +66,7 @@ div.contactsList:hover {
     border-radius: 10px;
     border-color:#292929;
 
-    background-color: #95a472;
+    background-color:#95a472;
 }
 
 #contactToggle {
@@ -134,7 +138,7 @@ div.linkBox > a > svg{
 }
 
 div.linkBox:hover > a > svg{
-  fill:#4d5537;
+  fill:#3c422b;
 }
 
 p.pageName{
@@ -189,10 +193,6 @@ a.link{
 
 div.page{
     /*font-size: 20px;*/
-    border-style: solid;
-    border-width: 2px;
-    border-color: #000000;
-    background-color:#d0d0d0;
     border-radius: 10px;
 
     display: flex;
@@ -203,7 +203,7 @@ div.page{
 
     min-width: 20px;
     max-width: 100px;
-    height: 67px;
+    height: 40px;
     padding: 3px;
 }
 
@@ -232,7 +232,7 @@ p.subtext{
     font-size: 15px;
     line-height: 20px; 
     
-    color:#292929;
+    color:#000000;
 
     position:static;
     overflow-wrap: break-word;
