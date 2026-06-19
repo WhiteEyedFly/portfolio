@@ -3,6 +3,8 @@ div.wrapper{
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1em;
 
+    padding-top: 1em;
+
     max-height: fit-content;
 }
 
@@ -11,7 +13,7 @@ div.wrapper > div{
 
     position: sticky;
     overflow-y: scroll;
-    max-height: 80dvh;
+    max-height: 85dvh;
     top: 3.5em; 
 
     /*Hide scrollbar*/
@@ -21,10 +23,10 @@ div.wrapper > div{
 
 div.detail{
     overflow-y: scroll;
-    max-height: 71dvh;
+    max-height: 77dvh;
 
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 4.5em; 
+    scroll-padding-top: 3em; 
 
     scrollbar-width: none;
 
@@ -89,10 +91,6 @@ img.image{
     height: 20em;
 }
 
-div.spacer{
-    height:15px;
-}
-
 div.projectList{
     display:grid;
 
@@ -107,7 +105,7 @@ div.project{
 
     background: rgba(208, 208, 208, 0.6);
 
-    max-height: 37rem;
+    max-height: 36rem;
     overflow-y: scroll;
 
     padding: 1em;
