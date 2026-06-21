@@ -261,6 +261,12 @@ p.subtext{
 }
 
 /* Handling responsive screen size */
+@media screen and (max-width: 750px) {
+    div.linksList{
+        width: 80px;
+        height: 45px
+    }
+}
 
 /*
 @media screen and (max-width: 1000px) {

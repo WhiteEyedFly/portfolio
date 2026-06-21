@@ -1,4 +1,6 @@
-// Structs
+import { otherPages, makeLink } from "./shared.js";
+
+// Interfaces
 
 type Project = {
     title: string;
@@ -24,8 +26,6 @@ type Education = {
 };
 
 // Necessary data
-
-import { otherPages, makeLink } from "./shared.js";
 
 const projectList: Project[] = [
     {
@@ -361,6 +361,18 @@ document.addEventListener("change", (e: Event) => {
     }
 
     target.checked = false;
+});
+
+// Max proj small screens code
+
+const floater = document.querySelector<HTMLElement>('.floater');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (floater){
+    floater.style.transform = `translateY(${scrollY * 0.3}px)`;
+    }
 });
 
 // Drag code for project list

@@ -328,6 +328,19 @@ document.addEventListener("change", (e) => {
     }
     target.checked = false;
 });
+
+// Max proj small screens code
+
+const floater = document.querySelector('.floater');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (floater){
+    floater.style.transform = `translateY(${scrollY - 550}px)`;
+    }
+});
+
 // Drag code for project list
 const projList = document.querySelector(".projectList");
 let isDown = false;

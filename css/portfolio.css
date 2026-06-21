@@ -94,14 +94,13 @@ img.image{
 div.projectList{
     perspective: 1000px;
 
-    height: 26em;
+    height: 24em;
     overflow-x: auto;
     display: flex;
     gap: 1.5em;
 
     scroll-behavior: smooth;
     padding-left: 7em;
-    padding-right: -14em;
 
     -webkit-mask-image: linear-gradient(
     to left,
@@ -151,7 +150,6 @@ div.projectList::after {
     display: block;
     cursor: pointer;
 
-    width: 92em;
     height: 26em;
     background: rgb(208, 208, 208, 0.97);
     border-color: rgba(72, 72, 72, 0.1);
@@ -376,6 +374,11 @@ p{
     div.projectList{
         grid-template-columns: 1fr 1fr;
     }
+    .maxSpacer{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 2fr;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -414,8 +417,29 @@ p{
         margin: auto;
     }
     div.detail{
-        -webkit-mask-image: none;
-        mask-image: none;
+        padding-top: 1em;
+
+        -webkit-mask-image: linear-gradient(
+        to top,
+        black 5px,
+        black 95%,
+        transparent
+    );
+
+    mask-image: linear-gradient(
+        to top,
+        black 5%,
+        black 99%,
+        transparent
+    );
+    }
+    div.floater{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        will-change: transform;
     }
     div.projectList{
         perspective: unset;
@@ -455,10 +479,6 @@ p{
         flex-direction: column;
         cursor: auto;
 
-        transform-style: preserve-3d;
-        transition: transform 0.35s ease, box-shadow 0.35s ease;
-        position: relative; 
-
         flex: 0 0 20em;
         width: 25em;
         background: rgba(208, 208, 208, 0.6);
@@ -468,9 +488,6 @@ p{
         overflow: hidden;
         border-radius: 0.5em;
         text-align: center;
-
-        transition: transform 0.35s ease, box-shadow 0.35s ease;
-        transform: translateZ(0);
     }
     .project > .projImg{
         width: 25em;
