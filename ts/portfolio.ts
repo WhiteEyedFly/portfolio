@@ -1,7 +1,31 @@
-/*
+// Structs
+
+type Project = {
+    title: string;
+    info: string;
+    skills: string[];
+    image: string;
+    contributions: string;
+    link: string;
+};
+
+type Experience = {
+    dates: string;
+    title: string;
+    skills: string[];
+    description: string;
+}
+
+type Education = {
+    years: string;
+    course: string;
+    place: string;
+    description: string;
+};
+
 // Necessary data
 
-const projectList = [
+const projectList: Project[] = [
     {
         title: "Mini Games",
         info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
@@ -112,7 +136,7 @@ const projectList = [
         contributions: "Myself: Full project <br>Support: Samuel Ndenecho, Tom Bluu", 
         link: ""}
 ]
-const experienceList = [
+const experienceList: Experience[] = [
     {
         dates: "2025-2026",
         title: "Executive Treasurer - SU Bath",
@@ -129,7 +153,7 @@ const experienceList = [
         skills: ["Tutoring"],
         description: "Tutored several GCSE level students 1 to 1 and in small groups. Achieved an average grade of 8 across all taught students and all subjects taught."}
 ]
-const educationList = [
+const educationList: Education[] = [
     {
         years: "2022-Present",
         course: "BSc Mathematics",
@@ -152,109 +176,86 @@ const educationList = [
         description:`Maths: 9 <br>Further Maths: 9 <br>Statistics: 8 <br>Chemistry: 9 <br>Biology: 9 <br>Physics: 9 <br>Electronics: 9 <br>History: 9 <br> English Literature: 9 <br>English Language: 9`}
 ]
 
-let skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", 
+let skillsList: string[] = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", 
                 "Python", "R", "TKinter", "SAX", "Polars", "TS", "Matplotlib",
                 "Automation", "D3", "Jupyter", "Streamlit", "SQL"]
 skillsList.sort()
 
-const otherPages = [
-    {
-        text: "Blog",
-        link: "blog.html"
-    },
-    {
-        text: "Contributors",
-        link: "contributors.html"
-    },
-    {
-        text: "Personal Projects",
-        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    },
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
-    },
-]
-
 // Initialisation
 
-async function makeSkill(skill){
+async function makeSkill(skill: string): Promise<void>{
     const skills = document.querySelector(".skillsList");
+    if (!skills) return
+
     skills.innerHTML += `<div class="skill">${skill}</div>`
 }
 
-async function makeLink(pageDict){
-    const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<a class="link" href="${pageDict.link}"><div class="page">${pageDict.text}</div></a>`
-}
-
-async function makeProject(projectDict, index){
+async function makeProject(project: Project, index: number): Promise<void> {
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
+    if (!projects) return
 
     let htmlAdded = `<label class="project" data-index="${index}"><input type="checkbox" class="cb"><div class="projImg">`
 
     // Add images
-    if (projectDict.image === "assets/projectimages/.png"){
+    if (project.image === "assets/projectimages/.png"){
         htmlAdded += `<img pfp src="assets/projectimages/Placeholder.png" alt="Project photo">`
     } else {
-        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
+        htmlAdded += `<img pfp src=${project.image} alt="Project photo">`
     }
-    htmlAdded += `</div><div class="skillsList"></div><p class="title">${projectDict.title}</p>`
+    htmlAdded += `</div><div class="skillsList"></div><p class="title">${project.title}</p>`
 
     htmlAdded += `</div></label>`
 
     projects.innerHTML += htmlAdded
     
-    makeSkills(projects, projectDict)
+    makeSkills(projects, project)
 }
 
-async function makeExperience(experienceDict){
+async function makeExperience(experience: Experience): Promise<void>{
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div class="box"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p class=subtext>${experienceDict.description}</p></div>`
+    if (!experiences) return
 
-    makeSkills(experiences, experienceDict)
+    experiences.innerHTML += `<div class="box"><p>${experience.dates}</p><p class="title">${experience.title}</p><div class="skillsList"></div><p class=subtext>${experience.description}</p></div>`
+
+    makeSkills(experiences, experience)
 }
 
-async function makeSkills(object, dict){
+async function makeSkills(container: Element, item: { skills: string[] }): Promise<void> {
     // Add a skill for each listed
-    const skillList = object.lastChild.querySelector(".skillsList");
-    const orderedSkillList = dict.skills.sort()
+    const last = container.lastElementChild as HTMLElement | null;
+    if (!last) return;
+    const skillList = last.querySelector<HTMLElement>(".skillsList");
+    if (!skillList) return;
 
-    for (let i = 0; i < dict.skills.length; i++){
+    const orderedSkillList = item.skills.sort()
+
+    for (let i = 0; i < item.skills.length; i++){
         skillList.innerHTML += `<div class="projSkill">${orderedSkillList[i]}</div>`
     }
 }
 
-async function makeEducation(educationDict){
-    const education = document.querySelector(".educationList");
-    education.innerHTML +=`<div class="box"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
+async function makeEducation(education: Education): Promise<void>{
+    const educations = document.querySelector(".educationList");
+    if (!educations) return
+
+    educations.innerHTML +=`<div class="box"><p>${education.years}</p><p class="title">${education.course}</p><p>${education.place}</p><p class=subtext>${education.description}</p></div>`
 }
 
 
-async function main(){
-    for (let i = 0; i < skillsList.length; i++){
-        makeSkill(skillsList[i])
-    }
-    for (let i = 0; i < otherPages.length; i++){
-        makeLink(otherPages[i])
-    }
-    for (let i = 0; i < projectList.length; i++){
-        makeProject(projectList[i], i)
-    }
-    for (let i = 0; i < experienceList.length; i++){
-        makeExperience(experienceList[i])
-    }
-    for (let i = 0; i < educationList.length; i++){
-        makeEducation(educationList[i])
-    }
-    
+async function main(): Promise<void>{
+    skillsList.forEach(makeSkill);
+    otherPages.forEach(makeLink);
+
+    projectList.forEach((p, i) => makeProject(p, i));
+    experienceList.forEach(makeExperience);
+    educationList.forEach(makeEducation);
 }
 
 // Search bar code
 
-function searcher(){
+function searcher(): Promise<void>{
     let search = document.getElementById("search").value
     document.getElementById("projectList").innerHTML = "";
 
@@ -276,49 +277,35 @@ function searcher(){
 
 // maxProj code
 
-document.addEventListener("change", (e) => {
-    const cb = e.target;
-    if (!cb.classList.contains("cb")) return;
+document.addEventListener("change", (e: Event) => {
+    const target = e.target as HTMLInputElement;
 
-    const floatLayer = document.querySelector(".floater");
+    if (!target.classList.contains("cb")) return;
 
-    if(cb.checked){
-        // Add the project structure
-        const index = cb.closest(".project").dataset.index
-        const project = projectList[index]
+    const floatLayer = querySelector(".floater");
 
-        let htmlAdded = `<label class="projectMax"><input type="checkbox" checked="true" class="cb"><div class="maxSpacer"><div class="maxProjImg">`
+    if (target.checked) {
+        const parent = target.closest<HTMLElement>(".project");
+        if (!parent) return;
 
-        // Add images
-        if (project.image === "assets/projectimages/.png"){
-            htmlAdded += `<img pfp src="assets/projectimages/Placeholder.png" alt="Project photo">`
-        } else {
-            htmlAdded += `<img pfp src=${project.image} alt="Project photo">`
-        }
+        const index = Number(parent.dataset.index);
+        const project = projectList[index];
 
-        // Add link if present
-        if (project.link){
-            htmlAdded += `<a href=${project.link}>Read more</a>`
-        }
-
-        htmlAdded += `</div><div class="maxText"><div><p class="title">${project.title}</p><div class="skillsList"></div>`
-
-        // More info
-        htmlAdded += `<p class=subtext>${project.info}</p><p class=title2>Contributors:</p><p class=subtext>${project.contributions}</p>`
-
-        
-
-        htmlAdded += `</div></div></div></label>`
-
-        floatLayer.innerHTML = htmlAdded;
-    }
-    else if (!cb.checked){
+        floatLayer.innerHTML = `
+            <label class="projectMax">
+                <input type="checkbox" class="cb" checked>
+                <div class="maxText">
+                    <p class="title">${project.title}</p>
+                    <p class="subtext">${project.info}</p>
+                </div>
+            </label>
+        `;
+    } else {
         floatLayer.innerHTML = "";
     }
-    cb.checked = false;
 
-    makeSkills(projects, project)
-})
+    target.checked = false;
+});
 
 // Drag code for project list
 
@@ -328,31 +315,33 @@ let isDown = false;
 let startX = 0;
 let scrollLeft = 0;
 
-projList.addEventListener("mousedown", (e) => {
-    isDown = true;
-    projList.classList.add("dragging");
-    startX = e.clientX;
-    scrollLeft = projList.scrollLeft;
-});
+if (projList){
+    projList.addEventListener("mousedown", (e: MouseEvent) => {
+        isDown = true;
+        projList.classList.add("dragging");
+        startX = e.clientX;
+        scrollLeft = projList.scrollLeft;
+    });
 
-projList.addEventListener("mouseup", () => {
-    isDown = false;
-    projList.classList.remove("dragging");
-});
+    projList.addEventListener("mouseup", () => {
+        isDown = false;
+        projList.classList.remove("dragging");
+    });
 
-projList.addEventListener("mouseleave", () => {
-    isDown = false;
-    projList.classList.remove("dragging");
-});
+    projList.addEventListener("mouseleave", () => {
+        isDown = false;
+        projList.classList.remove("dragging");
+    });
 
-projList.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
+    projList.addEventListener("mousemove", (e: MouseEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
 
-    const y = e.clientX;
-    const walk = (y - startX) * 1.5;
+        const y = e.clientX;
+        const walk = (y - startX) * 1.5;
 
-    projList.scrollLeft = scrollLeft - walk;
-});
+        projList.scrollLeft = scrollLeft - walk;
+    });
+}
 
 main()

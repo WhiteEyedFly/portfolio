@@ -1,23 +1,3 @@
-/*
-const otherPages = [
-    {
-        text: "Blog",
-        link: "blog.html"
-    },
-    {
-        text: "Contributors",
-        link: "contributors.html"
-    },
-    {
-        text: "Personal Projects",
-        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    },
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
-    },
-]
-
 posts = [
     {
         date: "21/06/2026",
@@ -48,11 +28,6 @@ async function mainBlog(){
 async function addPost(post){
     const posts = document.querySelector(".blogPosts");
     posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`
-}
-
-async function makeLink(pageDict){
-    const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div class="page"><a class="link" href="${pageDict.link}">${pageDict.text}</a></div>`
 }
 
 mainBlog()
