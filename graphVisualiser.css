@@ -1,7 +1,17 @@
 .container{
-    width: 250px;
-    height: 200px;
-    border: 1px solid #720570
+    border: 3px;
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+}
+
+#graphVisualiser{
+    width: 100%;
+    height: fit-content;
+}
+
+g{
+    width: fit-content;
 }
 
 rect.bar{

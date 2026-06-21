@@ -1,33 +1,4 @@
-// ---------------------
-// Pull commits from git
-// ---------------------
-
-async function getCommits() {
-    let page = 1;
-    const responses = [];
-    try {
-        while (true) {
-            const response = await fetch(
-                `https://github.com{page}`
-            );
-            if (!response.ok) break;
-            const commitList = await response.json();
-            if (!commitList || commitList.length === 0) break;
-            responses.push(...commitList);
-            page += 1;
-        }
-        if (responses.length === 0) throw new Error("Empty API response");
-        return responses.map(commit => ({
-            sha: commit.sha,
-            message: commit.commit.message,
-            date: commit.commit.author.date,
-            author: commit.commit.author.name,
-            parents: commit.parents.map(parent => parent.sha)
-        }));
-    } catch (e) {
-        // Fall back to stored if rate limit hit
-        console.warn("GitHub API rate limit hit or offline. Loading local mock commit timeline data.");
-        return [
+backUpCommits = [
   {
     "sha": "88eeb2e35ab82bf4ebf6d61fbf72c05d13867b84",
     "message": "dropdowns added",
@@ -1046,7 +1017,50 @@ async function getCommits() {
       "main"
     ]
   }
-];
+]
+
+backUpBranches = [
+    { name: "main", commit: { sha: "b242f9920a236eae6dd432b370b21df3e243e514", url:"https://api.github.com/repos/WhiteEyedFly/portfolio/commits/b242f9920a236eae6dd432b370b21df3e243e514" } }, 
+    {
+  "name": "graphVisualiser",
+  "commit": {
+    "sha": "c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc",
+    "url": "https://api.github.com/repos/WhiteEyedFly/portfolio/commits/c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc"
+  },
+  "protected": false
+}]
+
+// ---------------------
+// Pull commits and branches from git
+// ---------------------
+
+async function getCommits() {
+    let page = 1;
+    const responses = [];
+
+    try {
+        while (true) {
+            const response = await fetch(
+                `https://api.github.com/repos/WhiteEyedFly/portfolio/commits?per_page=100&page=${page}`
+            );
+            if (!response.ok) break;
+            const commitList = await response.json();
+            if (!commitList || commitList.length === 0) break;
+            responses.push(...commitList);
+            page += 1;
+        }
+        if (responses.length === 0) throw new Error("Empty API response");
+        return responses.map(commit => ({
+            sha: commit.sha,
+            message: commit.commit.message,
+            date: commit.commit.author.date,
+            author: commit.commit.author.name,
+            parents: commit.parents.map(parent => parent.sha)
+        }));
+    } catch (e) {
+        // Fall back to stored if rate limit hit
+        console.warn("GitHub API rate limit hit or offline. Loading local mock commit timeline data.");
+        return backUpCommits;
     }
 }
 
@@ -1060,7 +1074,7 @@ async function getBranches() {
     }
 
     try {
-        const res = await fetch("https://github.com");
+        const res = await fetch("https://api.github.com/repos/WhiteEyedFly/portfolio/branches?per_page=100&page=1");
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -1068,21 +1082,10 @@ async function getBranches() {
         localStorage.setItem("github_branches_timestamp", now.toString());
         return data;
     } catch (e) {
-        return [{ name: "main", commit: { sha: "c4" } }, {
-  "name": "graphVisualiser",
-  "commit": {
-    "sha": "c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc",
-    "url": "https://api.github.com/repos/WhiteEyedFly/portfolio/commits/c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc"
-  },
-  "protected": false
-}];
+        return backUpBranches;
     }
 }
 
-
-// --------------------------------------------------------------------------
-// RECURSIVE BRANCH RECONSTRUCTION MAPPER
-// --------------------------------------------------------------------------
 function markReachable(commitSha, branchName, map, visited = new Set()) {
     if (!commitSha || visited.has(commitSha)) return;
     visited.add(commitSha);
@@ -1099,18 +1102,6 @@ function markReachable(commitSha, branchName, map, visited = new Set()) {
         markReachable(parent, branchName, map, visited);
     }
 }
-
-// ==========================================================================
-// 2. MAIN D3 VERTICAL TIMELINE LAYOUT ENGINE
-// ==========================================================================
-
-// ==========================================================================
-// D3 TIME-SCALE VERTICAL GRAPH ENGINE
-// ==========================================================================
-
-// ==========================================================================
-// D3 DYNAMIC HEIGHT TIME-SCALE ENGINES
-// ==========================================================================
 
 async function main() {
     const branches = await getBranches();
@@ -1237,7 +1228,5 @@ async function main() {
 
     console.log("Auto-scaling vertical canvas operational.");
 }
-
-
 
 main();
