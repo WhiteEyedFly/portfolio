@@ -1,12 +1,5 @@
-type Post = {
-    date: string;
-    title: string;
-    text: string;
-};
-
 import { otherPages, makeLink } from "./shared.js";
-
-const posts: Post[] = [
+const posts = [
     {
         date: "21/06/2026",
         title: "Learning Polish",
@@ -22,22 +15,19 @@ const posts: Post[] = [
         title: "Portfolio launched",
         text: "Today I launched the portfolio. It's been rather a long time coming, I've really enjoyed getting to grips with HTML, CSS and JS over the course of the past couple weeks working on this."
     }
-]
-
-async function mainBlog(){
-    for(let i = 0; i < posts.length; i++){
-        addPost(posts[i])
+];
+async function mainBlog() {
+    for (let i = 0; i < posts.length; i++) {
+        addPost(posts[i]);
     }
-    for(let i = 0; i < otherPages.length; i++){
-        makeLink(otherPages[i])
+    for (let i = 0; i < otherPages.length; i++) {
+        makeLink(otherPages[i]);
     }
 }
-
-async function addPost(post: Post){
+async function addPost(post) {
     const posts = document.querySelector(".blogPosts");
-    if (!posts) return
-
-    posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`
+    if (!posts)
+        return;
+    posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`;
 }
-
-mainBlog()
+mainBlog();

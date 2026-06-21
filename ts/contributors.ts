@@ -3,7 +3,7 @@ type Contributor = {
     git: string
 }
 
-import { otherPages, makeLink } from "./shared.ts";
+import { otherPages, makeLink } from "./shared.js";
 
 const contributors: Contributor[] = [
     {
