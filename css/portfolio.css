@@ -399,16 +399,6 @@ p{
 
         max-height: none;
     }
-    div.pfp{
-        margin: auto;
-    }
-    div.detail{
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-}
-
-@media screen and (max-width: 500px) {
     div.about{
         height: fit-content;
         min-width: unset;
@@ -420,7 +410,83 @@ p{
         height: fit-content;
         max-height: unset;
     }
-    div.project{
-        max-height: unset;
+    div.pfp{
+        margin: auto;
+    }
+    div.detail{
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    div.projectList{
+        perspective: unset;
+
+        height: unset;
+        padding: 0px;
+        overflow-x: unset;
+        height:fit-content;
+        display: grid;
+        gap: none;
+
+        scroll-behavior: none;
+        padding-left: none;
+        padding-right: none;
+
+        -webkit-mask-image: unset;
+
+    mask-image: unset;
+
+        -webkit-scrollbar{
+            display: none;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background: rgba(72, 72, 72, 0.6);
+        }
+
+        cursor:auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .project{
+        display: flex;
+        flex-direction: column;
+        cursor: auto;
+
+        transform-style: preserve-3d;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        position: relative; 
+
+        flex: 0 0 20em;
+        width: 25em;
+        background: rgba(208, 208, 208, 0.6);
+        border-color: rgba(72, 72, 72, 0.1);
+        border-style: solid;
+
+        overflow: hidden;
+        border-radius: 0.5em;
+        text-align: center;
+
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        transform: translateZ(0);
+    }
+    .project > .projImg{
+        width: 25em;
+    }
+    .projectMax{
+        display: block;
+        cursor: auto;
+
+        position:static;
+
+        width: 27em;
+        height: fit-content;
+        background: rgb(208, 208, 208, 0.97);
+        border-color: rgba(72, 72, 72, 0.1);
+        border-style: solid;
+
+        border-radius: 1em;
     }
 }
