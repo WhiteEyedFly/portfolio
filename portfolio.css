@@ -94,14 +94,14 @@ img.image{
 div.projectList{
     perspective: 1000px;
 
-    margin: 3em auto;
+    height: 26em;
     overflow-x: auto;
     display: flex;
-    gap: 1em;
+    gap: 1.5em;
 
+    scroll-behavior: smooth;
     padding-left: 7em;
-    padding-right: 7em;
-    padding-bottom: 1em;
+    padding-right: -14em;
 
     -webkit-mask-image: linear-gradient(
     to left,
@@ -126,10 +126,72 @@ div.projectList{
     ::-webkit-scrollbar-thumb{
         background: rgba(72, 72, 72, 0.6);
     }
+
+    cursor: grab;
+}
+
+.projectList.active {
+    cursor: grabbing;
+}
+
+
+.floater{
+    padding-top: 1em;
+    position: relative;
+    z-index: 9999;
+    height: 0;
+}
+
+div.projectList::after {
+    content: "";
+    flex: 0 0 7em;
+}
+
+.projectMax{
+    display: block;
+    cursor: pointer;
+
+    width: 92em;
+    height: 26em;
+    background: rgb(208, 208, 208, 0.97);
+    border-color: rgba(72, 72, 72, 0.1);
+    border-style: solid;
+
+    overflow-y: scroll;
+    border-radius: 1em;
+}
+
+.maxSpacer{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+div.maxProjImg{
+    width: fit-content;
+    height: fit-content;
+
+    overflow: hidden;
+    opacity: 100%;
+    padding: 0.5em;
+}
+
+div.maxProjImg > img{
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    border-style: solid;
+    border-radius: 10px;
+    
+    max-height: 25em;
+
+    object-fit:fill;
+    object-position: 100% 0%;
 }
 
 .project{
-    display: block;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
 
     transform-style: preserve-3d;
@@ -137,7 +199,7 @@ div.projectList{
     position: relative; 
 
     flex: 0 0 20em;
-    height: 25em;
+    height: 23em;
     background: rgba(208, 208, 208, 0.6);
     border-color: rgba(72, 72, 72, 0.1);
     border-style: solid;
@@ -148,6 +210,10 @@ div.projectList{
 
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     transform: translateZ(0);
+}
+
+.projectMax input{
+    display: none;
 }
 
 .project input{
@@ -199,10 +265,14 @@ div.projImg > img{
     height: 100%;
     width: 100%;
     
-    max-height: 15em;
+    max-height: 21em;
 
     object-fit:fill;
     object-position: 100% 0%;
+}
+
+.project .title{
+    margin-top:auto;
 }
 
 div.experienceList{

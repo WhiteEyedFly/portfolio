@@ -19,6 +19,11 @@ const otherPages = [
 
 posts = [
     {
+        date: "21/06/2026",
+        title: "Learning Polish",
+        text: "Wow it is hard to spend a whole day only speaking a language you don't know. Massive props to anyone who's ever learnt a language, it's such hard work. <br>It's been fun though; thankfully I have my wonderful partner to help me along."
+    },
+    {
         date: "31/05/2026",
         title: "Kilordle Solver finished",
         text: "The Kilordle project has been a fantastic motivation boost. I've been beating my head against it for a week now and finally found a solution that works. <br>More importantly though, I've gained experience with so many types of programming and so many programming ideas I've never experimented with before. I feel like I've gained a much better understanding of how problems are solved with code in the working world."

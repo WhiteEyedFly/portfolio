@@ -1,3 +1,5 @@
+// Necessary data
+
 const projectList = [
     {
         title: "Mini Games",
@@ -8,7 +10,7 @@ const projectList = [
         link: "https://github.com/WhiteEyedFly?tab=repositories"
     },
     {
-        title: "Polish to English revision tool",
+        title: "Polish-English revision tool",
         info: "As an extension of trying to pick up Polish for my partner, I figured I'd whip up a little tool to help with my revision. <br><br>Ripped kaikki JSONLs and Polish wikipedia to create a Polish to English Dictionary <br>Made a Polish to English translator <br>Made a Polish sentence generator tool <br>Made a TKinter app that allows users to choose their difficulty and revision type when practicing learning Polish <br>Made an English Thesaurus tool <br>Prioritised translations by word frequency based on analysis of Polish Wikipedia <br>Made tools highly extendable to other languages if others wish to add to the project <br><br>Role of AI in this project: <br>test.py was created using AI at the end of the project to see how well AI could simulate the work I had done here. It has far less support than the rest of the code as it doesn't plug into the databases I ripped. <br>Verdict: AI was able to massively speed up some of the more trivial parts of the project but couldn't perform as well as ny code when it came to sentence generation, a much more complex task.",
         skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish", "Data Cleaning", "Polars", "AI"],
         image: "projectimages/Translator.png",
@@ -18,7 +20,7 @@ const projectList = [
     {
         title: "Debt Simplifier - Pandas",
         info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
-        skills: ["Excel", "Pandas", "Python", "Matplotlib", "Numpy"],
+        skills: ["Excel", "Pandas", "Matplotlib", "Numpy"],
         image: "projectimages/DebtSimplifierPandas.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/Debt-Simplifier/blob/main/README.md"
@@ -34,7 +36,7 @@ const projectList = [
     {
         title: "Kilordle Solver",
         info: "Find the optimal solution to the Webgame Kilordle (30 words).",
-        skills: ["Backtracking", "DFS", "Greedy Algorithm", "Python", "Linear", "SAT Solvers", "Pandas", "Data Analysis", "D&C", "Dynamic"],
+        skills: ["Backtracking", "Greedy", "Python", "Linear", "SAT Solvers", "Pandas", "D&C", "Dynamic"],
         image: "projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"},
@@ -60,7 +62,7 @@ const projectList = [
         contributions: "Myself: Project Management, UI, Database Generation <br>Natalie Welsh: UI, Systems <br>James Ferguson: AI", 
         link: "https://github.com/NW643/BattleSim"},
     {
-        title: "Choose Your Own Adventure - Excel",
+        title: "CYOA - Excel",
         info: "Used VBA and Excel to create a 'page' switcher (pulling from a page bank on another sheet) based on button presses.",
         skills: ["Excel", "VBA"],
         image: "projectimages/UniversitySimulator.png",
@@ -173,25 +175,7 @@ const otherPages = [
     },
 ]
 
-
-async function main(){
-    for (let i = 0; i < skillsList.length; i++){
-        makeSkill(skillsList[i])
-    }
-    for (let i = 0; i < otherPages.length; i++){
-        makeLink(otherPages[i])
-    }
-    for (let i = 0; i < projectList.length; i++){
-        makeProject(projectList[i], i)
-    }
-    for (let i = 0; i < experienceList.length; i++){
-        makeExperience(experienceList[i])
-    }
-    for (let i = 0; i < educationList.length; i++){
-        makeEducation(educationList[i])
-    }
-    
-}
+// Initialisation
 
 async function makeSkill(skill){
     const skills = document.querySelector(".skillsList");
@@ -208,7 +192,7 @@ async function makeProject(projectDict, index){
     // Add the project structure
     const projects = document.querySelector(".projectList");
 
-    let htmlAdded = `<label class="project" data-index="${index}"><input type="checkbox" class="cb" checked="floater(${projectDict})"><div class="projImg">`
+    let htmlAdded = `<label class="project" data-index="${index}"><input type="checkbox" class="cb"><div class="projImg">`
 
     // Add images
     if (projectDict.image === "projectimages/.png"){
@@ -216,15 +200,7 @@ async function makeProject(projectDict, index){
     } else {
         htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
     }
-    htmlAdded += `</div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div>`
-
-    // More info
-    htmlAdded += `<div class="moreInfo"><p class=subtext>${projectDict.info}</p><p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p></div>`
-
-    // Add link if present
-    if (projectDict.link === ""){} else {
-        htmlAdded += `<a href=${projectDict.link}>Read more</a>`
-    }
+    htmlAdded += `</div><div class="skillsList"></div><p class="title">${projectDict.title}</p>`
 
     htmlAdded += `</div></label>`
 
@@ -255,6 +231,28 @@ async function makeEducation(educationDict){
     education.innerHTML +=`<div class="box"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
 }
 
+
+async function main(){
+    for (let i = 0; i < skillsList.length; i++){
+        makeSkill(skillsList[i])
+    }
+    for (let i = 0; i < otherPages.length; i++){
+        makeLink(otherPages[i])
+    }
+    for (let i = 0; i < projectList.length; i++){
+        makeProject(projectList[i], i)
+    }
+    for (let i = 0; i < experienceList.length; i++){
+        makeExperience(experienceList[i])
+    }
+    for (let i = 0; i < educationList.length; i++){
+        makeEducation(educationList[i])
+    }
+    
+}
+
+// Search bar code
+
 function searcher(){
     let search = document.getElementById("search").value
     document.getElementById("projectList").innerHTML = "";
@@ -275,19 +273,20 @@ function searcher(){
     }
 }
 
+// maxProj code
+
 document.addEventListener("change", (e) => {
     const cb = e.target;
     if (!cb.classList.contains("cb")) return;
 
+    const floatLayer = document.querySelector(".floater");
 
     if(cb.checked){
         // Add the project structure
-        const floatLayer = document.querySelector(".floater");
         const index = cb.closest(".project").dataset.index
         const project = projectList[index]
-        // this.checked = false;
 
-        let htmlAdded = `<label class="project"><input type="checkbox" class="cb"><div class="projImg">`
+        let htmlAdded = `<label class="projectMax"><input type="checkbox" checked="true" class="cb"><div class="maxSpacer"><div class="maxProjImg">`
 
         // Add images
         if (project.image === "projectimages/.png"){
@@ -295,20 +294,64 @@ document.addEventListener("change", (e) => {
         } else {
             htmlAdded += `<img pfp src=${project.image} alt="Project photo">`
         }
-        htmlAdded += `</div><div><p class="title">${project.title}</p><div class="skillsList"></div>`
-
-        // More info
-        htmlAdded += `<p class=subtext>${project.info}</p><p class=title2>Contributors:</p><p class=subtext>${project.contributions}</p>`
 
         // Add link if present
         if (project.link){
             htmlAdded += `<a href=${project.link}>Read more</a>`
         }
 
-        htmlAdded += `</div></label>`
+        htmlAdded += `</div><div class="maxText"><div><p class="title">${project.title}</p><div class="skillsList"></div>`
+
+        // More info
+        htmlAdded += `<p class=subtext>${project.info}</p><p class=title2>Contributors:</p><p class=subtext>${project.contributions}</p>`
+
+        
+
+        htmlAdded += `</div></div></div></label>`
 
         floatLayer.innerHTML = htmlAdded;
     }
+    else if (!cb.checked){
+        floatLayer.innerHTML = "";
+    }
+    cb.checked = false;
+
+    makeSkills(projects, project)
 })
+
+// Drag code for project list
+
+const projList = document.querySelector(".projectList");
+
+let isDown = false;
+let startX = 0;
+let scrollLeft = 0;
+
+projList.addEventListener("mousedown", (e) => {
+    isDown = true;
+    projList.classList.add("dragging");
+    startX = e.clientX;
+    scrollLeft = projList.scrollLeft;
+});
+
+projList.addEventListener("mouseup", () => {
+    isDown = false;
+    projList.classList.remove("dragging");
+});
+
+projList.addEventListener("mouseleave", () => {
+    isDown = false;
+    projList.classList.remove("dragging");
+});
+
+projList.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+
+    const y = e.clientX;
+    const walk = (y - startX) * 1.5;
+
+    projList.scrollLeft = scrollLeft - walk;
+});
 
 main()
