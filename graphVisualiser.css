@@ -1,0 +1,20 @@
+.container{
+    border: 3px;
+    border-style: solid;
+    border-color: #484848;
+    border-radius: 7px;
+}
+
+#graphVisualiser{
+    width: 100%;
+    height: 2000em;
+    overflow-y: scroll;
+}
+
+g{
+    width: fit-content;
+}
+
+rect.bar{
+    fill: rgb(171, 125, 68);
+}
