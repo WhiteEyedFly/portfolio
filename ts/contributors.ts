@@ -1,4 +1,9 @@
-contributors = [
+type Contributor = {
+    name: string,
+    git: string
+}
+
+const contributors: Contributor[] = [
     {
         name: "George Rawlinson",
         git: "https://github.com/TheGogy"
@@ -32,8 +37,10 @@ async function mainContributors(){
     }
 }
 
-async function addContributor(contributor){
+async function addContributor(contributor: Contributor){
     const contributors = document.querySelector(".contributorsList");
+    if (!contributors) return;
+
     contributors.innerHTML += `<div class="contributor"><div><p>${contributor.name}</p><a href="${contributor.git}">Github</a></div></div>`
 }
 

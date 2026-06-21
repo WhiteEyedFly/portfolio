@@ -1,4 +1,10 @@
-posts = [
+type Post = {
+    date: string;
+    title: string;
+    text: string;
+};
+
+const posts: Post[] = [
     {
         date: "21/06/2026",
         title: "Learning Polish",
@@ -25,8 +31,10 @@ async function mainBlog(){
     }
 }
 
-async function addPost(post){
+async function addPost(post: Post){
     const posts = document.querySelector(".blogPosts");
+    if (!posts) return
+
     posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`
 }
 
