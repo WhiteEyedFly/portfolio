@@ -1,5 +1,7 @@
 const projectList = [
     {
+    },
+    {
         title: "Mini Games",
         info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
         skills: ["Python", "Pruning", "Alpha Beta", "MRV", "Itertools", "String"],
@@ -207,34 +209,40 @@ async function makeProject(projectDict){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
-    let htmlAdded = `<div class="project"><div class="centerer"><div class="projImg">`
 
-    // Add images
-    if (projectDict.image === "projectimages/.png"){
-        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
-    } else {
-        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
+    if (Object.keys(projectDict).length === 0){
+        let htmlAdded = `<div class="spacer"></div>`
     }
-    htmlAdded += `</div></div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p class=subtext>${projectDict.info}</p>`
+    else{
+        let htmlAdded = `<div class="project"><div class="projImg">`
 
-    // Add contributors
-    htmlAdded += `<p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p>`
+        // Add images
+        if (projectDict.image === "projectimages/.png"){
+            htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
+        } else {
+            htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
+        }
+        htmlAdded += `</div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p class=subtext>${projectDict.info}</p>`
 
-    // Add link if present
-    if (projectDict.link === ""){} else {
-        htmlAdded += `<a href=${projectDict.link}>Read more</a>`
+        // Add contributors
+        htmlAdded += `<p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p>`
+
+        // Add link if present
+        if (projectDict.link === ""){} else {
+            htmlAdded += `<a href=${projectDict.link}>Read more</a>`
+        }
+
+        htmlAdded += `</div></div>`
+
+        projects.innerHTML += htmlAdded
+        
+        makeSkills(projects, projectDict)
     }
-
-    htmlAdded += `</div></div>`
-
-    projects.innerHTML += htmlAdded
-    
-    makeSkills(projects, projectDict)
 }
 
 async function makeExperience(experienceDict){
     const experiences = document.querySelector(".experienceList");
-    experiences.innerHTML += `<div class="project"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p class=subtext>${experienceDict.description}</p></div>`
+    experiences.innerHTML += `<div class="box"><p>${experienceDict.dates}</p><p class="title">${experienceDict.title}</p><div class="skillsList"></div><p class=subtext>${experienceDict.description}</p></div>`
 
     makeSkills(experiences, experienceDict)
 }
@@ -251,7 +259,7 @@ async function makeSkills(object, dict){
 
 async function makeEducation(educationDict){
     const education = document.querySelector(".educationList");
-    education.innerHTML +=`<div class="project"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
+    education.innerHTML +=`<div class="box"><p>${educationDict.years}</p><p class="title">${educationDict.course}</p><p>${educationDict.place}</p><p class=subtext>${educationDict.description}</p></div>`
 }
 
 function searcher(){

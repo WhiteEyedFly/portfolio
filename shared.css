@@ -98,33 +98,52 @@ div.contactsList:hover {
 
 div.contactsList{
     display: none;
+
+    width: 125px;
 }
 
 div.contactsList > ul{
     list-style: none;
+
     margin: 0;
     padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(80px, 3);
+    grid-row-gap: 1em;
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 10px;
 }
 
 div.contactsList > ul > li{
-    display: flex;
-    align-items: center;
-    gap: 0px;
+    border-radius: 10px;
+    font-size: 12px;
 
-    width: fit-content;
-    margin: 0px;
-    padding: 0px;
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+}
+
+div.contactsList > ul > li:hover{
+    background-color: #748058;
 }
 
 div.linkBox{
     display: flex;
+
+    justify-content: center;
     align-items: center;
+    text-align: center;
+
     gap: 10px;
-    
-    padding: 0.4em;
+}
+
+div.linkBox:hover{
+  fill:#3c422b;
 }
 
 div.linkBox > a {
@@ -139,10 +158,6 @@ div.linkBox > a > svg{
     width: 30px;
     height: 30px;
     flex-shrink: 0;
-}
-
-div.linkBox:hover > a > svg{
-  fill:#3c422b;
 }
 
 h1.pageName{
@@ -182,9 +197,8 @@ h1.pageName{
 
 ul.pageList{
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-columns: repeat(80px, 4);
     
-    grid-column-gap: 1em;
     grid-row-gap: 1em;
     grid-auto-rows:minmax(10px, auto);
     justify-content: end;
@@ -205,8 +219,7 @@ div.page{
     align-items: center;
     text-align: center;
 
-    min-width: 20px;
-    max-width: 100px;
+    width: 100px;
     height: 40px;
     padding: 3px;
 }
