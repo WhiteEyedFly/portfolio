@@ -3,6 +3,8 @@ type Contributor = {
     git: string
 }
 
+import { otherPages, makeLink } from "./shared.ts";
+
 const contributors: Contributor[] = [
     {
         name: "George Rawlinson",

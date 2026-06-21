@@ -3,7 +3,7 @@ type Page = {
     link: string;
 };
 
-const otherPages: Page[] = [
+export const otherPages: Page[] = [
     {
         text: "Blog",
         link: "blog.html"
@@ -22,7 +22,7 @@ const otherPages: Page[] = [
     },
 ]
 
-async function makeLink(page: Page): Promise<void> {
+export async function makeLink(page: Page): Promise<void> {
     const pages = document.querySelector(".pageList");
     if (!pages) return
 

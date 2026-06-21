@@ -25,6 +25,8 @@ type Education = {
 
 // Necessary data
 
+import { otherPages, makeLink } from "./shared.ts";
+
 const projectList: Project[] = [
     {
         title: "Mini Games",
@@ -255,20 +257,26 @@ async function main(): Promise<void>{
 
 // Search bar code
 
-function searcher(): Promise<void>{
-    let search = document.getElementById("search").value
-    document.getElementById("projectList").innerHTML = "";
+function searcher(): void {
+    const searchInput = document.getElementById("search") as HTMLInputElement | null;
+    const projectContainer = document.getElementById("projectList") as HTMLElement | null;
 
-    for (let i = 0; i < projectList.length; i++){
-        if (search == ""){
-            makeProject(projectList[i])
-        }
-        else{
-            for (let j = 0; j < projectList[i].skills.length; j++){
-                console.log(i)
-                if (projectList[i].skills[j].toUpperCase().includes(search.toUpperCase())){
-                    makeProject(projectList[i])
-                    break
+    if (!searchInput || !projectContainer) return;
+
+    const search = searchInput.value;
+
+    projectContainer.innerHTML = "";
+
+    for (let i = 0; i < projectList.length; i++) {
+        const project = projectList[i];
+
+        if (search === "") {
+            makeProject(project, i);
+        } else {
+            for (let j = 0; j < project.skills.length; j++) {
+                if (project.skills[j].toUpperCase().includes(search.toUpperCase())) {
+                    makeProject(project, i);
+                    break;
                 }
             }
         }
@@ -282,7 +290,8 @@ document.addEventListener("change", (e: Event) => {
 
     if (!target.classList.contains("cb")) return;
 
-    const floatLayer = querySelector(".floater");
+    const floatLayer = document.querySelector<HTMLElement>(".floater");
+    if (!floatLayer) return;
 
     if (target.checked) {
         const parent = target.closest<HTMLElement>(".project");
@@ -309,7 +318,7 @@ document.addEventListener("change", (e: Event) => {
 
 // Drag code for project list
 
-const projList = document.querySelector(".projectList");
+const projList = document.querySelector<HTMLElement>(".projectList");
 
 let isDown = false;
 let startX = 0;
@@ -317,9 +326,11 @@ let scrollLeft = 0;
 
 if (projList){
     projList.addEventListener("mousedown", (e: MouseEvent) => {
+        const event = e as MouseEvent;
+
         isDown = true;
         projList.classList.add("dragging");
-        startX = e.clientX;
+        startX = event.clientX;
         scrollLeft = projList.scrollLeft;
     });
 
@@ -333,12 +344,14 @@ if (projList){
         projList.classList.remove("dragging");
     });
 
-    projList.addEventListener("mousemove", (e: MouseEvent) => {
-        if (!isDown) return;
-        e.preventDefault();
+    projList.addEventListener("mousemove", (e) => {
+        const event = e as MouseEvent;
 
-        const y = e.clientX;
-        const walk = (y - startX) * 1.5;
+        if (!isDown) return;
+        event.preventDefault();
+
+        const x = event.clientX;
+        const walk = (x - startX) * 1.5;
 
         projList.scrollLeft = scrollLeft - walk;
     });

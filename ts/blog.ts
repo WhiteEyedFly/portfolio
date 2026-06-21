@@ -4,6 +4,8 @@ type Post = {
     text: string;
 };
 
+import { otherPages, makeLink } from "./shared.ts";
+
 const posts: Post[] = [
     {
         date: "21/06/2026",
