@@ -5,7 +5,7 @@ const projectList = [
         title: "Mini Games",
         info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
         skills: ["Python", "Pruning", "Alpha Beta", "MRV", "Itertools", "String"],
-        image: "projectimages/Minigames.png",
+        image: "assets/projectimages/Minigames.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly?tab=repositories"
     },
@@ -13,7 +13,7 @@ const projectList = [
         title: "Polish-English revision tool",
         info: "As an extension of trying to pick up Polish for my partner, I figured I'd whip up a little tool to help with my revision. <br><br>Ripped kaikki JSONLs and Polish wikipedia to create a Polish to English Dictionary <br>Made a Polish to English translator <br>Made a Polish sentence generator tool <br>Made a TKinter app that allows users to choose their difficulty and revision type when practicing learning Polish <br>Made an English Thesaurus tool <br>Prioritised translations by word frequency based on analysis of Polish Wikipedia <br>Made tools highly extendable to other languages if others wish to add to the project <br><br>Role of AI in this project: <br>test.py was created using AI at the end of the project to see how well AI could simulate the work I had done here. It has far less support than the rest of the code as it doesn't plug into the databases I ripped. <br>Verdict: AI was able to massively speed up some of the more trivial parts of the project but couldn't perform as well as ny code when it came to sentence generation, a much more complex task.",
         skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish", "Data Cleaning", "Polars", "AI"],
-        image: "projectimages/Translator.png",
+        image: "assets/projectimages/Translator.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/polish/blob/main/README.md"
     },
@@ -21,7 +21,7 @@ const projectList = [
         title: "Debt Simplifier - Pandas",
         info: "Rebasing an old project for easier access and to help test my skills in Pandas. <br><br>Takes a matrix of debts between a general n people and returns a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "Pandas", "Matplotlib", "Numpy"],
-        image: "projectimages/DebtSimplifierPandas.png",
+        image: "assets/projectimages/DebtSimplifierPandas.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/Debt-Simplifier/blob/main/README.md"
     },
@@ -29,7 +29,7 @@ const projectList = [
         title: "Slay the Spire AI",
         info: "Ongoing Project: <br><br>Goals: <br>Remake the Steam game Slay the Spire 2 in TKinter <br>Create several hard coded AI to run against one another and analyse 1,000's of ascensions to get a better hold on worthwhile cards and relics <br>Create a neural network to define optimal performance in random runs of Slay the Spire 2.",
         skills: ["Machine Learning", "Python", "TKinter"],
-        image: "projectimages/.png",
+        image: "assets/projectimages/.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/Slay-the-Spire-AI"
     },
@@ -37,77 +37,77 @@ const projectList = [
         title: "Kilordle Solver",
         info: "Find the optimal solution to the Webgame Kilordle (30 words).",
         skills: ["Backtracking", "Greedy", "Python", "Linear", "SAT Solvers", "Pandas", "D&C", "Dynamic"],
-        image: "projectimages/KilordleSolver.png",
+        image: "assets/projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"},
     {
         title: "Portfolio",
         info: "You're looking at it.",
         skills: ["CSS", "GitHub", "HTML", "JS"],
-        image: "projectimages/Portfolio.png",
+        image: "assets/projectimages/Portfolio.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/portfolio/blob/main/README.md"},
     {
         title: "Web Scraper",
         info: "Following and adapting a tutorial on accessing information from websites in preparation for a future larger project. Resulting in the development of my first SEO tool.",
         skills: ["GitHub", "JS", "SEO"],
-        image: "projectimages/Webscraper.png",
+        image: "assets/projectimages/Webscraper.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/First-Webscraper/blob/main/README.md"},
     {
         title: "Pokemon Battle Simulator",
         info: "Managed a small team of game developers to remake Pokemon and make a better Pokemon AI for University of Bath's 2026 Hackathon. <br><br>Ideas for continuation of project: <br>Extend the project to become a Pokemon AI trainer or a new, more difficult Pokemon fangame.",
         skills: ["Excel", "Pygame", "Python", "TKInter", "R"],
-        image: "projectimages/Pokemon.png",
+        image: "assets/projectimages/Pokemon.png",
         contributions: "Myself: Project Management, UI, Database Generation <br>Natalie Welsh: UI, Systems <br>James Ferguson: AI", 
         link: "https://github.com/NW643/BattleSim"},
     {
         title: "CYOA - Excel",
         info: "Used VBA and Excel to create a 'page' switcher (pulling from a page bank on another sheet) based on button presses.",
         skills: ["Excel", "VBA"],
-        image: "projectimages/UniversitySimulator.png",
+        image: "assets/projectimages/UniversitySimulator.png",
         contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Finance Tracker - Excel",
         info: "Used Excel formulae to create 'accounts' that track my income, expenses and transfer of funds <br>Used Excel pivot tables to create data summary tables and graphs about my finances <br>Used VBA to semi-automate the entry of card transactions to the excel file <br><br>Ideas for continuation of project: <br>Move the project over to SQL and Streamlit.",
         skills: ["Excel", "VBA", "Pivot Tables"],
-        image: "projectimages/FinanceTracker.png",
+        image: "assets/projectimages/FinanceTracker.png",
         contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Denise's Time Crypt",
         info: "Managed a small team of game developers and artists to make a calculator-based Roguelike for University of Bath's 2025 GameJam.",
         skills: ["Game Dev", "Godot", "Team Management"],
-        image: "projectimages/Denise'sTimeCrypt.png",
+        image: "assets/projectimages/Denise'sTimeCrypt.png",
         contributions: "Myself: Project Management, UI <br>Natalie Welsh: Systems Design <br>Samuel Ndenecho: Text Editing Software <br>James Ferguson: AI <br>QingZhi Li: Art & Design", 
         link: "https://github.com/Gender-Bender-Studios/GenderBentCalc/blob/main/README.md"},
     {
         title: "Autocorrect",
         info: "Frustrated by the autocorrect that comes with my phone, I learnt AHK and the theory behind Levenshtein distances to code my own autocorrect.",
         skills: ["AHK"],
-        image: "projectimages/Levenshtein.png",
+        image: "assets/projectimages/Levenshtein.png",
         contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Debt Simplifier",
         info: "Used R to take any matrix of debts between a general n people and return a simplified matrix of the minimum number of payments for the minimum amounts necessary to resolve all debts. The project was originally inspired by debt accumulation between holiday goers in a friend group but I wanted to code a general solution to any similar problem.",
         skills: ["Excel", "R"],
-        image: "projectimages/DebtSimplifierPandas.png",
+        image: "assets/projectimages/DebtSimplifierPandas.png",
         contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Hunter x Hunter RPG",
         info: "Designed a Hunter x Hunter inspired tabletop system for personal use.",
         skills: ["Game Dev"],
-        image: "projectimages/HunterHunter.png",
+        image: "assets/projectimages/HunterHunter.png",
         contributions: "Myself: Full project", 
         link: ""},
     {
         title: "Project Site",
         info: "A prequel to this portfolio use to post personal projects - art and writing for the most part. <br>This was built using a html template however, rather than from scratch.",
         skills: ["GitHub"],
-        image: "projectimages/ProjectsPage.png",
+        image: "assets/projectimages/ProjectsPage.png",
         contributions: "Myself: Full project <br>Support: Samuel Ndenecho, Tom Bluu", 
         link: ""}
 ]
@@ -195,8 +195,8 @@ async function makeProject(projectDict, index){
     let htmlAdded = `<label class="project" data-index="${index}"><input type="checkbox" class="cb"><div class="projImg">`
 
     // Add images
-    if (projectDict.image === "projectimages/.png"){
-        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
+    if (projectDict.image === "assets/projectimages/.png"){
+        htmlAdded += `<img pfp src="assets/projectimages/Placeholder.png" alt="Project photo">`
     } else {
         htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
     }
@@ -289,8 +289,8 @@ document.addEventListener("change", (e) => {
         let htmlAdded = `<label class="projectMax"><input type="checkbox" checked="true" class="cb"><div class="maxSpacer"><div class="maxProjImg">`
 
         // Add images
-        if (project.image === "projectimages/.png"){
-            htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
+        if (project.image === "assets/projectimages/.png"){
+            htmlAdded += `<img pfp src="assets/projectimages/Placeholder.png" alt="Project photo">`
         } else {
             htmlAdded += `<img pfp src=${project.image} alt="Project photo">`
         }
