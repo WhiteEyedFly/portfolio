@@ -306,13 +306,20 @@ document.addEventListener("change", (e) => {
             return;
         const index = Number(parent.dataset.index);
         const project = projectList[index];
-        floatLayer.innerHTML = `
+
+        var htmlAdded = `
             <label class="projectMax">
                 <input type="checkbox" class="cb" checked>
                 <div class="maxSpacer">
-                    <div class="maxProjImg">
-                        <img src=${project.image} alt="Project photo">
-                        <p>  </p>
+                    <div class="maxProjImg">`
+
+        if (project.image === "assets/projectimages/.png"){
+            htmlAdded += `<img src="assets/projectimages/Placeholder.png" alt="Project photo">`
+        } else {
+            htmlAdded += `<img src="${project.image}" alt="Project photo">`
+        }
+
+        htmlAdded += `<p>  </p>
                         <a href=${project.link}>Read More Here</a>
                     </div>
                     <div class="maxText">
@@ -320,8 +327,9 @@ document.addEventListener("change", (e) => {
                         <p class="subtext">${project.info}</p>
                     </div>
                 </div>
-            </label>
-        `;
+            </label>`;
+
+        floatLayer.innerHTML = htmlAdded
     }
     else {
         floatLayer.innerHTML = "";
