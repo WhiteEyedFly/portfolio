@@ -189,7 +189,7 @@ async function makeSkill(skill: string): Promise<void>{
     const skills = document.querySelector(".skillsList");
     if (!skills) return
 
-    skills.innerHTML += `<div class="skill">${skill}</div>`
+    skills.innerHTML += `<button class="skill" onclick="buttonSearch('${skill}')">${skill}</button>`
 }
 
 async function makeProject(project: Project, index: number): Promise<void> {
@@ -234,7 +234,7 @@ async function makeSkills(container: Element, item: { skills: string[] }): Promi
     const orderedSkillList = item.skills.sort()
 
     for (let i = 0; i < item.skills.length; i++){
-        skillList.innerHTML += `<div class="projSkill">${orderedSkillList[i]}</div>`
+        skillList.innerHTML += `<button class="projSkill" onclick="buttonSearch('${orderedSkillList[i]}')">${orderedSkillList[i]}</button>`
     }
 }
 
@@ -278,6 +278,41 @@ async function main(): Promise<void>{
             } else {
                 for (let j = 0; j < project.skills.length; j++) {
                     if (project.skills[j].toUpperCase().includes(search.toUpperCase())) {
+                        makeProject(project, i);
+                        break;
+                    }
+                } 
+            }
+            
+        }
+    }
+}
+
+declare global {
+    interface Window {
+        buttonSearch: (skill: string) => void;
+    }
+}
+
+// Button code
+(window as any).buttonSearch = function buttonSearch(skill: string): void {
+    const projectContainer = document.getElementById("projectList") as HTMLElement | null;
+
+    if (!projectContainer) return;
+
+    projectContainer.innerHTML = "";
+
+    for (let i = 0; i < projectList.length; i++) {
+        const project = projectList[i];
+
+        if (skill === "") {
+            makeProject(project, i);
+        } else {
+            if (project.title.toUpperCase().includes(skill.toUpperCase())){
+                makeProject(project, i);
+            } else {
+                for (let j = 0; j < project.skills.length; j++) {
+                    if (project.skills[j].toUpperCase().includes(skill.toUpperCase())) {
                         makeProject(project, i);
                         break;
                     }

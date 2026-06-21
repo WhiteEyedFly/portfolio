@@ -178,7 +178,7 @@ async function makeSkill(skill) {
     const skills = document.querySelector(".skillsList");
     if (!skills)
         return;
-    skills.innerHTML += `<div class="skill">${skill}</div>`;
+    skills.innerHTML += `<button class="skill" onclick="buttonSearch('${skill}')">${skill}</button>`;
 }
 async function makeProject(project, index) {
     // Add the project structure
@@ -215,7 +215,7 @@ async function makeSkills(container, item) {
         return;
     const orderedSkillList = item.skills.sort();
     for (let i = 0; i < item.skills.length; i++) {
-        skillList.innerHTML += `<div class="projSkill">${orderedSkillList[i]}</div>`;
+        skillList.innerHTML += `<button class="projSkill" onclick="buttonSearch('${orderedSkillList[i]}')">${orderedSkillList[i]}</button>`;
     }
 }
 async function makeEducation(education) {
@@ -260,6 +260,38 @@ window.searcher = function searcher() {
         }
     }
 }
+
+// Button code
+window.buttonSearch = function buttonSearch(skill) {
+    const projectContainer = document.getElementById("projectList");
+
+    if (!projectContainer) return;
+
+    console.log(skill)
+
+    projectContainer.innerHTML = "";
+
+    for (let i = 0; i < projectList.length; i++) {
+        const project = projectList[i];
+
+        if (skill === "") {
+            makeProject(project, i);
+        } else {
+            if (project.title.toUpperCase().includes(skill.toUpperCase())){
+                makeProject(project, i);
+            } else {
+                for (let j = 0; j < project.skills.length; j++) {
+                    if (project.skills[j].toUpperCase().includes(skill.toUpperCase())) {
+                        makeProject(project, i);
+                        break;
+                    }
+                } 
+            }
+            
+        }
+    }
+}
+
 // maxProj code
 document.addEventListener("change", (e) => {
     const target = e.target;

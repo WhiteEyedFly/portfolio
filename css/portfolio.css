@@ -304,7 +304,7 @@ div.skillsList{
     gap: 0.2em;
 }
 
-div.skill{
+button.skill{
     border-style: solid;
     border-width: 2px;
     border-color:#484848;
@@ -321,7 +321,7 @@ div.skill{
     padding-right: 4px;
 }
 
-div.projSkill{
+button.projSkill{
     border-style: solid;
     border-width: 2px;
     border-color: #484848;
