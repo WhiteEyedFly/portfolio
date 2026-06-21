@@ -1,23 +1,17 @@
-const otherPages = [
-    {
-        text: "Blog",
-        link: "blog.html"
-    },
-    {
-        text: "Contributors",
-        link: "contributors.html"
-    },
-    {
-        text: "Personal Projects",
-        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    },
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
-    },
-]
+type Post = {
+    date: string;
+    title: string;
+    text: string;
+};
 
-posts = [
+import { otherPages, makeLink } from "./shared.js";
+
+const posts: Post[] = [
+    {
+        date: "21/06/2026",
+        title: "Learning Polish",
+        text: "Wow it is hard to spend a whole day only speaking a language you don't know. Massive props to anyone who's ever learnt a language, it's such hard work. <br>It's been fun though; thankfully I have my wonderful partner to help me along."
+    },
     {
         date: "31/05/2026",
         title: "Kilordle Solver finished",
@@ -39,14 +33,11 @@ async function mainBlog(){
     }
 }
 
-async function addPost(post){
+async function addPost(post: Post){
     const posts = document.querySelector(".blogPosts");
-    posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`
-}
+    if (!posts) return
 
-async function makeLink(pageDict){
-    const pages = document.querySelector(".pageList");
-    pages.innerHTML += `<div class="page"><a class="link" href="${pageDict.link}">${pageDict.text}</a></div>`
+    posts.innerHTML += `<div class="post"><div><p>${post.date}</p><p class="title">${post.title}</p><p>${post.text}</p></div></div>`
 }
 
 mainBlog()

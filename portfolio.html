@@ -3,12 +3,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <head>
-        <link rel="stylesheet" href="shared.css">
-        <link rel="stylesheet" href="portfolio.css">
+        <link rel="stylesheet" href="css/shared.css">
+        <link rel="stylesheet" href="css/portfolio.css">
         <link rel="shortcut icon" href="">
     </head>
 
-    <body style="background-image:url('background.jpg'); background-size:100% 100%; background-attachment: fixed;">
+    <body style="background-image:url('assets/background.jpg'); background-size:100% 100%; background-attachment: fixed;">
         <div class="container">
             <header class="header">
                 <div class="linksList">
@@ -67,7 +67,7 @@
                 <!--Intro-->
                 <div class="about">
                     <div class="pfp"> 
-                        <img src="pfp.jpg" alt="Joshua Woodbridge" class="image">
+                        <img src="assets/pfp.jpg" alt="Joshua Woodbridge" class="image">
                     </div>
 
                     <p class="title">Joshua "Dennis" Woodbridge</p>
@@ -75,7 +75,7 @@
                     <p>Based in: Bristol, UK</p>
                     <div>
                         <p class="title">About Me</p>
-                        <p>
+                        <p style="padding-left: 0; text-align: center;">
                             <!--About me-->
                             Throughout University, I've worked on many pet projects focused on data analysis in games; creating game AI, determining optimal strategy & analysis game play data to create recommendation algorithms.
                         </p>
@@ -90,14 +90,13 @@
                 <!--Main body, all self populating-->
                 <div class="seperator">
                     <div class="topOfList">
-                        <p class="title">Projects</p>
+                        <p class="title">Projects</p><p class="subtext" style="text-align:left;">(Click to read more)</p>
                         <div class="searchBar">
                             <input type="text" placeholder="Search by skill..." id="search" oninput="searcher()">
                         </div>
                     </div>
                     <div class="detail">
-                        <div class="spacer"></div>
-
+                        <div class="floater"></div>
                         <div class="projectList" id="projectList"></div>
 
                         <p class="title">Work</p>
@@ -113,5 +112,6 @@
         </div>
     </body>
 
-    <script src="portfolio.js"></script>
+    <script type="module" src = "ts/shared.js"></script>
+    <script type="module" src="ts/portfolio.js"></script>
 </html>

@@ -92,54 +92,187 @@ img.image{
 }
 
 div.projectList{
-    display:grid;
+    perspective: 1000px;
 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 1em;
-    grid-row-gap: 1em;
-    grid-auto-rows:minmax(100px, auto);
+    height: 26em;
+    overflow-x: auto;
+    display: flex;
+    gap: 1.5em;
+
+    scroll-behavior: smooth;
+    padding-left: 7em;
+    padding-right: -14em;
+
+    -webkit-mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+    -webkit-scrollbar{
+        display: none;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgba(72, 72, 72, 0.6);
+    }
+
+    cursor: grab;
 }
 
-div.project{
-    scroll-snap-align: start;
+.projectList.active {
+    cursor: grabbing;
+}
 
-    background: rgba(208, 208, 208, 0.6);
 
-    max-height: 36rem;
+.floater{
+    padding-top: 1em;
+    position: relative;
+    z-index: 9999;
+    height: 0;
+}
+
+div.projectList::after {
+    content: "";
+    flex: 0 0 7em;
+}
+
+.projectMax{
+    display: block;
+    cursor: pointer;
+
+    width: 92em;
+    height: 26em;
+    background: rgb(208, 208, 208, 0.97);
+    border-color: rgba(72, 72, 72, 0.1);
+    border-style: solid;
+
     overflow-y: scroll;
+    border-radius: 1em;
+}
 
-    padding: 1em;
+.maxSpacer{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+div.maxProjImg{
+    width: fit-content;
+    height: fit-content;
+
+    overflow: hidden;
+    opacity: 100%;
+    padding: 0.5em;
+}
+
+div.maxProjImg > img{
+    display: block;
+    height: 100%;
+    width: 100%;
 
     border-style: solid;
-    border-color: RGBa(72, 72, 72, 0.6);
-    border-radius: 7px;
-    border-width: 3px;
+    border-radius: 10px;
+    
+    max-height: 25em;
+
+    object-fit:fill;
+    object-position: 100% 0%;
 }
 
-div.projImg{
-    width:fit-content;
-    height: fit-content;
-    overflow: hidden;
+.project{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 
+    transform-style: preserve-3d;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative; 
+
+    flex: 0 0 20em;
+    height: 23em;
+    background: rgba(208, 208, 208, 0.6);
+    border-color: rgba(72, 72, 72, 0.1);
+    border-style: solid;
+
+    overflow: hidden;
+    border-radius: 0.5em;
+    text-align: center;
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transform: translateZ(0);
+}
+
+.projectMax input{
+    display: none;
+}
+
+.project input{
+    display: none;
+}
+/*
+.project:checked{
+    max-width: none;
+}
+
+.project:has(input:checked) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 9999;
+
+  background: inherit;
+  border-radius: 0.5em;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.45);
+}
+*/
+div.projImg{
+    width: fit-content;
+    height: fit-content;
+
+    overflow: hidden;
     opacity: 100%;
 
-    max-width: fit-content;
+    -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(208, 208, 208) 0%,
+    rgba(208, 208, 208) 80%,
+    transparent 100%
+  );
 
-    border-style: solid;
-    border-color: #484848;
-    border-radius: 7px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(208, 208, 208) 0%,
+    rgba(208, 208, 208) 80%,
+    transparent 100%
+  );
 }
 
 div.projImg > img{
     display: block;
-    width: 100%;
     height: 100%;
-
-    max-width: 40em;
-    max-height: 18em;
+    width: 100%;
+    
+    max-height: 21em;
 
     object-fit:fill;
     object-position: 100% 0%;
+}
+
+.project .title{
+    margin-top:auto;
 }
 
 div.experienceList{
@@ -153,9 +286,21 @@ div.educationList{
     gap: 1em;
 }
 
+div.box{
+    background: rgba(208, 208, 208, 0.6);
+    border-color: rgba(72, 72, 72, 0.1);
+    border-style: solid;
+
+    overflow: hidden;
+    padding: 1em;
+
+    border-radius: 0.5em;
+}
+
 div.skillsList{
     display:flex;
     flex-wrap: wrap;
+    padding: 0.5em;
     gap: 0.2em;
 }
 
@@ -191,6 +336,11 @@ div.projSkill{
     padding: 2px;
     padding-left: 4px;
     padding-right: 4px;
+}
+
+p{
+    text-align: left;
+    padding-left: 1em;
 }
 
 /* Search bar functionality */
@@ -272,8 +422,5 @@ div.projSkill{
     }
     div.project{
         max-height: unset;
-    }
-    div.spacer{
-        height:unset;
     }
 }

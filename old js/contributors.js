@@ -1,3 +1,4 @@
+/*
 const otherPages = [
     {
         text: "Blog",
