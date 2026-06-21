@@ -232,11 +232,13 @@ async function main() {
     educationList.forEach(makeEducation);
 }
 // Search bar code
-function searcher() {
+window.searcher = function searcher() {
     const searchInput = document.getElementById("search");
     const projectContainer = document.getElementById("projectList");
+
     if (!searchInput || !projectContainer)
         return;
+
     const search = searchInput.value;
     projectContainer.innerHTML = "";
     for (let i = 0; i < projectList.length; i++) {
@@ -271,9 +273,16 @@ document.addEventListener("change", (e) => {
         floatLayer.innerHTML = `
             <label class="projectMax">
                 <input type="checkbox" class="cb" checked>
-                <div class="maxText">
-                    <p class="title">${project.title}</p>
-                    <p class="subtext">${project.info}</p>
+                <div class="maxSpacer">
+                    <div class="maxProjImg">
+                        <img src=${project.image} alt="Project photo">
+                        <p>  </p>
+                        <a href=${project.link}>Read More Here</a>
+                    </div>
+                    <div class="maxText">
+                        <p class="title">${project.title}</p>
+                        <p class="subtext">${project.info}</p>
+                    </div>
                 </div>
             </label>
         `;
@@ -317,5 +326,3 @@ if (projList) {
 window.onload = () => {
     main();
 };
-
-console.log("portfolio script loaded")

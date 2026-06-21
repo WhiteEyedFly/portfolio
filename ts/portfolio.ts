@@ -257,7 +257,7 @@ async function main(): Promise<void>{
 
 // Search bar code
 
-function searcher(): void {
+(window as any).searcher = function searcher(): void {
     const searchInput = document.getElementById("search") as HTMLInputElement | null;
     const projectContainer = document.getElementById("projectList") as HTMLElement | null;
 
@@ -303,9 +303,16 @@ document.addEventListener("change", (e: Event) => {
         floatLayer.innerHTML = `
             <label class="projectMax">
                 <input type="checkbox" class="cb" checked>
-                <div class="maxText">
-                    <p class="title">${project.title}</p>
-                    <p class="subtext">${project.info}</p>
+                <div class="maxSpacer">
+                    <div class="maxProjImg">
+                        <img src=${project.image} alt="Project photo">
+                        <p>  </p>
+                        <a href=${project.link}>Read More Here</a>
+                    </div>
+                    <div class="maxText">
+                        <p class="title">${project.title}</p>
+                        <p class="subtext">${project.info}</p>
+                    </div>
                 </div>
             </label>
         `;
