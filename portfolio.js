@@ -1,7 +1,5 @@
 const projectList = [
     {
-    },
-    {
         title: "Mini Games",
         info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
         skills: ["Python", "Pruning", "Alpha Beta", "MRV", "Itertools", "String"],
@@ -36,7 +34,7 @@ const projectList = [
     {
         title: "Kilordle Solver",
         info: "Find the optimal solution to the Webgame Kilordle (30 words).",
-        skills: ["Backtracking", "DFS", "Greedy Algorithm", "Python", "Linear Programming", "SAT Solvers", "Pandas", "Data Analysis", "Divide & Conquer", "Dynamic Programming"],
+        skills: ["Backtracking", "DFS", "Greedy Algorithm", "Python", "Linear", "SAT Solvers", "Pandas", "Data Analysis", "D&C", "Dynamic"],
         image: "projectimages/KilordleSolver.png",
         contributions: "Myself: Full project <br>Inspiration & Discussion: George Rawlinson and Natalie Welsh", 
         link: "https://github.com/WhiteEyedFly/Kilordle-Solver"},
@@ -184,7 +182,7 @@ async function main(){
         makeLink(otherPages[i])
     }
     for (let i = 0; i < projectList.length; i++){
-        makeProject(projectList[i])
+        makeProject(projectList[i], i)
     }
     for (let i = 0; i < experienceList.length; i++){
         makeExperience(experienceList[i])
@@ -205,39 +203,34 @@ async function makeLink(pageDict){
     pages.innerHTML += `<a class="link" href="${pageDict.link}"><div class="page">${pageDict.text}</div></a>`
 }
 
-async function makeProject(projectDict){
+async function makeProject(projectDict, index){
 
     // Add the project structure
     const projects = document.querySelector(".projectList");
 
-    if (Object.keys(projectDict).length === 0){
-        let htmlAdded = `<div class="spacer"></div>`
+    let htmlAdded = `<label class="project" data-index="${index}"><input type="checkbox" class="cb" checked="floater(${projectDict})"><div class="projImg">`
+
+    // Add images
+    if (projectDict.image === "projectimages/.png"){
+        htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
+    } else {
+        htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
     }
-    else{
-        let htmlAdded = `<div class="project"><div class="projImg">`
+    htmlAdded += `</div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div>`
 
-        // Add images
-        if (projectDict.image === "projectimages/.png"){
-            htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
-        } else {
-            htmlAdded += `<img pfp src=${projectDict.image} alt="Project photo">`
-        }
-        htmlAdded += `</div><div><p class="title">${projectDict.title}</p><div class="skillsList"></div><p class=subtext>${projectDict.info}</p>`
+    // More info
+    htmlAdded += `<div class="moreInfo"><p class=subtext>${projectDict.info}</p><p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p></div>`
 
-        // Add contributors
-        htmlAdded += `<p class=title2>Contributors:</p><p class=subtext>${projectDict.contributions}</p>`
-
-        // Add link if present
-        if (projectDict.link === ""){} else {
-            htmlAdded += `<a href=${projectDict.link}>Read more</a>`
-        }
-
-        htmlAdded += `</div></div>`
-
-        projects.innerHTML += htmlAdded
-        
-        makeSkills(projects, projectDict)
+    // Add link if present
+    if (projectDict.link === ""){} else {
+        htmlAdded += `<a href=${projectDict.link}>Read more</a>`
     }
+
+    htmlAdded += `</div></label>`
+
+    projects.innerHTML += htmlAdded
+    
+    makeSkills(projects, projectDict)
 }
 
 async function makeExperience(experienceDict){
@@ -271,7 +264,6 @@ function searcher(){
             makeProject(projectList[i])
         }
         else{
-            //console.log(projectList[i])
             for (let j = 0; j < projectList[i].skills.length; j++){
                 console.log(i)
                 if (projectList[i].skills[j].toUpperCase().includes(search.toUpperCase())){
@@ -282,5 +274,41 @@ function searcher(){
         }
     }
 }
+
+document.addEventListener("change", (e) => {
+    const cb = e.target;
+    if (!cb.classList.contains("cb")) return;
+
+
+    if(cb.checked){
+        // Add the project structure
+        const floatLayer = document.querySelector(".floater");
+        const index = cb.closest(".project").dataset.index
+        const project = projectList[index]
+        // this.checked = false;
+
+        let htmlAdded = `<label class="project"><input type="checkbox" class="cb"><div class="projImg">`
+
+        // Add images
+        if (project.image === "projectimages/.png"){
+            htmlAdded += `<img pfp src="projectimages/Placeholder.png" alt="Project photo">`
+        } else {
+            htmlAdded += `<img pfp src=${project.image} alt="Project photo">`
+        }
+        htmlAdded += `</div><div><p class="title">${project.title}</p><div class="skillsList"></div>`
+
+        // More info
+        htmlAdded += `<p class=subtext>${project.info}</p><p class=title2>Contributors:</p><p class=subtext>${project.contributions}</p>`
+
+        // Add link if present
+        if (project.link){
+            htmlAdded += `<a href=${project.link}>Read more</a>`
+        }
+
+        htmlAdded += `</div></label>`
+
+        floatLayer.innerHTML = htmlAdded;
+    }
+})
 
 main()
