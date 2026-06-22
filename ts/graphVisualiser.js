@@ -1,0 +1,1289 @@
+import { otherPages, makeLink } from "./shared.js";
+
+let commitsBackup = [
+  {
+    "sha": "d5877b988a73c1104a02ffbfbcc72e271cc8cd3d",
+    "message": "Final fixes",
+    "date": "2026-06-21T21:29:36Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "61914c620f7356b3ec44e513e27d9ee834619453"
+    ]
+  },
+  {
+    "sha": "61914c620f7356b3ec44e513e27d9ee834619453",
+    "message": "Mobile compatibility restored",
+    "date": "2026-06-21T21:08:22Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "7f357f74e095c5ae7091a558a9f7cfe1bfd4377e"
+    ]
+  },
+  {
+    "sha": "7f357f74e095c5ae7091a558a9f7cfe1bfd4377e",
+    "message": "Lukewarm mobile compatibility fix - will need further touch ups",
+    "date": "2026-06-21T12:36:16Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b8a6a201fefd701b28aa67445441ce13b231402c"
+    ]
+  },
+  {
+    "sha": "b8a6a201fefd701b28aa67445441ce13b231402c",
+    "message": "Buttons now search",
+    "date": "2026-06-21T10:58:08Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "9697e26c796e4248b626abb69e8e3e7446ffb5aa"
+    ]
+  },
+  {
+    "sha": "9697e26c796e4248b626abb69e8e3e7446ffb5aa",
+    "message": "Improved search bar - project names now factor in",
+    "date": "2026-06-21T10:21:47Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "3219fa552768e3bc1c70c174ff368d04cdb4bb78"
+    ]
+  },
+  {
+    "sha": "3219fa552768e3bc1c70c174ff368d04cdb4bb78",
+    "message": "Merge to refactor1",
+    "date": "2026-06-21T10:08:02Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "31a039cd8bfc0e3be05f171ea814c0d90a27a829",
+      "238a17e2d0a003f71f37d136b3fd6cad6907516e"
+    ]
+  },
+  {
+    "sha": "31a039cd8bfc0e3be05f171ea814c0d90a27a829",
+    "message": "Merge back to main from refactor1",
+    "date": "2026-06-21T09:58:33Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b242f9920a236eae6dd432b370b21df3e243e514"
+    ]
+  },
+  {
+    "sha": "238a17e2d0a003f71f37d136b3fd6cad6907516e",
+    "message": "Fixed projectMax and searcher - broken during to TS switch@",
+    "date": "2026-06-21T09:55:10Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "dc04ee12697e99a79429cb922f4003a52ea25257"
+    ]
+  },
+  {
+    "sha": "dc04ee12697e99a79429cb922f4003a52ea25257",
+    "message": "TS conversion finished",
+    "date": "2026-06-21T09:36:33Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "bbd01678af2a5998f68c815a1c14e6af3d3de4c7"
+    ]
+  },
+  {
+    "sha": "bbd01678af2a5998f68c815a1c14e6af3d3de4c7",
+    "message": "TS sees no errors",
+    "date": "2026-06-21T09:22:35Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "1b5a56a0c4daba7ca6ca81ed7ac93a53aa914db3"
+    ]
+  },
+  {
+    "sha": "1b5a56a0c4daba7ca6ca81ed7ac93a53aa914db3",
+    "message": "TS port finished for all but main page",
+    "date": "2026-06-21T09:07:15Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "7d96e5557dadce8385fbad22b5c9a4afca3bf6fe"
+    ]
+  },
+  {
+    "sha": "7d96e5557dadce8385fbad22b5c9a4afca3bf6fe",
+    "message": "port to TS started",
+    "date": "2026-06-21T09:01:38Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "db9bac8d878d2fda7dfa99ce042a853ede2b1850"
+    ]
+  },
+  {
+    "sha": "db9bac8d878d2fda7dfa99ce042a853ede2b1850",
+    "message": "restructured files",
+    "date": "2026-06-21T08:11:43Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "100686d0427292577ec316331df8ddb13d082376"
+    ]
+  },
+  {
+    "sha": "100686d0427292577ec316331df8ddb13d082376",
+    "message": ".gitignore made and minor positioning fixes",
+    "date": "2026-06-21T08:02:26Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "30dc8a9b35e5068f9b311b6defeedc8d50d6d66e"
+    ]
+  },
+  {
+    "sha": "30dc8a9b35e5068f9b311b6defeedc8d50d6d66e",
+    "message": "project maximiser functional - barely",
+    "date": "2026-06-21T06:15:45Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8748449ca62f86373180dcd8c866b5745b2f7e9a"
+    ]
+  },
+  {
+    "sha": "8748449ca62f86373180dcd8c866b5745b2f7e9a",
+    "message": "functioning project slider and resized dropdowns",
+    "date": "2026-06-21T04:41:24Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "e5ce827c833a859f3d712cb86c3b4cc6f7ef4409"
+    ]
+  },
+  {
+    "sha": "e5ce827c833a859f3d712cb86c3b4cc6f7ef4409",
+    "message": "start of branch",
+    "date": "2026-06-21T03:28:23Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b242f9920a236eae6dd432b370b21df3e243e514"
+    ]
+  },
+  {
+    "sha": "b242f9920a236eae6dd432b370b21df3e243e514",
+    "message": "minor height fix",
+    "date": "2026-06-19T20:02:15Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6409057c100ad0b3665749a17d2c721cc800bfeb"
+    ]
+  },
+  {
+    "sha": "6409057c100ad0b3665749a17d2c721cc800bfeb",
+    "message": "max-height error on detail fixed",
+    "date": "2026-06-19T20:00:45Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "af39829810fc1160747e20c89cc6caa10b67cb0d"
+    ]
+  },
+  {
+    "sha": "af39829810fc1160747e20c89cc6caa10b67cb0d",
+    "message": "spcing fixes",
+    "date": "2026-06-19T19:58:31Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "851114cf2d4f31fc13975065e53d156ac0c847e8"
+    ]
+  },
+  {
+    "sha": "851114cf2d4f31fc13975065e53d156ac0c847e8",
+    "message": "faded search bar fixed",
+    "date": "2026-06-19T19:35:47Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "83989fa28bc4a216b37a3270edd1a2c22da58bbf"
+    ]
+  },
+  {
+    "sha": "83989fa28bc4a216b37a3270edd1a2c22da58bbf",
+    "message": "skill size change",
+    "date": "2026-06-19T19:24:59Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "e28036126e1317027b9ee4c42910b153c1a30973"
+    ]
+  },
+  {
+    "sha": "e28036126e1317027b9ee4c42910b153c1a30973",
+    "message": "title fix",
+    "date": "2026-06-19T19:24:04Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "844d965ff3f83dbc7180d805f12b84bc6aac4394"
+    ]
+  },
+  {
+    "sha": "844d965ff3f83dbc7180d805f12b84bc6aac4394",
+    "message": "transparency changes",
+    "date": "2026-06-19T18:39:48Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "bc1fa3a12df6296a23ef77ffceba0d2f451c892d"
+    ]
+  },
+  {
+    "sha": "bc1fa3a12df6296a23ef77ffceba0d2f451c892d",
+    "message": "finalised Polish project",
+    "date": "2026-06-19T15:02:10Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "40995f19262e99eef7d91e2cdf1f1fa2b1bc94eb"
+    ]
+  },
+  {
+    "sha": "40995f19262e99eef7d91e2cdf1f1fa2b1bc94eb",
+    "message": "minor opacity and colour fixes",
+    "date": "2026-06-18T22:34:38Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "5420aa5731d93a537b463b853387de65053d8b2f"
+    ]
+  },
+  {
+    "sha": "5420aa5731d93a537b463b853387de65053d8b2f",
+    "message": "background and fade out",
+    "date": "2026-06-18T22:32:05Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "969295b9960a4e8a4fa5f18161a54972fd6eb3da"
+    ]
+  },
+  {
+    "sha": "969295b9960a4e8a4fa5f18161a54972fd6eb3da",
+    "message": "mobile top bar spacing fix",
+    "date": "2026-06-18T21:47:10Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "02591ab3afcd663d93972615a5f81baff9a8e344"
+    ]
+  },
+  {
+    "sha": "02591ab3afcd663d93972615a5f81baff9a8e344",
+    "message": "skills update and minor fixes",
+    "date": "2026-06-18T21:44:13Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "f9a54117c1ac64de942ff0bb4e14e8c86c8db956"
+    ]
+  },
+  {
+    "sha": "f9a54117c1ac64de942ff0bb4e14e8c86c8db956",
+    "message": "mini games added",
+    "date": "2026-06-18T21:28:06Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "88eeb2e35ab82bf4ebf6d61fbf72c05d13867b84"
+    ]
+  },
+  {
+    "sha": "88eeb2e35ab82bf4ebf6d61fbf72c05d13867b84",
+    "message": "dropdowns added",
+    "date": "2026-06-17T17:47:37Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "0c85dcf8c771944ccd1c00c58f0541a1ec2c86b7"
+    ]
+  },
+  {
+    "sha": "0c85dcf8c771944ccd1c00c58f0541a1ec2c86b7",
+    "message": "PtE tool update 2",
+    "date": "2026-06-09T21:26:16Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8a5d89ec5e513f392e10666789b8c717c34e9cb3"
+    ]
+  },
+  {
+    "sha": "8a5d89ec5e513f392e10666789b8c717c34e9cb3",
+    "message": "PtE tool update",
+    "date": "2026-06-09T21:15:55Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "a5ed967552d1455e882a493a2572182e2fbbddda"
+    ]
+  },
+  {
+    "sha": "a5ed967552d1455e882a493a2572182e2fbbddda",
+    "message": "P to E project added",
+    "date": "2026-06-03T19:53:30Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "a15bf65b961448196885190ccab03be430a6e160"
+    ]
+  },
+  {
+    "sha": "a15bf65b961448196885190ccab03be430a6e160",
+    "message": "fact check",
+    "date": "2026-05-31T23:12:41Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8ec33edacaa0bb6d222ef29a92c1fab56722dc44"
+    ]
+  },
+  {
+    "sha": "8ec33edacaa0bb6d222ef29a92c1fab56722dc44",
+    "message": "search bar working",
+    "date": "2026-05-31T23:03:53Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "ab0d4ff41af0a431ef439894495c98da18cd1076"
+    ]
+  },
+  {
+    "sha": "ab0d4ff41af0a431ef439894495c98da18cd1076",
+    "message": "dw about it",
+    "date": "2026-05-31T21:39:56Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "c8b71f908f76b6ee64ccc099bd7d0445d1145802"
+    ]
+  },
+  {
+    "sha": "c8b71f908f76b6ee64ccc099bd7d0445d1145802",
+    "message": "centered pfp",
+    "date": "2026-05-31T21:35:40Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "dac121dc1e26bf117d4ad28abcb8ad0bcb84e3d1"
+    ]
+  },
+  {
+    "sha": "dac121dc1e26bf117d4ad28abcb8ad0bcb84e3d1",
+    "message": "css split up and 2nd blog post",
+    "date": "2026-05-31T21:22:06Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "cb664c5e7e4c9314874963e0381c418ee3aafeea"
+    ]
+  },
+  {
+    "sha": "cb664c5e7e4c9314874963e0381c418ee3aafeea",
+    "message": "kilordle project glaze",
+    "date": "2026-05-31T20:32:58Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "aab2ee85a8c722b7f87dab13a3f222cec8a719e7"
+    ]
+  },
+  {
+    "sha": "aab2ee85a8c722b7f87dab13a3f222cec8a719e7",
+    "message": "nothing",
+    "date": "2026-05-31T16:09:28Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "58c1bdcf0c5abeb1917e5611873a20a3a42bb0ec"
+    ]
+  },
+  {
+    "sha": "58c1bdcf0c5abeb1917e5611873a20a3a42bb0ec",
+    "message": "spacing issues",
+    "date": "2026-05-31T15:45:34Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "a4a5dbd5d2cf45833f32cf5c7e5515cdfb6d0cf7"
+    ]
+  },
+  {
+    "sha": "a4a5dbd5d2cf45833f32cf5c7e5515cdfb6d0cf7",
+    "message": "spacing issues",
+    "date": "2026-05-31T15:36:40Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8aa99cc7b4222ec19325de82f689d0ba4ac435fd"
+    ]
+  },
+  {
+    "sha": "8aa99cc7b4222ec19325de82f689d0ba4ac435fd",
+    "message": "kilordle project finished",
+    "date": "2026-05-31T15:30:37Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "a44fdc0577fca259dd5ee1ad839b2baa71c9a7cf"
+    ]
+  },
+  {
+    "sha": "a44fdc0577fca259dd5ee1ad839b2baa71c9a7cf",
+    "message": "solved page header overlap issues",
+    "date": "2026-05-31T14:18:35Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6622f4070269df8c8d539db2d457d5c9e41f78f1"
+    ]
+  },
+  {
+    "sha": "6622f4070269df8c8d539db2d457d5c9e41f78f1",
+    "message": "contributors page finished",
+    "date": "2026-05-31T14:11:56Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "27a2ae84b25ff319d2e7b52fbb8cc990c3b889cc"
+    ]
+  },
+  {
+    "sha": "27a2ae84b25ff319d2e7b52fbb8cc990c3b889cc",
+    "message": "contributors page added",
+    "date": "2026-05-31T14:01:08Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "76af817c518e3dda72c6be82596c145540d0ce84"
+    ]
+  },
+  {
+    "sha": "76af817c518e3dda72c6be82596c145540d0ce84",
+    "message": "contributors logic added",
+    "date": "2026-05-31T13:31:33Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "5821e8d3642dd9ccab57e4442a530ead0b43ba04"
+    ]
+  },
+  {
+    "sha": "5821e8d3642dd9ccab57e4442a530ead0b43ba04",
+    "message": "contributors added, no logic",
+    "date": "2026-05-31T12:31:41Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "ff714b42d7049ee3189802100d32cbea302d47ff"
+    ]
+  },
+  {
+    "sha": "ff714b42d7049ee3189802100d32cbea302d47ff",
+    "message": "more kilordle skills added",
+    "date": "2026-05-27T12:22:06Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "39c4fcf6b4fac637a32251b02c2fcab75b156e95"
+    ]
+  },
+  {
+    "sha": "39c4fcf6b4fac637a32251b02c2fcab75b156e95",
+    "message": "debt simplifier - pandas added",
+    "date": "2026-05-25T08:18:30Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "76f6ccaef08e773af3d498ffa0b20f87f993555b"
+    ]
+  },
+  {
+    "sha": "76f6ccaef08e773af3d498ffa0b20f87f993555b",
+    "message": "blog borders",
+    "date": "2026-05-25T00:14:37Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "f80952dbb29f214d675abc180240d504b52d7720"
+    ]
+  },
+  {
+    "sha": "f80952dbb29f214d675abc180240d504b52d7720",
+    "message": "link hover colours",
+    "date": "2026-05-25T00:04:21Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "78bba664b53cfc02c956b572ef9b547a4486ce93"
+    ]
+  },
+  {
+    "sha": "78bba664b53cfc02c956b572ef9b547a4486ce93",
+    "message": "pc fix - website size",
+    "date": "2026-05-24T23:54:15Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "f19fc781e7de9222c259bf8f3f82952945281a59"
+    ]
+  },
+  {
+    "sha": "f19fc781e7de9222c259bf8f3f82952945281a59",
+    "message": "mobile fix - search bar positioning and scrollers",
+    "date": "2026-05-24T23:50:16Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6f1af92f71293bbf2539fb721fd6cfebef703f63"
+    ]
+  },
+  {
+    "sha": "6f1af92f71293bbf2539fb721fd6cfebef703f63",
+    "message": "mobile fix - about",
+    "date": "2026-05-24T23:43:45Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6622e787b601f2d591c77b4e23136d0d1340ee3b"
+    ]
+  },
+  {
+    "sha": "6622e787b601f2d591c77b4e23136d0d1340ee3b",
+    "message": "buttons redone",
+    "date": "2026-05-24T22:49:21Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "52c753dca62e1ea3c545c701211004cffa47687c"
+    ]
+  },
+  {
+    "sha": "52c753dca62e1ea3c545c701211004cffa47687c",
+    "message": "file renaming support",
+    "date": "2026-05-24T22:33:01Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "12e5a712a5a69863b10f09df40690417f68c3efe"
+    ]
+  },
+  {
+    "sha": "12e5a712a5a69863b10f09df40690417f68c3efe",
+    "message": "rename portfolio",
+    "date": "2026-05-24T22:30:39Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "05be6db10191261ae8c81ab3ef0de5c033fb6e2b"
+    ]
+  },
+  {
+    "sha": "05be6db10191261ae8c81ab3ef0de5c033fb6e2b",
+    "message": "pfp size fix",
+    "date": "2026-05-24T16:55:30Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "4a30bbd87be1f9b0d008f510b84ed237cd2634b5"
+    ]
+  },
+  {
+    "sha": "4a30bbd87be1f9b0d008f510b84ed237cd2634b5",
+    "message": "image taken down",
+    "date": "2026-05-24T16:49:00Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "7153575302d650ad94125b03fefea068325d3012"
+    ]
+  },
+  {
+    "sha": "7153575302d650ad94125b03fefea068325d3012",
+    "message": "div wrapper div position fix for mobile",
+    "date": "2026-05-24T16:48:00Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "afa8bbba0607629d0089e6caa0256cae7e3ba994"
+    ]
+  },
+  {
+    "sha": "afa8bbba0607629d0089e6caa0256cae7e3ba994",
+    "message": "fixing type errors",
+    "date": "2026-05-24T16:44:35Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "0f4cc51ff331df15a8a5f22afb1bbad6cb18c03b"
+    ]
+  },
+  {
+    "sha": "0f4cc51ff331df15a8a5f22afb1bbad6cb18c03b",
+    "message": "basic screen adaptation on images and header",
+    "date": "2026-05-24T16:43:47Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "f16ab6c814da186ae64171ffc9024850d26a786d"
+    ]
+  },
+  {
+    "sha": "f16ab6c814da186ae64171ffc9024850d26a786d",
+    "message": "non-functional search bar and basice screen adaptation for wrapper element and text",
+    "date": "2026-05-24T16:24:36Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "9ca8c84f85f3de33b9e6b92d6ea6ae43ee44074f"
+    ]
+  },
+  {
+    "sha": "9ca8c84f85f3de33b9e6b92d6ea6ae43ee44074f",
+    "message": "reworked makeProject for readability and adaptability",
+    "date": "2026-05-24T12:11:01Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "af9f37081a1c77866e3d506b06525a2f8089c1ea"
+    ]
+  },
+  {
+    "sha": "af9f37081a1c77866e3d506b06525a2f8089c1ea",
+    "message": "mkaeSkills function added to centralise functionality",
+    "date": "2026-05-24T11:55:39Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "9619a6ea4edb1a430b5de87d67394e3b5bc95282"
+    ]
+  },
+  {
+    "sha": "9619a6ea4edb1a430b5de87d67394e3b5bc95282",
+    "message": "skillsList ordered alphabetically",
+    "date": "2026-05-24T11:52:04Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "2405a0e6d31043be524d125f380b4c1c001e3465"
+    ]
+  },
+  {
+    "sha": "2405a0e6d31043be524d125f380b4c1c001e3465",
+    "message": "fact checking",
+    "date": "2026-05-24T00:18:23Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "107f0e69668a7e5eba1a32b26041534a8d8ee93b"
+    ]
+  },
+  {
+    "sha": "107f0e69668a7e5eba1a32b26041534a8d8ee93b",
+    "message": "rejigging education and experience layout",
+    "date": "2026-05-24T00:17:12Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "fc1dfd7cd9fd6b56c5da238d8e0bd9c08c4439fc"
+    ]
+  },
+  {
+    "sha": "fc1dfd7cd9fd6b56c5da238d8e0bd9c08c4439fc",
+    "message": "job descriptions added",
+    "date": "2026-05-24T00:07:35Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b6526cc9350280b61e95588ecd418b6794e38900"
+    ]
+  },
+  {
+    "sha": "b6526cc9350280b61e95588ecd418b6794e38900",
+    "message": "placeholder images changed",
+    "date": "2026-05-23T23:49:20Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "72a683bd9aa377ec9072ab71a391d83547433a72"
+    ]
+  },
+  {
+    "sha": "72a683bd9aa377ec9072ab71a391d83547433a72",
+    "message": "placeholder images added",
+    "date": "2026-05-23T23:46:52Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "ef0091fab1692d9a7184cf51d8d04c1a7a5d1d7e"
+    ]
+  },
+  {
+    "sha": "ef0091fab1692d9a7184cf51d8d04c1a7a5d1d7e",
+    "message": "project descriptions added",
+    "date": "2026-05-23T23:24:00Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "ebb396705f5672150f984cb467102a97e42748c1"
+    ]
+  },
+  {
+    "sha": "ebb396705f5672150f984cb467102a97e42748c1",
+    "message": "project images added",
+    "date": "2026-05-23T22:56:58Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "7f5014aafef09e51dbd9e5481f7d8e756d84c573"
+    ]
+  },
+  {
+    "sha": "7f5014aafef09e51dbd9e5481f7d8e756d84c573",
+    "message": "bringing blog design back into accord",
+    "date": "2026-05-23T22:02:45Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "42630bc982ef361f514013019a455d596cb914de"
+    ]
+  },
+  {
+    "sha": "42630bc982ef361f514013019a455d596cb914de",
+    "message": "header fix",
+    "date": "2026-05-23T21:55:15Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "bf815b42e6f2331dedac1bdbf1b30d388fbf1e25"
+    ]
+  },
+  {
+    "sha": "bf815b42e6f2331dedac1bdbf1b30d388fbf1e25",
+    "message": "phone test 2",
+    "date": "2026-05-23T20:57:01Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "213a53979341aa4f91312e540b9cdef8683fbead"
+    ]
+  },
+  {
+    "sha": "213a53979341aa4f91312e540b9cdef8683fbead",
+    "message": "phone test 1",
+    "date": "2026-05-23T20:52:10Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "084013ecb10a90ab98580afa9b5ec58973532274"
+    ]
+  },
+  {
+    "sha": "084013ecb10a90ab98580afa9b5ec58973532274",
+    "message": "pfp fix",
+    "date": "2026-05-23T20:42:37Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "51a02c46b357dab57822aa9a06cbfc3ce6c54fe3"
+    ]
+  },
+  {
+    "sha": "51a02c46b357dab57822aa9a06cbfc3ce6c54fe3",
+    "message": "height fixes",
+    "date": "2026-05-23T19:54:28Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "fe1db41fac3369ecd094faaaea065b0a555f7f15"
+    ]
+  },
+  {
+    "sha": "fe1db41fac3369ecd094faaaea065b0a555f7f15",
+    "message": "some projects added 1",
+    "date": "2026-05-07T20:23:59Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "fb5e7e07a7df3c78fe9e13677719e8a5c938ae8a"
+    ]
+  },
+  {
+    "sha": "fb5e7e07a7df3c78fe9e13677719e8a5c938ae8a",
+    "message": "skills added to experience and Project titles added",
+    "date": "2026-05-07T20:12:25Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "93bf97ca7267d403fa1188842f843e024695008d"
+    ]
+  },
+  {
+    "sha": "93bf97ca7267d403fa1188842f843e024695008d",
+    "message": "education and experience filled in preliminary",
+    "date": "2026-05-07T20:06:28Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "9c9cf8c658e0bed8f1cd04fe0a1e1e46fd8ffca2"
+    ]
+  },
+  {
+    "sha": "9c9cf8c658e0bed8f1cd04fe0a1e1e46fd8ffca2",
+    "message": "header fixed",
+    "date": "2026-05-07T19:48:30Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6373345aced06ea164a47732fe3c4d8e96630ed7"
+    ]
+  },
+  {
+    "sha": "6373345aced06ea164a47732fe3c4d8e96630ed7",
+    "message": "all functionality finished",
+    "date": "2026-05-07T18:57:20Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "02cdb29814c4f44ac7c4492576f735c998745b01"
+    ]
+  },
+  {
+    "sha": "02cdb29814c4f44ac7c4492576f735c998745b01",
+    "message": "initial decoration",
+    "date": "2026-05-07T01:25:04Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "730d620bd84eb7cf42637104ec79fdae589aaf69"
+    ]
+  },
+  {
+    "sha": "730d620bd84eb7cf42637104ec79fdae589aaf69",
+    "message": "dynamic generation of skills and other pages, cleaning and fixing of code",
+    "date": "2026-05-07T00:44:20Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8e82b3806da75f2bf354775308ae589c53ac6f03"
+    ]
+  },
+  {
+    "sha": "8e82b3806da75f2bf354775308ae589c53ac6f03",
+    "message": "finished dynamic generation of projects, experiences and educations",
+    "date": "2026-05-07T00:23:08Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "1a03fa6c9d4690c8035edf9f7224b2a37d65e973"
+    ]
+  },
+  {
+    "sha": "1a03fa6c9d4690c8035edf9f7224b2a37d65e973",
+    "message": "browserify",
+    "date": "2026-05-06T23:31:33Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "fd1b2226da04872877762d08e02a11efa602ff63"
+    ]
+  },
+  {
+    "sha": "fd1b2226da04872877762d08e02a11efa602ff63",
+    "message": "js cleaning",
+    "date": "2026-05-06T23:29:30Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "890fe05b706f1b26989bdaf0f7827649e928ffaa"
+    ]
+  },
+  {
+    "sha": "890fe05b706f1b26989bdaf0f7827649e928ffaa",
+    "message": "js var fixes",
+    "date": "2026-05-06T23:25:52Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "e6b652d32fbe69482cf6c1730807d987d490e8f5"
+    ]
+  },
+  {
+    "sha": "e6b652d32fbe69482cf6c1730807d987d490e8f5",
+    "message": "js switch to dicts",
+    "date": "2026-05-06T23:22:59Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "7093d473a86cd0d52f8d4f025baa94f855629bd4"
+    ]
+  },
+  {
+    "sha": "7093d473a86cd0d52f8d4f025baa94f855629bd4",
+    "message": "js test - browserify",
+    "date": "2026-05-06T22:54:12Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "4081556709812ddb296e9a939ec4c43ea5061a5b"
+    ]
+  },
+  {
+    "sha": "4081556709812ddb296e9a939ec4c43ea5061a5b",
+    "message": "js test - type module",
+    "date": "2026-05-06T22:45:16Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "aa4f5b17636e6fbb6b5cc2c24aa493ee399dd972"
+    ]
+  },
+  {
+    "sha": "aa4f5b17636e6fbb6b5cc2c24aa493ee399dd972",
+    "message": "js test 4 - server not running",
+    "date": "2026-05-06T22:44:19Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "81403b8dfdbe3401e3162dbb7c1b4d59c4363545"
+    ]
+  },
+  {
+    "sha": "81403b8dfdbe3401e3162dbb7c1b4d59c4363545",
+    "message": "js test 3 - server not running",
+    "date": "2026-05-06T22:27:23Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "cba1ac1e2b3a1783173df70b5f66d5e3990e0860"
+    ]
+  },
+  {
+    "sha": "cba1ac1e2b3a1783173df70b5f66d5e3990e0860",
+    "message": "js test 2 - server not running",
+    "date": "2026-05-06T21:50:33Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "2d8d1224d3b98f98674db76c499f4aae1294cc7d"
+    ]
+  },
+  {
+    "sha": "2d8d1224d3b98f98674db76c499f4aae1294cc7d",
+    "message": "js test 1 - server not running",
+    "date": "2026-05-06T21:46:05Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "bcdedbf61833203bf0672e4796cc4d247ceff02b"
+    ]
+  },
+  {
+    "sha": "bcdedbf61833203bf0672e4796cc4d247ceff02b",
+    "message": "main.js made but non-functional, blanks removed, dynamic code in place, project folders made",
+    "date": "2026-05-06T18:01:07Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6ad3398271b6ef72b2a23bd54c0c462b50c5c188"
+    ]
+  },
+  {
+    "sha": "6ad3398271b6ef72b2a23bd54c0c462b50c5c188",
+    "message": "removing info.json",
+    "date": "2026-05-04T21:48:17Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "d9f436a6489db372299b8d975666b3d0a0777dd4"
+    ]
+  },
+  {
+    "sha": "d9f436a6489db372299b8d975666b3d0a0777dd4",
+    "message": "cleaning up blank.htmls",
+    "date": "2026-05-04T21:47:40Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "8d71427a4921e97c48577d487ab9acac3e3c8ca2"
+    ]
+  },
+  {
+    "sha": "8d71427a4921e97c48577d487ab9acac3e3c8ca2",
+    "message": "Update README.md",
+    "date": "2026-05-04T21:31:07Z",
+    "author": "Joshua \"Dennis\" James Woodbridge",
+    "parents": [
+      "184acfe32cd446bc1ebf0b3382fbc35c27aa1b00"
+    ]
+  },
+  {
+    "sha": "184acfe32cd446bc1ebf0b3382fbc35c27aa1b00",
+    "message": "project layout finished, experience and education sections added",
+    "date": "2026-05-04T21:24:55Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "6acc4db2140006f149397ec95d8e417522a50f50"
+    ]
+  },
+  {
+    "sha": "6acc4db2140006f149397ec95d8e417522a50f50",
+    "message": "Create README.md",
+    "date": "2026-05-04T20:50:55Z",
+    "author": "Joshua \"Dennis\" James Woodbridge",
+    "parents": [
+      "6d855ff7c42b4184192c3dbae541eed8983d460d"
+    ]
+  },
+  {
+    "sha": "6d855ff7c42b4184192c3dbae541eed8983d460d",
+    "message": "about section base finished and page split with wrapper",
+    "date": "2026-05-04T20:36:11Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "e825f362bb1661b391f54e6a26841fc26afb9e1b"
+    ]
+  },
+  {
+    "sha": "e825f362bb1661b391f54e6a26841fc26afb9e1b",
+    "message": "grid test 2",
+    "date": "2026-05-04T19:17:34Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "76bb8df2fe846751a4ae4af912ba64da7b3a3783"
+    ]
+  },
+  {
+    "sha": "76bb8df2fe846751a4ae4af912ba64da7b3a3783",
+    "message": "grid test 1",
+    "date": "2026-05-04T19:14:37Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "cc0d95a5bfe9e930b27d7f56e4f301251c1bec8b"
+    ]
+  },
+  {
+    "sha": "cc0d95a5bfe9e930b27d7f56e4f301251c1bec8b",
+    "message": "/style.css linked",
+    "date": "2026-05-04T19:08:51Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "060caec228aff04c26923a0380f08a56d3deca8c"
+    ]
+  },
+  {
+    "sha": "060caec228aff04c26923a0380f08a56d3deca8c",
+    "message": "hard swap to container",
+    "date": "2026-05-04T19:05:18Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b75203e659fba0613c07c0fda1a08a92248280a2"
+    ]
+  },
+  {
+    "sha": "b75203e659fba0613c07c0fda1a08a92248280a2",
+    "message": "basic container and back_up.html created",
+    "date": "2026-05-04T18:58:21Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "34e2454887dc237fdba7e3e974faff47eff93d88"
+    ]
+  },
+  {
+    "sha": "34e2454887dc237fdba7e3e974faff47eff93d88",
+    "message": "style.css added and minor changes",
+    "date": "2026-05-04T18:40:43Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "b7c34dc68106b0fb401f5cc0a0badc5da36a2c46"
+    ]
+  },
+  {
+    "sha": "b7c34dc68106b0fb401f5cc0a0badc5da36a2c46",
+    "message": "index.html named",
+    "date": "2026-05-04T18:29:47Z",
+    "author": "WhiteEyedFly",
+    "parents": [
+      "72cf100780bf160559c3eb21dc9b3429991c8428"
+    ]
+  },
+  {
+    "sha": "72cf100780bf160559c3eb21dc9b3429991c8428",
+    "message": "Create static.yml",
+    "date": "2026-05-04T18:25:56Z",
+    "author": "Joshua \"Dennis\" James Woodbridge",
+    "parents": [
+      "1038c43ca2d2db244c18f0f3a6d80d74b2abf328"
+    ]
+  },
+  {
+    "sha": "1038c43ca2d2db244c18f0f3a6d80d74b2abf328",
+    "message": "initialise",
+    "date": "2026-05-04T18:23:37Z",
+    "author": "WhiteEyedFly",
+    "parents": []
+  }
+]
+
+let branchesBackup = [
+  {
+    "name": "graphVisualiser",
+    "commit": {
+      "sha": "c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc",
+      "url": "https://api.github.com/repos/WhiteEyedFly/portfolio/commits/c3e1b62d16928126b1dff4cefd6c997bc7a6fdbc"
+    },
+    "protected": false
+  },
+  {
+    "name": "main",
+    "commit": {
+      "sha": "d5877b988a73c1104a02ffbfbcc72e271cc8cd3d",
+      "url": "https://api.github.com/repos/WhiteEyedFly/portfolio/commits/d5877b988a73c1104a02ffbfbcc72e271cc8cd3d"
+    },
+    "protected": false
+  },
+  {
+    "name": "refactor1",
+    "commit": {
+      "sha": "238a17e2d0a003f71f37d136b3fd6cad6907516e",
+      "url": "https://api.github.com/repos/WhiteEyedFly/portfolio/commits/238a17e2d0a003f71f37d136b3fd6cad6907516e"
+    },
+    "protected": false
+  }
+]
+
+async function getCommits(){
+    let page = 1;
+    const responses = [];
+
+    while (true) {
+        const response = await fetch(
+            `https://api.github.com/repos/WhiteEyedFly/portfolio/commits?per_page=100&page=${page}`
+        );
+        if (!response.ok) break;
+        const commitList = await response.json();
+        if (!commitList || commitList.length === 0) break;
+        responses.push(...commitList);
+        page += 1;
+    }
+
+    if (responses.length === 0) throw new Error("Empty API response");
+
+    return responses.map(commit => ({
+        sha: commit.sha,
+        message: commit.commit.message,
+        date: commit.commit.author.date,
+        author: commit.commit.author.name,
+        parents: commit.parents.map(parent => parent.sha)
+    }));
+    /*
+    catch (e) {
+        // Fall back to stored if rate limit hit
+        console.warn("GitHub API rate limit hit or offline. Loading local mock commit timeline data.");
+        return backUpCommits;
+    }
+        */
+}
+
+async function getBranches(){
+    const response = await fetch("https://api.github.com/repos/WhiteEyedFly/portfolio/branches?per_page=100&page=1");
+    if (response.ok){
+        const branchList = await response.json();
+
+        if (branchList || branchList.length !== 0){
+            return branchList
+        }
+    }
+    else {
+        console.log(response)
+    }
+}
+
+function findBranch(commitSha, branchName, map, visited = new Set()) {
+    if (!commitSha || visited.has(commitSha)) return;
+    visited.add(commitSha);
+
+    const commit = map.get(commitSha);
+    if (!commit) return;
+
+    commit.branches ??= [];
+    if (!commit.branches.includes(branchName)) {
+        commit.branches.push(branchName);
+    }
+
+    for (const parent of commit.parents) {
+        findBranch(parent, branchName, map, visited);
+    }
+}
+
+function findPosition(commit) {
+    let date = commit.date
+    const split1 = date.split("-")
+    const split2 = split1[2].split("T")
+    const split3 = split2[1].split(":")
+
+    const year =    parseInt(split1[0])
+    const month =   parseInt(split1[1])
+    const day =     parseInt(split2[0])
+    const hour =    parseInt(split3[0])
+    const minute =  parseInt(split3[1])
+    const second =  parseInt(split3[2].replace("Z", ""))
+
+    const position = second + 60*(minute + 60*(hour + 24*(day + 30.44*(month + 12*year))))
+
+    commit.position ??= Int16Array;
+    commit.position = position
+}
+
+async function main(){
+    otherPages.forEach(makeLink);
+
+    console.log(document.querySelector("#graphVisualiser"));
+
+    // Pulling from git
+
+    //let commits = await getCommits()
+    //let branches = await getBranches()
+
+    let commits = commitsBackup
+    let branches = branchesBackup
+    var branchNames = ["main"]
+
+    for (const branch of branches){
+        if (!branchNames.includes(branch.name)){
+            branchNames.push(branch.name)
+        }
+    }
+
+    // Data validation
+
+    const commitMap = new Map(commits.map(c => [c.sha, c]));
+    const branchHeads = new Map(branches.map(b => [b.name, b.commit.sha]));
+
+    for (const [branchName, headSha] of branchHeads) {
+        findBranch(headSha, branchName, commitMap);
+    }
+
+    for (const commit of commits){
+        findPosition(commit)
+    }
+
+    // Positioning
+    const positions = d => d.position;
+
+    commits.sort((a, b) => positions(b) - positions(a));
+
+    const newestCommit = d3.max(commits, positions);
+    const oldestCommit = d3.min(commits, positions);
+    
+    const totalTimeDiff = Math.abs(newestCommit - oldestCommit);
+    const daySpan = Math.ceil(totalTimeDiff / (60 * 60 * 24));
+
+    const baseHeight = totalTimeDiff * 30;
+    const computedHeight = baseHeight + (commits.length * 20);
+
+    // ------------
+    // Construction
+    // ------------
+
+    const targetElement = d3.select(".graphContainer").html("");
+    
+    const svg = targetElement.append("svg")
+        .attr("width", "100%")
+        .attr("height", `${computedHeight}px`)
+
+    const getBranchXCoordinate = (d) => {
+        const primaryBranch = d.branches && d.branches.length > 1 ? d.branches[1] : "main";
+        const branchIndex = branchNames.indexOf(primaryBranch);
+
+        return 30 + (branchIndex >= 0 ? branchIndex * 40 : 0);
+    };
+
+    const yScale = d3.scaleTime()
+        .domain([newestCommit, oldestCommit]) 
+        .range([60, computedHeight - 123200000]);
+
+    const getCommitYCoordinate = (d) => yScale(d.position);
+
+    // Edges
+    commits.forEach((commit) => {
+        const startX = getBranchXCoordinate(commit);
+        const startY = getCommitYCoordinate(commit);
+
+        commit.parents.forEach(parentSha => {
+            const parentIndex = commits.findIndex(c => c.sha === parentSha);
+
+            if (parentIndex !== -1) {
+                const endX = getBranchXCoordinate(commits[parentIndex]);
+                const endY = getCommitYCoordinate(commits[parentIndex]);
+
+                svg.append("line")
+                    .attr("x1", startX)
+                    .attr("y1", startY)
+                    .attr("x2", endX)
+                    .attr("y2", endY)
+                    .attr("stroke", "#484848")
+                    .attr("stroke-width", 2.5)
+                    .attr("opacity", 0.7);
+            }
+        });
+    });
+
+    // Nodes
+    const commitGroups = svg.append("g")
+        .selectAll(".commit-node")
+        .data(commits)
+        .join("g")
+        .classed("commit-node", true);
+
+    commitGroups.append("circle")
+        .attr("cx", d => getBranchXCoordinate(d))
+        .attr("cy", d => getCommitYCoordinate(d))
+        .attr("r", 6.5)
+        .attr("fill", d => {
+            const b = d.branches || [];
+            if (b.includes("main") || b.includes("master")) return "#95a472"; 
+            return b.length ? "#4a90e2" : "#757575";
+        })
+        .attr("stroke", "#484848")
+        .attr("stroke-width", 2);
+
+    commitGroups.append("text")
+        .attr("x", 60 + (branchNames.length * 40) + 20) 
+        .attr("y", d => getCommitYCoordinate(d) + 5)
+        .attr("fill", "#1a1d13")
+        .style("font-family", "sans-serif")
+        .style("font-size", "12px")
+        .style("font-weight", "700")
+        .text(d => {
+            const cleanDate = new Date(d.date).toLocaleDateString(undefined, {month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'});
+            const displayMsg = d.message;
+            return `[${cleanDate}] ${displayMsg}`;
+        });
+
+    commitGroups.append("title")
+        .text(d => `Commit SHA: ${d.sha.slice(0, 7)}\nAuthor: ${d.author}\nTimestamp: ${d.date}\nMessage: ${d.message}`);
+
+    console.log("Auto-scaling vertical canvas operational.");
+
+    console.log(branches)
+    console.log(commits)
+
+    console.log(totalTimeDiff)
+    console.log(daySpan)
+    console.log(branchNames)
+}
+
+main()

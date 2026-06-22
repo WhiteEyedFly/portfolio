@@ -1,3 +1,5 @@
+import { otherPages, makeLink } from "./shared.js";
+
 let commitsBackup = [
   {
     "sha": "d5877b988a73c1104a02ffbfbcc72e271cc8cd3d",
@@ -1062,7 +1064,6 @@ let branchesBackup = [
   }
 ]
 
-/*
 async function getCommits(){
     let page = 1;
     const responses = [];
@@ -1093,6 +1094,7 @@ async function getCommits(){
         console.warn("GitHub API rate limit hit or offline. Loading local mock commit timeline data.");
         return backUpCommits;
     }
+    */
 }
 
 async function getBranches(){
@@ -1106,8 +1108,8 @@ async function getBranches(){
     }
     else {
         console.log(response)
-    } 
-*/
+    }
+}
 
 function findBranch(commitSha, branchName, map, visited = new Set()) {
     if (!commitSha || visited.has(commitSha)) return;
@@ -1146,6 +1148,8 @@ function findPosition(commit) {
 }
 
 async function main(){
+    otherPages.forEach(makeLink);
+
     // Pulling from git
 
     //let commits = await getCommits()

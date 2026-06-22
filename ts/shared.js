@@ -8,14 +8,18 @@ export const otherPages = [
         link: "contributors.html"
     },
     {
+        text: "Commit Graph",
+        link: "https://whiteeyedfly.github.io/portfolio/graphVisualiser.html"
+    },
+    {
         text: "Personal Projects",
         link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
     },
     {
         text: "Portfolio",
         link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
-    },
-];
+    }
+]
 export async function makeLink(page) {
     const pages = document.querySelector(".pageList");
     if (!pages)

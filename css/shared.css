@@ -266,6 +266,13 @@ p.subtext{
         width: 80px;
         height: 45px
     }
+    h1.pageName{
+        font-size: 35px;
+        line-height: 35px;
+
+        text-align: center;
+        vertical-align: top;
+    }
 }
 
 /*

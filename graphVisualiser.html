@@ -1,15 +1,15 @@
 <!DOCTYPE html>
     <head>
-        <link rel="stylesheet" href="shared.css">
-        <link rel="stylesheet" href="graphVisualiser.css">
+        <link rel="stylesheet" href="css/shared.css">
+        <link rel="stylesheet" href="css/graphVisualiser.css">
         <link rel="shortcut icon" href="">
 
-        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
 
     <body style="background-image:linear-gradient(to bottom right, rgb(232, 232, 232),rgb(231, 231, 231));">
         <div class="struct">
-            <div class="header">
+            <header class="header">
                 <div class="linksList">
                     <input type="checkbox" id="contactToggle">
                     <label for="contactToggle">Contact Me</label>
@@ -49,7 +49,7 @@
                         </ul>
                     </div>
                 </div>
-                <p class="pageName">Update Visualiser</p>
+                <h1 class="pageName">Update Visualiser</h1>
                 <div class="linksList" id="otherPages">
                     <input type="checkbox" id="linksToggle">
                     <label for="linksToggle">Other Pages</label>
@@ -60,12 +60,12 @@
                     </div>
                     
                 </div>
+            </header>
+            <div class="graphContainer">
             </div>
-            <svg id="graphVisualiser">
-
-            </svg>
         </div>
     </body>
 
-    <script src="graphVisualiser.js"></script>
+    <script type="module" src="ts/shared.js"></script>
+    <script type="module" src="ts/graphVisualiser.js"></script>
 </html>
