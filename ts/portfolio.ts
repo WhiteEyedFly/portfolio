@@ -40,7 +40,7 @@ const projectList: Project[] = [
         title: "Graph Visualiser",
         info: "Ongoing Project: <br>Attempting to make an auto updating graph visualiser for the web sites that shows the commits added to the portfolio",
         skills: ["HTML", "CSS", "JS", "D3"],
-        image: "projectimages/.png",
+        image: "assets/projectimages/GraphV.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/portfolio/graphVisualiser.html"
     },
@@ -48,7 +48,7 @@ const projectList: Project[] = [
         title: "Polish to English revision tool",
         info: "Ongoing Project: <br>Recently I've been trying to pick up Polish for my partner so I figured I'd whip up a little tool to help with my revision. <br><br>Ripped kaikki JSONLs and Polish wikipedia to create a Polish to English Dictionary <br>Made a Polish to English translator <br>Made a Polish sentence generator tool <br>Made a TKinter app that allows users to choose their difficulty and revision type when practicing learning Polish <br>Made an English Thesaurus tool <br>Prioritised translations by word frequency based on analysis of Polish Wikipedia <br>Made tools highly extendable to other languages if others wish to add to the project",
         skills: ["Python", "TKinter", "JSON", "Big Data", "XML", "SAX", "Linguistic Structure", "Polish", "Data Cleaning"],
-        image: "projectimages/Translate.png",
+        image: "assets/projectimages/Translator.png",
         contributions: "Myself: Full project", 
         link: "https://github.com/WhiteEyedFly/polish/blob/main/README.md"
     },
