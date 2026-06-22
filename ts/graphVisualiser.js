@@ -1287,3 +1287,7 @@ async function main(){
 }
 
 main()
+
+// Come back to this to make spacing nicer:
+// Have a gap for each day without a commit and have all commits from one day printed together, a set distance apart
+// Convert graph visualiser to TS
