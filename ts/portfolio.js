@@ -3,6 +3,14 @@
 import { otherPages, makeLink } from "./shared.js";
 const projectList = [
     {
+        title: "Automatic Emailler",
+        info: "I put together a system that takes unpaid straight from an excel file using Polars and sends out an email the day they become overdue. It also sends an update email to myself about yhe state of AR. I figured this sort of system would help small businesses keep on top of their emailling.",
+        skills: ["Python", "Polars", "Formataddr"],
+        image: "assets/projectimages/Emailler.png",
+        contributions: "Myself: Full project", 
+        link: "https://github.com/WhiteEyedFly/invoice-emailler"
+    },
+    {
         title: "Mini Games",
         info: "Ongoing Project: <br>Interspersed with my actual projects, I wanted to make a couple quick minigames for fun and so that I can get some experience in pruning. <br>These are all currently terminal based though I'll likely translate them to JS and host them on github shortly. <br><br>Currently I've made: <br>Connect 4 <br>Sudoku",
         skills: ["Python", "Pruning", "Alpha Beta", "MRV", "Itertools", "String"],
