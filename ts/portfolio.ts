@@ -194,7 +194,7 @@ const educationList: Education[] = [
         description:`Maths: 9 <br>Further Maths: 9 <br>Statistics: 8 <br>Chemistry: 9 <br>Biology: 9 <br>Physics: 9 <br>Electronics: 9 <br>History: 9 <br> English Literature: 9 <br>English Language: 9`}
 ]
 
-let skillsList: string[] = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", 
+let skillsList: string[] = ["AHK", "C#", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI", 
                 "Python", "R", "TKinter", "SAX", "Polars", "TS", "Matplotlib",
                 "Automation", "D3", "Jupyter", "Streamlit", "SQL"]
 skillsList.sort()

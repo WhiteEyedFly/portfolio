@@ -161,16 +161,16 @@ const experienceList = [
 ];
 const educationList = [
     {
-        years: "2022-Present",
-        course: "BSc Mathematics",
-        place: "University of Bath",
-        description: "Awaiting Certificate"
-    },
-    {
         years: "2024-Present",
         course: "ACCA",
         place: "Kaplan",
         description: "Year 1: 70% average <br>Year 2: Studying"
+    },
+    {
+        years: "2022-2026",
+        course: "BSc Mathematics",
+        place: "University of Bath",
+        description: "Graduated with Honours"
     },
     {
         years: "2020-2022",
@@ -185,7 +185,7 @@ const educationList = [
         description: `Maths: 9 <br>Further Maths: 9 <br>Statistics: 8 <br>Chemistry: 9 <br>Biology: 9 <br>Physics: 9 <br>Electronics: 9 <br>History: 9 <br> English Literature: 9 <br>English Language: 9`
     }
 ];
-let skillsList = ["AHK", "C", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI",
+let skillsList = ["AHK", "C#", "CSS", "Excel", "HTML", "JS", "Pandas", "PowerBI",
     "Python", "R", "TKinter", "SAX", "Polars", "TS", "Matplotlib",
     "Automation", "D3", "Jupyter", "Streamlit", "SQL"];
 skillsList.sort();

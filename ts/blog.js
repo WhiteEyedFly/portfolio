@@ -1,6 +1,11 @@
 import { otherPages, makeLink } from "./shared.js";
 const posts = [
     {
+        date: "02/07/2026",
+        title: "Graduation",
+        text: "This morning I woke up to my final results page at university. It's been a long 4 years at University of Bath but I can finally say I'm graduating! <br>I can't thank Bath enough for my past four years here, it's been a difficult journey but they are already and will likely persist as some of the best years of my life."
+    },
+    {
         date: "21/06/2026",
         title: "Learning Polish",
         text: "Wow it is hard to spend a whole day only speaking a language you don't know. Massive props to anyone who's ever learnt a language, it's such hard work. <br>It's been fun though; thankfully I have my wonderful partner to help me along."
