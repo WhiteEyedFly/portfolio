@@ -3,6 +3,14 @@
 import { otherPages, makeLink } from "./shared.js";
 const projectList = [
     {
+        title: "Financial Visualiser",
+        info: "Image based on random data <br><br>Ongoing Project: <br><br>Created a MySQL database to and two apps: <br>One in TKinter to updates the database easily, supporting bulk imports, recurring transactions and account balances <br>One in Streamlit to visualise this data with profit and loss, budget analysis, year end summarys, trends and transactions for each year",
+        skills: ["Python", "Pandas", "AI", "Streamlit", "TKinter", "MySQL"],
+        image: "assets/projectimages/FinanceVisualiser.png",
+        contributions: "Myself: Full project", 
+        link: "https://github.com/WhiteEyedFly/finance-visualiser"
+    },
+    {
         title: "Analysis: The Past Decade of the Gaming Industry",
         info: "This project originally started as preperation for an interview in the wake of the 2026 Xbox lay-offs. <br>The idea was to scour the internet for large amounts of data about the gaming industry to highlight how the market has changed over the past decade (as a result of COVID and the rise of streaming), which companies have performed well and what the future of the industry may look like.",
         skills: ["Excel", "Powerpoint", "Polars", "Python"],
