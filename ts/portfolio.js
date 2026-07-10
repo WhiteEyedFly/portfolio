@@ -4,7 +4,7 @@ import { otherPages, makeLink } from "./shared.js";
 const projectList = [
     {
         title: "Financial Visualiser",
-        info: "Image based on random data <br><br>Ongoing Project: <br><br>Created a MySQL database to and two apps: <br>One in TKinter to updates the database easily, supporting bulk imports, recurring transactions and account balances <br>One in Streamlit to visualise this data with profit and loss, budget analysis, year end summarys, trends and transactions for each year",
+        info: "Image based on random data <br><br>Ongoing Project: <br><br>Created a MySQL database to and two apps: <br>One in TKinter to updates the database easily, supporting bulk imports, recurring transactions and account balances <br>One in Streamlit to visualise this data with profit and loss, budget analysis, year end summarys, trends and transactions for each year <br><br>Both apps are password protected by default and instructions are provided for updating passwords to ensure safety.",
         skills: ["Python", "Pandas", "AI", "Streamlit", "TKinter", "MySQL"],
         image: "assets/projectimages/FinanceVisualiser.png",
         contributions: "Myself: Full project", 
