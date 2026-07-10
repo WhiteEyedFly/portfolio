@@ -29,8 +29,16 @@ type Education = {
 
 const projectList: Project[] = [
     {
+        title: "Analysis: The Past Decade of the Gaming Industry",
+        info: "This project originally started as preperation for an interview in the wake of the 2026 Xbox lay-offs. <br>The idea was to scour the internet for large amounts of data about the gaming industry to highlight how the market has changed over the past decade (as a result of COVID and the rise of streaming), which companies have performed well and what the future of the industry may look like.",
+        skills: ["Excel", "Powerpoint", "Polars", "Python"],
+        image: "assets/projectimages/.png",
+        contributions: "Myself: Full project", 
+        link: ""
+    },
+    {
         title: "Automatic Emailler",
-        info: "I put together a system that takes unpaid straight from an excel file using Polars and sends out an email the day they become overdue. It also sends an update email to myself about yhe state of AR. I figured this sort of system would help small businesses keep on top of their emailling.",
+        info: "I put together a system that takes unpaid straight from an excel file using Polars and sends out an email the day they become overdue. It also sends an update email to myself about the state of AR. I figured this sort of system would help small businesses keep on top of their emailling.",
         skills: ["Python", "Polars", "Formataddr"],
         image: "assets/projectimages/Emailler.png",
         contributions: "Myself: Full project", 
