@@ -6,7 +6,7 @@ const projectList = [
         title: "Analysis: The Past Decade of the Gaming Industry",
         info: "This project originally started as preperation for an interview in the wake of the 2026 Xbox lay-offs. <br>The idea was to scour the internet for large amounts of data about the gaming industry to highlight how the market has changed over the past decade (as a result of COVID and the rise of streaming), which companies have performed well and what the future of the industry may look like.",
         skills: ["Excel", "Powerpoint", "Polars", "Python"],
-        image: "assets/projectimages/.png",
+        image: "assets/projectimages/GamingIndustry.png",
         contributions: "Myself: Full project", 
         link: ""
     },
