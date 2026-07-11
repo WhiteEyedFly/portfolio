@@ -23,6 +23,7 @@ const posts = [
 ];
 async function mainBlog() {
     for (let i = 0; i < posts.length; i++) {
+        console.log("A")
         addPost(posts[i]);
     }
     for (let i = 0; i < otherPages.length; i++) {
