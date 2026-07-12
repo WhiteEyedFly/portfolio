@@ -16,7 +16,7 @@ const projectList = [
         skills: ["Excel", "Powerpoint", "Polars", "Python"],
         image: "assets/projectimages/GamingIndustry.png",
         contributions: "Myself: Full project", 
-        link: ""
+        link: "https://whiteeyedfly.github.io/portfolio/nativeprojectpages/GamingIndustryAnalysis.html"
     },
     {
         title: "Automatic Emailler",
