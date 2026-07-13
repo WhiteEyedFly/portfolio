@@ -21,7 +21,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNHC64Q7"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-         
+
         <div class="container">
             <header class="header">
                 <div class="linksList">
@@ -103,8 +103,11 @@
                 <div class="seperator">
                     <div class="topOfList">
                         <p class="title">Projects</p>
-                        <div class="searchBar">
-                            <input type="text" placeholder="Search by skill..." id="search" oninput="searcher()">
+                        <div style="display: flex">
+                            <button class="projSkill" id="clear-search">Clear Search</button>
+                            <div class="searchBar">
+                                <input type="text" placeholder="Search by skill..." id="search" oninput="searcher()">
+                            </div>
                         </div>
                     </div>
                     <div class="detail">

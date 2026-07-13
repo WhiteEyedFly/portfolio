@@ -117,7 +117,7 @@ async function main() {
     }
     renderSkillsFilter();
     pageList.forEach(makeLink);
-    renderProjects(projectList.map((p, i) => [p, i]));
+    clearProjectFilter();
     renderExperiences();
     renderEducations();
     initDrag();
@@ -133,6 +133,13 @@ function projectMatches(project, termUpper) {
         if (project.skills[j].toUpperCase().includes(termUpper)) return true;
     }
     return false;
+}
+
+document.getElementById("clear-search")
+    .addEventListener("click", clearProjectFilter);
+
+function clearProjectFilter() {
+    renderProjects(projectList.map((p, i) => [p, i]));
 }
 
 function filterProjects(term) {
