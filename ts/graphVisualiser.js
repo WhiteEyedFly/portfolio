@@ -1,4 +1,4 @@
-import { otherPages, makeLink } from "./shared.js";
+import { makeLink, loadJson } from "./shared.js";
 
 let commitsBackup = [
   {
@@ -2140,7 +2140,8 @@ function findPosition(commit) {
 }
 
 async function main(){
-    otherPages.forEach(makeLink);
+    const pageList = await loadJson("../data/otherPages.json")
+    pageList.forEach(makeLink);
 
     console.log(document.querySelector("#graphVisualiser"));
 

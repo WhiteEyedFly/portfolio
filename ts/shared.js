@@ -1,25 +1,11 @@
-export const otherPages = [
-    {
-        text: "Blog",
-        link: "blog.html"
-    },
-    {
-        text: "Contributors",
-        link: "contributors.html"
-    },
-    {
-        text: "Commit Graph",
-        link: "https://whiteeyedfly.github.io/portfolio/graphVisualiser.html"
-    },
-    {
-        text: "Personal Projects",
-        link: "https://denniswoodbridgebehappy.github.io/dennis-site/"
-    },
-    {
-        text: "Portfolio",
-        link: "https://whiteeyedfly.github.io/portfolio/portfolio.html"
+export async function loadJson(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+        throw new Error(`Failed to load ${path}: ${response.status} ${response.statusText}`);
     }
-]
+    return response.json();
+}
+
 export async function makeLink(page) {
     const pages = document.querySelector(".pageList");
     if (!pages)

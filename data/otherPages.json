@@ -1,0 +1,22 @@
+[
+    {
+        "text": "Blog",
+        "link": "blog.html"
+    },
+    {
+        "text": "Contributors",
+        "link": "contributors.html"
+    },
+    {
+        "text": "Commit Graph",
+        "link": "graphVisualiser.html"
+    },
+    {
+        "text": "Personal Projects",
+        "link": "https://denniswoodbridgebehappy.github.io/dennis-site/"
+    },
+    {
+        "text": "Portfolio",
+        "link": "portfolio.html"
+    }
+]

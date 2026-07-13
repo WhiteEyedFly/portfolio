@@ -1,34 +1,11 @@
-import { otherPages, makeLink } from "./shared.js";
-const posts = [
-    {
-        date: "02/07/2026",
-        title: "Graduation",
-        text: "This morning I woke up to my final results page at university. It's been a long 4 years at University of Bath but I can finally say I'm graduating! <br>I can't thank Bath enough for my past four years here, it's been a difficult journey but they are already and will likely persist as some of the best years of my life."
-    },
-    {
-        date: "21/06/2026",
-        title: "Learning Polish",
-        text: "Wow it is hard to spend a whole day only speaking a language you don't know. Massive props to anyone who's ever learnt a language, it's such hard work. <br>It's been fun though; thankfully I have my wonderful partner to help me along."
-    },
-    {
-        date: "31/05/2026",
-        title: "Kilordle Solver finished",
-        text: "The Kilordle project has been a fantastic motivation boost. I've been beating my head against it for a week now and finally found a solution that works. <br>More importantly though, I've gained experience with so many types of programming and so many programming ideas I've never experimented with before. I feel like I've gained a much better understanding of how problems are solved with code in the working world."
-    },
-    {
-        date: "24/05/2026",
-        title: "Portfolio launched",
-        text: "Today I launched the portfolio. It's been rather a long time coming, I've really enjoyed getting to grips with HTML, CSS and JS over the course of the past couple weeks working on this."
-    }
-];
+import { makeLink, loadJson } from "./shared.js";
+
 async function mainBlog() {
-    for (let i = 0; i < posts.length; i++) {
-        console.log("A")
-        addPost(posts[i]);
-    }
-    for (let i = 0; i < otherPages.length; i++) {
-        makeLink(otherPages[i]);
-    }
+    const pageList = await loadJson("../data/otherPages.json")
+    const posts = await loadJson("../data/blogPosts.json")
+    
+    pageList.forEach(makeLink);
+    posts.forEach(addPost);
 }
 async function addPost(post) {
     const posts = document.querySelector(".blogPosts");

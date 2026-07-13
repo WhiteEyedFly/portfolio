@@ -1,14 +1,12 @@
 <!DOCTYPE html>
     <head>
-        <link rel="stylesheet" href="css/shared.css">
-        <link rel="stylesheet" href="css/graphVisualiser.css">
+        <link rel="stylesheet" href="../css/shared.css">
+        <link rel="stylesheet" href="../css/contributors.css">
         <link rel="shortcut icon" href="">
-
-        <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
 
-    <body style="background-image:linear-gradient(to bottom right, rgb(232, 232, 232),rgb(231, 231, 231));">
-        <div class="struct">
+    <body style="background-image:url('../assets/background.jpg'); background-size:100% 100%; background-attachment: fixed;">
+        <div class="container">
             <header class="header">
                 <div class="linksList">
                     <input type="checkbox" id="contactToggle">
@@ -49,7 +47,7 @@
                         </ul>
                     </div>
                 </div>
-                <h1 class="pageName">Update Visualiser</h1>
+                <h1 class="pageName">Contributors</h1>
                 <div class="linksList" id="otherPages">
                     <input type="checkbox" id="linksToggle">
                     <label for="linksToggle">Other Pages</label>
@@ -60,12 +58,14 @@
                     </div>
                     
                 </div>
-            </header>
-            <div class="graphContainer">
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <div class="contributorsList"></div>
             </div>
         </div>
     </body>
 
-    <script type="module" src="ts/shared.js"></script>
-    <script type="module" src="ts/graphVisualiser.js"></script>
+    <script type="module" src="../ts/shared.js"></script>
+    <script type="module" src="../ts/contributors.js"></script>
 </html>
