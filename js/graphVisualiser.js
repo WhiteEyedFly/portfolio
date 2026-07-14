@@ -1,4 +1,4 @@
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
 
 async function getCommits(){
     let page = 1;
@@ -110,11 +110,13 @@ function findPosition(commit) {
 }
 
 async function main(){
-    const [pageList, commitsBackup, branchesBackup] = await Promise.all([
+    const [contacts, pageList, commitsBackup, branchesBackup] = await Promise.all([
+        loadJson("../data/contacts.json"),
         loadJson("../data/otherPages.json"),
         loadJson("../data/commitsBackup.json"),
         loadJson("../data/branchesBackup.json")
     ]);
+    renderContacts(contacts);
     renderLinks(pageList);
 
     console.log(document.querySelector("#graphVisualiser"));

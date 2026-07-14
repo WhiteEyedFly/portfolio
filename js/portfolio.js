@@ -1,7 +1,8 @@
 // Necessary data
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
 
 const DATA_PATHS = {
+    contacts: "../data/contacts.json",
     otherPages: "../data/otherPages.json",
     projects: "../data/projects.json",
     experience: "../data/experience.json",
@@ -17,13 +18,16 @@ let skillsList = [];
 
 async function loadData() {
     // Fetch all five files in parallel rather than one after another.
-    const [pages, projects, experience, education, skills] = await Promise.all([
+    const [contacts, pages, projects, experience, education, skills] = await Promise.all([
+        loadJson(DATA_PATHS.contacts),
         loadJson(DATA_PATHS.otherPages),
         loadJson(DATA_PATHS.projects),
         loadJson(DATA_PATHS.experience),
         loadJson(DATA_PATHS.education),
         loadJson(DATA_PATHS.skills)
     ]);
+
+    renderContacts(contacts);
 
     pageList = pages;
     projectList = projects;

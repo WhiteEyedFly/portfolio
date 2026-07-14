@@ -18,3 +18,16 @@ export function renderLinks(pages: Page[]): void {
         .map(page => `<a class="link" href="${page.link}"><div class="page">${page.text}</div></a>`)
         .join("");
 }
+
+export interface Contact {
+    name: string;
+    link: string;
+    svg: string;
+}
+export function renderContacts(contacts: Contact[]): void {
+    const container = document.querySelector(".contactsList ul:not(.pageList)");
+    if (!container) return;
+    container.innerHTML = contacts
+        .map(contact => `<li><div class="linkBox"><a href="${contact.link}">${contact.svg}</a><p>${contact.name}</p></div></li>`)
+        .join("");
+}

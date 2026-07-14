@@ -1,7 +1,11 @@
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
 
 async function nativeMain() {
-    const pageList = await loadJson("../../data/otherPagesNative.json");
+    const [contacts, pageList] = await Promise.all([
+        loadJson("../../data/contacts.json"),
+        loadJson("../../data/otherPagesNative.json")
+    ]);
+    renderContacts(contacts);
     renderLinks(pageList);
 }
 

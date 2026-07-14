@@ -1,11 +1,13 @@
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
 
 async function mainBlog() {
-    const [pageList, posts] = await Promise.all([
+    const [contacts, pageList, posts] = await Promise.all([
+        loadJson("../data/contacts.json"),
         loadJson("../data/otherPages.json"),
         loadJson("../data/blogPosts.json")
     ]);
 
+    renderContacts(contacts);
     renderLinks(pageList);
     renderPosts(posts);
 }

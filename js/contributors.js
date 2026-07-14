@@ -1,11 +1,13 @@
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
 
 async function mainContributors() {
-    const [pageList, contributors] = await Promise.all([
+    const [contacts, pageList, contributors] = await Promise.all([
+        loadJson("../data/contacts.json"),
         loadJson("../data/otherPages.json"),
         loadJson("../data/contributors.json")
     ]);
 
+    renderContacts(contacts);
     renderLinks(pageList);
     renderContributors(contributors);
 }
