@@ -123,8 +123,12 @@ async function main(){
 
     // Pulling from git
 
+    //let commits = await getCommits()
+    //let branches = await getBranches()
+
     let commits = commitsBackup
     let branches = branchesBackup
+
     var branchNames = ["main"]
 
     for (const branch of branches){
