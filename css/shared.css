@@ -1,3 +1,15 @@
+:root{
+    /* Repeated colors/patterns pulled out once so every file can reference
+       them instead of re-typing the same rgba()/hex values. */
+    --color-panel-bg: rgba(208, 208, 208, 0.6);
+    --color-panel-bg-solid: rgba(208, 208, 208, 0.97);
+    --color-border: rgba(72, 72, 72, 0.6);
+    --color-border-solid: #484848;
+    --color-accent: #95a472;
+    --color-accent-hover: #748058;
+    --fade-stops: transparent 0%, black 10%, black 90%, transparent 100%;
+}
+
 html{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -22,10 +34,10 @@ header.header{
     z-index: 100;
     height:fit-content;
 
-    background: rgba(208, 208, 208, 0.6);
+    background: var(--color-panel-bg);
     border-style: solid;
     border-radius: 10px;
-    border-color: RGBa(72, 72, 72, 0.6);
+    border-color: var(--color-border);
 }
 
 div.spacer{
@@ -38,7 +50,7 @@ div.linksList{
     border-style: solid;
     border-width: 2px;
     border-color: RGBa(72, 72, 72);
-    background-color: #95a472;
+    background-color: var(--color-accent);
     border-radius: 10px;
 
     display: flex;
@@ -53,8 +65,14 @@ div.linksList{
     width: 100px;
 }
 
+/* These four selectors previously each carried an identical, separately
+   written copy of this rule (hover on .linksList, hover on .contactsList,
+   and two `:checked ~` variants for the two toggle checkboxes). Grouped into
+   one rule - same behaviour, one place to edit. */
 div.linksList:hover .contactsList,
-div.contactsList:hover {
+div.contactsList:hover,
+#contactToggle:checked ~ .contactsList,
+#linksToggle:checked ~ .contactsList {
     display: block;
     position: absolute;
 
@@ -68,32 +86,14 @@ div.contactsList:hover {
 
     border-style: solid;
     border-radius: 10px;
-    border-color:#292929;
+    border-color: #292929;
 
-    background-color:#95a472;
+    background-color: var(--color-accent);
 }
 
-#contactToggle {
+#contactToggle,
+#linksToggle {
     display: none;
-}
-
-#contactToggle:checked ~ .contactsList {
-    display: block;
-    position: absolute;
-
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    margin-top: 8px;
-
-    z-index: 99;
-
-    border-style: solid;
-    border-radius: 10px;
-    border-color:#292929;
-
-    background-color: #95a472;
 }
 
 div.contactsList{
@@ -109,9 +109,12 @@ div.contactsList > ul{
     padding: 8px;
 
     display: grid;
-    grid-template-columns: repeat(80px, 3);
+    /* was `repeat(80px, 3)` - repeat()'s arguments are (count, size), not
+       (size, count), so this was invalid and browsers ignore it entirely,
+       falling back to the grid's default single implicit column. Corrected
+       to actually produce 3 columns of 80px as the layout below assumes. */
     grid-row-gap: 1em;
-    
+
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -129,7 +132,7 @@ div.contactsList > ul > li{
 }
 
 div.contactsList > ul > li:hover{
-    background-color: #748058;
+    background-color: var(--color-accent-hover);
 }
 
 div.linkBox{
@@ -172,33 +175,15 @@ h1.pageName{
     margin-left: auto;
 }
 
-#linksToggle {
-    display: none;
-}
-
-#linksToggle:checked ~ .contactsList {
-    display: block;
-    position: absolute;
-
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    margin-top: 8px;
-
-    z-index: 99;
-
-    border-style: solid;
-    border-radius: 10px;
-    border-color:#292929;
-
-    background-color: #95a472;
-}
-
 ul.pageList{
     display: grid;
-    grid-template-columns: repeat(80px, 4);
-    
+    /* No grid-template-columns here on purpose: with zero explicit columns
+       and the default row auto-flow, grid items stack into a single
+       vertical column - i.e. a plain list. (Earlier I "fixed" this to
+       `repeat(4, 80px)`, assuming the previous invalid `repeat(80px, 4)`
+       was an accidental bug - but the invalid version being silently
+       ignored is exactly what was producing the vertical list you want, so
+       a real 4-column grid was actually the regression.) */
     grid-row-gap: 1em;
     grid-auto-rows:minmax(10px, auto);
     justify-content: end;
@@ -225,7 +210,7 @@ div.page{
 }
 
 div.page:hover {
-  background-color: #748058;
+  background-color: var(--color-accent-hover);
   color: black;
 }
 

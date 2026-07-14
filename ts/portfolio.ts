@@ -1,30 +1,9 @@
 // Necessary data
-import { otherPages, makeLink } from "./shared.js";
-
-interface Project {
-    title: string;
-    info: string;
-    skills: string[];
-    image: string;
-    contributions: string;
-    link: string;
-}
-
-interface Experience {
-    dates: string;
-    title: string;
-    skills: string[];
-    description: string;
-}
-
-interface Education {
-    years: string;
-    course: string;
-    place: string;
-    description: string;
-}
+import { renderLinks, loadJson } from "./shared.js";
+import type { Page, Project, Experience, Education } from "./types.js";
 
 interface DataPaths {
+    otherPages: string;
     projects: string;
     experience: string;
     education: string;
@@ -32,34 +11,30 @@ interface DataPaths {
 }
 
 const DATA_PATHS: DataPaths = {
-    projects: "data/projects.json",
-    experience: "data/experience.json",
-    education: "data/education.json",
-    skills: "data/skills.json"
+    otherPages: "../data/otherPages.json",
+    projects: "../data/projects.json",
+    experience: "../data/experience.json",
+    education: "../data/education.json",
+    skills: "../data/skills.json"
 };
 
+let pageList: Page[] = [];
 let projectList: Project[] = [];
 let experienceList: Experience[] = [];
 let educationList: Education[] = [];
 let skillsList: string[] = [];
 
-async function loadJson<T>(path: string): Promise<T> {
-    const response = await fetch(path);
-    if (!response.ok) {
-        throw new Error(`Failed to load ${path}: ${response.status} ${response.statusText}`);
-    }
-    return response.json() as Promise<T>;
-}
-
 async function loadData(): Promise<void> {
-    // Fetch all four files in parallel rather than one after another.
-    const [projects, experience, education, skills] = await Promise.all([
+    // Fetch all five files in parallel rather than one after another.
+    const [pages, projects, experience, education, skills] = await Promise.all([
+        loadJson<Page[]>(DATA_PATHS.otherPages),
         loadJson<Project[]>(DATA_PATHS.projects),
         loadJson<Experience[]>(DATA_PATHS.experience),
         loadJson<Education[]>(DATA_PATHS.education),
         loadJson<string[]>(DATA_PATHS.skills)
     ]);
 
+    pageList = pages;
     projectList = projects;
     experienceList = experience;
     educationList = education;
@@ -114,8 +89,8 @@ function skillButtonsHtml(skills: string[], btnClass: string): string {
 }
 
 function projectHtml(project: Project, index: number): string {
-    const image = project.image === "assets/projectimages/.png"
-        ? "assets/projectimages/Placeholder.png"
+    const image = project.image === "../assets/projectimages/.png"
+        ? "../assets/projectimages/Placeholder.png"
         : project.image;
     return `<label class="project" data-index="${index}"><input type="checkbox" class="cb">` +
         `<div class="projImg"><img pfp src="${image}" alt="Project photo"></div>` +
@@ -167,8 +142,8 @@ async function main(): Promise<void> {
         return;
     }
     renderSkillsFilter();
-    otherPages.forEach(makeLink);
-    renderProjects(projectList.map((p, i): [Project, number] => [p, i]));
+    renderLinks(pageList);
+    clearProjectFilter();
     renderExperiences();
     renderEducations();
     initDrag();
@@ -184,6 +159,13 @@ function projectMatches(project: Project, termUpper: string): boolean {
         if (project.skills[j].toUpperCase().includes(termUpper)) return true;
     }
     return false;
+}
+
+document.getElementById("clear-search")
+    ?.addEventListener("click", clearProjectFilter);
+
+function clearProjectFilter(): void {
+    renderProjects(projectList.map((p, i): [Project, number] => [p, i]));
 }
 
 function filterProjects(term: string): void {
@@ -260,7 +242,7 @@ let startX = 0;
 let scrollLeft = 0;
 
 function initDrag(): void {
-    const projList = dom.projects;
+    const projList = dom.projects as HTMLElement | null;
     if (!projList) return;
 
     projList.addEventListener("mousedown", (e: Event) => {
