@@ -3,24 +3,28 @@
         "years": "2024-Present",
         "course": "ACCA",
         "place": "Kaplan",
+        "image": "../assets/educationimages/ACCA.jpg",
         "description": "Year 1: 70% average <br>Year 2: Studying"
     },
     {
         "years": "2022-2026",
         "course": "BSc Mathematics",
         "place": "University of Bath",
+        "image": "../assets/educationimages/UoB.jpg",
         "description": "Graduated with Honours"
     },
     {
         "years": "2020-2022",
         "course": "A Level",
         "place": "Rochdale Sixth Form College",
+        "image": "../assets/educationimages/RSFC.jpg",
         "description": "Biology: A* <br>Chemistry: A <br>Maths: A* <br>Further Maths: A* <br>EPQ (Economics): A*"
     },
     {
         "years": "2015-2020",
         "course": "GCSE",
         "place": "Newhouse Academy",
+        "image": "../assets/educationimages/NHA.jpg",
         "description": "Maths: 9 <br>Further Maths: 9 <br>Statistics: 8 <br>Chemistry: 9 <br>Biology: 9 <br>Physics: 9 <br>Electronics: 9 <br>History: 9 <br> English Literature: 9 <br>English Language: 9"
     }
 ]

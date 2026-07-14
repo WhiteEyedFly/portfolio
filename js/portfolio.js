@@ -73,13 +73,21 @@ function projectHtml(project, index) {
 }
 
 function experienceHtml(experience) {
-    return `<div class="box"><p>${experience.dates}</p><p class="title">${experience.title}</p>` +
+    const image = experience.image === "../assets/experienceimages/.png"
+        ? "../assets/projectimages/Placeholder.png"
+        : experience.image;
+    return `<div class="box"><div class="expSeperator"><div><p>${experience.dates}</p><p class="title">${experience.title}</p>` +
         `<div class="skillsList">${skillButtonsHtml(experience.skills, "projSkill")}</div>` +
-        `<p class=subtext>${experience.description}</p></div>`;
+        `<p class=subtext>${experience.description}</p></div>` +
+        `<div class="expImage"><img pfp src="${image}" alt="Project photo"></div></div></div>`;
 }
 
 function educationHtml(education) {
-    return `<div class="box"><p>${education.years}</p><p class="title">${education.course}</p>` +
+    const image = education.image === "../assets/educationimages/.png"
+        ? "../assets/projectimages/Placeholder.png"
+        : education.image;
+    return `<div class="box"><div class="eduImage"><img pfp src="${image}" alt="Project photo"></div>` +
+        `<p>${education.years}</p><p class="title">${education.course}</p>` +
         `<p>${education.place}</p><p class=subtext>${education.description}</p></div>`;
 }
 

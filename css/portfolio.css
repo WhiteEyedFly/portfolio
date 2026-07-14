@@ -278,10 +278,52 @@ div.experienceList{
     grid-row-gap: 1em;
 }
 
+div.expSeperator {
+    display:flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.expSeperator > :first-child {
+    flex: 1;
+}
+
+div.expSeperator > :last-child {
+    flex: 0 0 auto;
+}
+
+div.expImage {
+    width: 15em;
+    height: 15em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.expImage > img {
+    width: 15em;
+    border-radius: 10px;
+}
+
 div.educationList{
     display:flex;
     flex-wrap: wrap;
     gap: 1em;
+}
+
+div.eduImage {
+    width: 15em;
+    height: 15em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.eduImage > img {
+    width: 15em;
+    border-radius: 10px;
 }
 
 div.box{
