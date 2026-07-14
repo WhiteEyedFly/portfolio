@@ -374,15 +374,17 @@ p{
 
 @media screen and (max-width: 1000px) {
     div.educationList{
-    display: grid;
-    grid-row-gap: 1em;
+        display: grid;
+        grid-row-gap: 1em;
     }
-    /* Stack the image above the text instead of beside it once things get
-       cramped. column-reverse (rather than column) puts the LAST flex
-       child - the image, per expSeperator's `:last-child` rule above - at
-       the top and the text below, without needing to reorder the markup. */
     div.expSeperator {
         flex-direction: column-reverse;
+    }
+    div.eduSeperator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
 
@@ -446,10 +448,8 @@ p{
         flex-direction: column;
         justify-items: center;
         align-items: center;
-        gap: 0;
+        gap: 1em;
 
-        /* was `scroll-behavior: none;`, an invalid value that gets silently
-           dropped - `auto` is the actual way to turn off smooth scrolling */
         scroll-behavior: auto;
 
         -webkit-mask-image: unset;
@@ -457,9 +457,7 @@ p{
 
         cursor:auto;
     }
-    /* The webkit scrollbar rules for div.projectList (fixed above, outside
-       any media query) already apply at every viewport width, so they don't
-       need to be repeated here. */
+    
     .project{
         cursor: auto;
         max-width: 25em;

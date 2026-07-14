@@ -90,7 +90,7 @@ function educationHtml(education) {
     const image = education.image === "../assets/educationimages/.png"
         ? "../assets/projectimages/Placeholder.png"
         : education.image;
-    return `<div class="box"><div class="eduImage"><img pfp src="${image}" alt="Project photo"></div>` +
+    return `<div class="box"><div class="eduSeperator"><div class="eduImage"><img pfp src="${image}" alt="Project photo"></div></div>` +
         `<p>${education.years}</p><p class="title">${education.course}</p>` +
         `<p>${education.place}</p><p class=subtext>${education.description}</p></div>`;
 }
