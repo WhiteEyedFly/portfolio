@@ -1,5 +1,5 @@
 // Necessary data
-import { makeLink, loadJson } from "./shared.js";
+import { renderLinks, loadJson } from "./shared.js";
 
 const DATA_PATHS = {
     otherPages: "../data/otherPages.json",
@@ -116,7 +116,7 @@ async function main() {
         return;
     }
     renderSkillsFilter();
-    pageList.forEach(makeLink);
+    renderLinks(pageList);
     clearProjectFilter();
     renderExperiences();
     renderEducations();
