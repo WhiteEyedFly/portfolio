@@ -231,8 +231,14 @@ div.projImg{
     overflow: hidden;
     opacity: 100%;
 
-    -webkit-mask-image: linear-gradient(to bottom, var(--fade-stops));
-    mask-image: linear-gradient(to bottom, var(--fade-stops));
+    -webkit-mask-image: linear-gradient(to bottom, 
+  black 0%,
+  black 80%,
+  transparent 100%);
+    mask-image: linear-gradient(to bottom, 
+  black 0%,
+  black 80%,
+  transparent 100%);
 }
 
 div.projImg > img{
@@ -356,6 +362,8 @@ p{
     float: right;
     padding: 10px 10px;
 
+    width: 150px;
+
     border: solid;
     border-color: var(--color-border-solid);
     border-radius: 7px;
@@ -460,10 +468,15 @@ p{
     
     .project{
         cursor: auto;
-        max-width: 25em;
+        width: 70vw;
+        max-width: 20em;
     }
     .project > .projImg{
-        width: 25em;
+        width: fit-content;
+    }
+    div.projImg > img{
+        height: fit-content;
+        max-height: none;
     }
     .projectMax{
         cursor: auto;
