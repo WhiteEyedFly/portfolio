@@ -50,9 +50,10 @@ div.detail{
 div.about{
     z-index: 0;
 
-    border-radius: 10px;
+    border-radius: var(--radius);
     background: var(--color-panel-bg);
     border-style: solid;
+    border-width: var(--border-width);
     border-color: var(--color-border);
 
     height: fit-content;
@@ -61,8 +62,16 @@ div.about{
 
 div.topOfList{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 0.5em;
+}
+
+div.searchControls{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
 }
 
 div.pfp{
@@ -71,8 +80,9 @@ div.pfp{
     overflow: hidden;
 
     border-style: solid;
+    border-width: var(--border-width);
     border-color: var(--color-border-solid);
-    border-radius: 7px;
+    border-radius: var(--radius);
 }
 
 div.pfp > img{
@@ -92,8 +102,6 @@ img.image{
 }
 
 div.projectList{
-    perspective: 1000px;
-
     height: 24em;
     overflow-x: auto;
     display: flex;
@@ -106,6 +114,14 @@ div.projectList{
     mask-image: linear-gradient(to left, var(--fade-stops));
 
     cursor: grab;
+}
+
+/* Toggled from portfolio.ts/js when 3 or fewer projects are showing (e.g.
+   after a search filters the list down) - nothing to fade toward once
+   everything already fits without scrolling. */
+div.projectList.no-fade{
+    -webkit-mask-image: none;
+    mask-image: none;
 }
 
 /* These were previously written as nested rules inside div.projectList
@@ -146,9 +162,10 @@ div.projectList::after {
     background: var(--color-panel-bg-solid);
     border-color: var(--color-border);
     border-style: solid;
+    border-width: var(--border-width);
 
     overflow-y: scroll;
-    border-radius: 1em;
+    border-radius: var(--radius);
 }
 
 .maxSpacer{
@@ -161,7 +178,6 @@ div.maxProjImg{
     height: fit-content;
 
     overflow: hidden;
-    opacity: 100%;
     padding: 0.5em;
 }
 
@@ -171,7 +187,9 @@ div.maxProjImg > img{
     width: 100%;
 
     border-style: solid;
-    border-radius: 10px;
+    border-width: var(--border-width);
+    border-color: var(--color-border);
+    border-radius: var(--radius);
     
     max-height: 25em;
 
@@ -192,9 +210,10 @@ div.maxProjImg > img{
     background: var(--color-panel-bg);
     border-color: var(--color-border);
     border-style: solid;
+    border-width: var(--border-width);
 
     overflow: hidden;
-    border-radius: 0.5em;
+    border-radius: var(--radius);
     text-align: center;
 
     /* was declared twice with the same value; the transform below only
@@ -229,16 +248,10 @@ div.projImg{
     height: fit-content;
 
     overflow: hidden;
-    opacity: 100%;
 
-    -webkit-mask-image: linear-gradient(to bottom, 
-  black 0%,
-  black 80%,
-  transparent 100%);
-    mask-image: linear-gradient(to bottom, 
-  black 0%,
-  black 80%,
-  transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+
 }
 
 div.projImg > img{
@@ -261,8 +274,6 @@ div.experienceList{
     grid-row-gap: 1em;
 }
 
-/* Not mobile compatible */
-
 div.expSeperator {
     display:flex; 
     align-items: center;
@@ -277,8 +288,6 @@ div.expSeperator > :last-child {
     flex: 0 0 auto;
 }
 
-/* expImage and eduImage were byte-for-byte identical rules under different
-   names - grouped rather than duplicated. */
 div.expImage,
 div.eduImage {
     width: 15em;
@@ -292,7 +301,7 @@ div.eduImage {
 div.expImage > img,
 div.eduImage > img {
     width: 15em;
-    border-radius: 10px;
+    border-radius: var(--radius);
 }
 
 div.educationList{
@@ -305,11 +314,12 @@ div.box{
     background: var(--color-panel-bg);
     border-color: var(--color-border);
     border-style: solid;
+    border-width: var(--border-width);
 
     overflow: hidden;
     padding: 1em;
 
-    border-radius: 0.5em;
+    border-radius: var(--radius);
 }
 
 div.skillsList{
@@ -319,14 +329,12 @@ div.skillsList{
     gap: 0.2em;
 }
 
-/* button.skill and button.projSkill were byte-for-byte identical rules
-   under different names - grouped rather than duplicated. */
 button.skill,
 button.projSkill{
     border-style: solid;
-    border-width: 2px;
+    border-width: var(--button-border-width);
     border-color: var(--color-border-solid);
-    border-radius: 10px;
+    border-radius: var(--radius);
 
     background-color: var(--color-accent);
 
@@ -345,7 +353,9 @@ p{
 /* Search bar functionality */
 
 .searchBar {
-    overflow: hidden;
+    display: flex;
+    flex: 1 1 12em;
+    min-width: 0;
 }
 
 .searchBar p {
@@ -359,14 +369,14 @@ p{
 }
 
 .searchBar input[type=text] {
-    float: right;
+    width: 100%;
+    min-width: 0;
     padding: 10px 10px;
 
-    width: 150px;
-
-    border: solid;
+    border-style: solid;
+    border-width: var(--border-width);
     border-color: var(--color-border-solid);
-    border-radius: 7px;
+    border-radius: var(--radius);
 
     font-size: 15px;
 }
@@ -382,17 +392,11 @@ p{
 
 @media screen and (max-width: 1000px) {
     div.educationList{
-        display: grid;
-        grid-row-gap: 1em;
+    display: grid;
+    grid-row-gap: 1em;
     }
     div.expSeperator {
         flex-direction: column-reverse;
-    }
-    div.eduSeperator {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
     }
 }
 
@@ -417,26 +421,20 @@ p{
     div.detail{
         height: fit-content;
         max-height: unset;
+        padding-top: 1em;
+
+        -webkit-mask-image: unset;
+        mask-image: unset;
     }
     div.pfp{
         margin: auto;
     }
-    div.detail{
-        padding-top: 1em;
-
-        -webkit-mask-image: linear-gradient(
-        to top,
-        black 5px,
-        black 95%,
-        transparent
-    );
-
-    mask-image: linear-gradient(
-        to top,
-        black 5%,
-        black 99%,
-        transparent
-    );
+    div.topOfList{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    div.searchControls{
+        width: 100%;
     }
     div.floater{
         display: flex;
@@ -465,18 +463,12 @@ p{
 
         cursor:auto;
     }
-    
     .project{
         cursor: auto;
-        width: 70vw;
-        max-width: 20em;
+        max-width: 25em;
     }
     .project > .projImg{
-        width: fit-content;
-    }
-    div.projImg > img{
-        height: fit-content;
-        max-height: none;
+        width: 25em;
     }
     .projectMax{
         cursor: auto;

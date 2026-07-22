@@ -17,8 +17,8 @@ div.contributor{
 
     border-style: solid;
     border-color: var(--color-border);
-    border-radius: 7px;
-    border-width: 3px;
+    border-radius: var(--radius);
+    border-width: var(--border-width);
 
     padding: 0.2em 1em;
 }
