@@ -20,7 +20,6 @@ export interface Experience {
     title: string;
     skills: string[];
     description: string;
-    image: string;
 }
 
 export interface Education {
@@ -28,7 +27,6 @@ export interface Education {
     course: string;
     place: string;
     description: string;
-    image: string;
 }
 
 export interface BlogPost {

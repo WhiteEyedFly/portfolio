@@ -1,0 +1,1 @@
+Run npm node watch whilst updating ts so js updates automatically

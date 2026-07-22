@@ -1,4 +1,5 @@
 import { renderLinks, renderContacts, loadJson } from "./shared.js";
+
 async function nativeMain() {
     const [contacts, pageList] = await Promise.all([
         loadJson("../../data/contacts.json"),
@@ -7,5 +8,5 @@ async function nativeMain() {
     renderContacts(contacts);
     renderLinks(pageList);
 }
+
 nativeMain();
-//# sourceMappingURL=native.js.map

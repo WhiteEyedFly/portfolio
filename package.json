@@ -1,32 +1,35 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "WIP",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WhiteEyedFly/portfolio.git"
-  },
-  "keywords": [],
-  "author": "Joshua Woodbridge",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "WIP",
+    "main": "main.js",
+    "private": true,
+    "keywords": [],
+    "author": "Joshua Woodbridge",
+    "license": "ISC",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "update-backup": "node scripts/updateBackup.mjs",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WhiteEyedFly/portfolio.git"
+    },
+    "bugs": {
     "url": "https://github.com/WhiteEyedFly/portfolio/issues"
-  },
-  "homepage": "https://github.com/WhiteEyedFly/portfolio#readme",
-  "devDependencies": {
-    "jest": "^30.3.0"
-  },
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "jest-environment-jsdom": "^30.3.0",
-    "jsdom": "^29.1.1",
-    "path": "^0.12.7",
-    "prompt-sync": "^4.2.0",
-    "uniq": "^1.0.1"
-  }
+    },
+    "homepage": "https://github.com/WhiteEyedFly/portfolio#readme",
+    "devDependencies": {
+        "jest": "^30.3.0",
+        "typescript": "^5.7.0"
+    },
+    "dependencies": {
+        "jest-environment-jsdom": "^30.3.0",
+        "jsdom": "^29.1.1",
+        "prompt-sync": "^4.2.0",
+        "uniq": "^1.0.1"
+    }
 }

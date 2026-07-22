@@ -1,12 +1,10 @@
 import { renderLinks, renderContacts, loadJson } from "./shared.js";
-import type { Contact } from "./shared.js";
-import type { Page, BlogPost } from "./types.js";
 
-async function mainBlog(): Promise<void> {
+async function mainBlog() {
     const [contacts, pageList, posts] = await Promise.all([
-        loadJson<Contact[]>("../data/contacts.json"),
-        loadJson<Page[]>("../data/otherPages.json"),
-        loadJson<BlogPost[]>("../data/blogPosts.json")
+        loadJson("../data/contacts.json"),
+        loadJson("../data/otherPages.json"),
+        loadJson("../data/blogPosts.json")
     ]);
 
     renderContacts(contacts);
@@ -16,7 +14,7 @@ async function mainBlog(): Promise<void> {
 
 // Builds the full post list as one string and writes it to the DOM once,
 // instead of appending one post at a time via innerHTML += in a loop.
-function renderPosts(posts: BlogPost[]): void {
+function renderPosts(posts) {
     const container = document.querySelector(".blogPosts");
     if (!container) return;
     container.innerHTML = posts

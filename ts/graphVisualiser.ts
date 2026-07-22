@@ -1,4 +1,5 @@
-import { renderLinks, loadJson } from "./shared.js";
+import { renderLinks, renderContacts, loadJson } from "./shared.js";
+import type { Contact } from "./shared.js";
 import type { Page, Commit, Branch } from "./types.js";
 
 // d3 is loaded globally via a <script> tag rather than an ES module import,
@@ -36,6 +37,10 @@ interface GitHubApiCommit {
 // in the original JS, just made explicit here.
 type PartialCommit = Omit<Commit, "children" | "branches" | "position">;
 
+// NOTE: getCommits()/getBranches() aren't currently called anywhere in
+// graphVisualiser.js - main() loads commitsBackup.json/branchesBackup.json
+// unconditionally, and the live-fetch calls are commented out below. Kept
+// here, typed and ready, matching the JS as-is.
 async function getCommits(): Promise<Commit[]> {
     let page = 1;
     const responses: GitHubApiCommit[] = [];
@@ -62,13 +67,6 @@ async function getCommits(): Promise<Commit[]> {
     }));
 
     return partial as Commit[];
-    /*
-    catch (e) {
-        // Fall back to stored if rate limit hit
-        console.warn("GitHub API rate limit hit or offline. Loading local mock commit timeline data.");
-        return backUpCommits;
-    }
-        */
 }
 
 async function getBranches(): Promise<Branch[] | undefined> {
@@ -143,29 +141,35 @@ function findPosition(commit: Commit): void {
 
     const position = second + 60 * (minute + 60 * (hour + 24 * (day + 30.44 * (month + 12 * year))));
 
-    // NOTE: the original JS had `commit.position ??= Int16Array;` here, which
-    // assigned the Int16Array *constructor* to a number field - not
-    // meaningful at runtime, and not something TypeScript's number type will
-    // accept. It's replaced with a plain numeric default; either way the
-    // very next line immediately overwrites it, so behaviour is unchanged.
+    // NOTE: the JS has `commit.position ??= Int16Array;` here, which assigns
+    // the Int16Array *constructor* to a number field - not meaningful at
+    // runtime, and not something TypeScript's number type will accept.
+    // Replaced with a plain numeric default; either way the very next line
+    // immediately overwrites it, so behaviour is unchanged.
     commit.position ??= 0;
     commit.position = position;
 }
 
 async function main(): Promise<void> {
-    const [pageList, commitsBackup, branchesBackup] = await Promise.all([
+    const [contacts, pageList, commitsBackup, branchesBackup] = await Promise.all([
+        loadJson<Contact[]>("../data/contacts.json"),
         loadJson<Page[]>("../data/otherPages.json"),
         loadJson<Commit[]>("../data/commitsBackup.json"),
         loadJson<Branch[]>("../data/branchesBackup.json")
     ]);
+    renderContacts(contacts);
     renderLinks(pageList);
 
     console.log(document.querySelector("#graphVisualiser"));
 
     // Pulling from git
 
+    //let commits = await getCommits()
+    //let branches = await getBranches()
+
     const commits = commitsBackup;
     const branches = branchesBackup;
+
     const branchNames = ["main"];
 
     for (const branch of branches) {

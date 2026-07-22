@@ -1,10 +1,8 @@
 // Necessary data
-import { renderLinks, renderContacts, loadJson } from "./shared.js";
-import type { Contact } from "./shared.js";
+import { renderLinks, loadJson } from "./shared.js";
 import type { Page, Project, Experience, Education } from "./types.js";
 
 interface DataPaths {
-    contacts: string;
     otherPages: string;
     projects: string;
     experience: string;
@@ -13,7 +11,6 @@ interface DataPaths {
 }
 
 const DATA_PATHS: DataPaths = {
-    contacts: "../data/contacts.json",
     otherPages: "../data/otherPages.json",
     projects: "../data/projects.json",
     experience: "../data/experience.json",
@@ -28,17 +25,14 @@ let educationList: Education[] = [];
 let skillsList: string[] = [];
 
 async function loadData(): Promise<void> {
-    // Fetch all six files in parallel rather than one after another.
-    const [contacts, pages, projects, experience, education, skills] = await Promise.all([
-        loadJson<Contact[]>(DATA_PATHS.contacts),
+    // Fetch all five files in parallel rather than one after another.
+    const [pages, projects, experience, education, skills] = await Promise.all([
         loadJson<Page[]>(DATA_PATHS.otherPages),
         loadJson<Project[]>(DATA_PATHS.projects),
         loadJson<Experience[]>(DATA_PATHS.experience),
         loadJson<Education[]>(DATA_PATHS.education),
         loadJson<string[]>(DATA_PATHS.skills)
     ]);
-
-    renderContacts(contacts);
 
     pageList = pages;
     projectList = projects;
@@ -105,21 +99,13 @@ function projectHtml(project: Project, index: number): string {
 }
 
 function experienceHtml(experience: Experience): string {
-    const image = experience.image === "../assets/experienceimages/.png"
-        ? "../assets/projectimages/Placeholder.png"
-        : experience.image;
-    return `<div class="box"><div class="expSeperator"><div><p>${experience.dates}</p><p class="title">${experience.title}</p>` +
+    return `<div class="box"><p>${experience.dates}</p><p class="title">${experience.title}</p>` +
         `<div class="skillsList">${skillButtonsHtml(experience.skills, "projSkill")}</div>` +
-        `<p class=subtext>${experience.description}</p></div>` +
-        `<div class="expImage"><img pfp src="${image}" alt="Project photo"></div></div></div>`;
+        `<p class=subtext>${experience.description}</p></div>`;
 }
 
 function educationHtml(education: Education): string {
-    const image = education.image === "../assets/educationimages/.png"
-        ? "../assets/projectimages/Placeholder.png"
-        : education.image;
-    return `<div class="box"><div class="eduSeperator"><div class="eduImage"><img pfp src="${image}" alt="Project photo"></div></div>` +
-        `<p>${education.years}</p><p class="title">${education.course}</p>` +
+    return `<div class="box"><p>${education.years}</p><p class="title">${education.course}</p>` +
         `<p>${education.place}</p><p class=subtext>${education.description}</p></div>`;
 }
 
