@@ -145,7 +145,7 @@
     },
     {
         "title": "Project Site",
-        "info": "A prequel to this portfolio use to post personal projects - art and writing for the most part. <br>This was built using a html template however, rather than from scratch.",
+        "info": "A prequel to this portfolio used to post personal projects (art and writing for the most part). <br>This was built using a html template however, rather than from scratch.",
         "skills": ["GitHub"],
         "image": "../assets/projectimages/ProjectsPage.png",
         "contributions": "Myself: Full project <br>Support: Samuel Ndenecho, Tom Bluu",

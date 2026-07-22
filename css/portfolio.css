@@ -116,19 +116,11 @@ div.projectList{
     cursor: grab;
 }
 
-/* Toggled from portfolio.ts/js when 3 or fewer projects are showing (e.g.
-   after a search filters the list down) - nothing to fade toward once
-   everything already fits without scrolling. */
 div.projectList.no-fade{
     -webkit-mask-image: none;
     mask-image: none;
 }
 
-/* These were previously written as nested rules inside div.projectList
-   (`-webkit-scrollbar{...}` / `::-webkit-scrollbar-thumb{...}`), which
-   plain CSS doesn't support - nesting like that is silently invalid, so
-   neither block ever actually applied. Pulled out as real pseudo-element
-   selectors so the scrollbar is actually hidden/styled as intended. */
 div.projectList::-webkit-scrollbar{
     display: none;
 }
@@ -154,11 +146,11 @@ div.projectList::after {
     flex: 0 0 7em;
 }
 
-.projectMax{
-    display: block;
+.modal{
     cursor: pointer;
 
-    height: 25em;
+    height: fit-content;
+    width: 70vw;
     background: var(--color-panel-bg-solid);
     border-color: var(--color-border);
     border-style: solid;
@@ -212,14 +204,19 @@ div.maxProjImg > img{
     border-style: solid;
     border-width: var(--border-width);
 
+
     overflow: hidden;
     border-radius: var(--radius);
     text-align: center;
+}
 
-    /* was declared twice with the same value; the transform below only
-       needs to be declared once alongside it */
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    transform: translateZ(0);
+.projectHint {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.project:hover .projectHint {
+    opacity: 1;
 }
 
 .projectMax input,

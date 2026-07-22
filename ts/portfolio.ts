@@ -53,7 +53,6 @@ async function loadData(): Promise<void> {
     }
 }
 
-// Cache elements we touch repeatedly instead of re-querying the DOM each time.
 interface DomCache {
     skillsFilter: Element | null;
     projects: Element | null;
@@ -80,11 +79,6 @@ function cacheDom(): void {
     dom.searchInput = document.getElementById("search") as HTMLInputElement | null;
     dom.floater = document.querySelector(".floater");
 }
-
-// ---- Pure string-builders (no DOM writes) ----
-// Building HTML as strings and writing it to the DOM once per container
-// (instead of appending via innerHTML += in a loop) avoids the O(n^2) cost of
-// re-serialising/re-parsing the whole growing subtree on every iteration.
 
 function skillButtonsHtml(skills: string[], btnClass: string): string {
     let html = "";
@@ -123,7 +117,6 @@ function educationHtml(education: Education): string {
         `<p>${education.place}</p><p class=subtext>${education.description}</p></div>`;
 }
 
-// ---- Render functions (single DOM write per list) ----
 function renderSkillsFilter(): void {
     if (!dom.skillsFilter) return;
     dom.skillsFilter.innerHTML = skillButtonsHtml(skillsList, "skill");
@@ -164,8 +157,6 @@ async function main(): Promise<void> {
 }
 
 // ---- Search / filter ----
-// Single shared implementation used by both the text search box and the
-// clickable skill/title buttons (previously duplicated almost verbatim).
 function projectMatches(project: Project, termUpper: string): boolean {
     if (termUpper === "") return true;
     if (project.title.toUpperCase().includes(termUpper)) return true;
@@ -208,48 +199,59 @@ window.buttonSearch = function buttonSearch(skill: string): void {
 };
 
 // ---- Expanded project overlay ----
-document.addEventListener("change", (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    if (!target.classList.contains("cb")) return;
-    if (!dom.floater) return;
+const modal = document.querySelector<HTMLDialogElement>('#modal');
 
-    if (target.checked) {
-        const parent = target.closest(".project") as HTMLElement | null;
-        if (!parent) return;
-        const index = Number(parent.dataset.index);
-        const project = projectList[index];
-        const image = project.image === "assets/projectimages/.png"
-            ? "assets/projectimages/Placeholder.png"
-            : project.image;
+if(modal) {
+    modal.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
 
-        dom.floater.innerHTML = `
-            <label class="projectMax">
-                <input type="checkbox" class="cb" checked>
-                <div class="maxSpacer">
-                    <div class="maxProjImg">
-                        <img src="${image}" alt="Project photo">
-                        <p>  </p>
-                        <a href="${project.link}">Read More Here</a>
+        if (target.classList.contains('skill')) {
+            modal.close();
+        }
+    });
+}
+
+if(modal) {
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLInputElement;
+        if (!target) return;
+
+        if (!target.classList.contains("cb"))
+            return;
+        if (target.checked) {
+            const parent = target.closest<HTMLElement>(".project");
+            if (!parent)
+                return;
+            const index = Number(parent.dataset.index);
+            const project = projectList[index];
+            const image = project.image === "assets/projectimages/.png"
+                ? "assets/projectimages/Placeholder.png"
+                : project.image;
+            modal.innerHTML = `
+                <label class="projectMax">
+                    <input type="checkbox" class="cb" checked>
+                    <div class="maxSpacer">
+                        <div class="maxProjImg">
+                            <img src="${image}" alt="Project photo">
+                            <p>  </p>
+                            <a href="${project.link}">Read More Here</a>
+                        </div>
+                        <div class="maxText">
+                            <p class="title">${project.title}</p>
+                            <p class="subtext">${project.info}</p>
+                        </div>
                     </div>
-                    <div class="maxText">
-                        <p class="title">${project.title}</p>
-                        <p class="subtext">${project.info}</p>
-                    </div>
-                </div>
-            </label>`;
-    } else {
-        dom.floater.innerHTML = "";
-    }
-    target.checked = false;
-});
-
-// Max proj small screens code
-window.addEventListener('scroll', () => {
-    if (dom.floater) {
-        dom.floater.style.transform = `translateY(${window.scrollY - 550}px)`;
-    }
-});
-
+                    <button class="skill">Close</button>
+                </label>`;
+            modal.showModal();
+        }
+        else {
+            if (!dom.floater) return;
+            dom.floater.innerHTML = "";
+        }
+        target.checked = false;
+    });
+}
 // Drag code for project list
 let isDown = false;
 let startX = 0;

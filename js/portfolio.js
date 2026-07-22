@@ -69,6 +69,7 @@ function projectHtml(project, index) {
     return `<label class="project" data-index="${index}"><input type="checkbox" class="cb">` +
         `<div class="projImg"><img pfp src="${image}" alt="Project photo"></div>` +
         `<div class="skillsList">${skillButtonsHtml(project.skills, "projSkill")}</div>` +
+        `<div class="projectHint">Click for more info</div>` +
         `<p class="title">${project.title}</p></label>`;
 }
 function experienceHtml(experience) {
@@ -129,8 +130,6 @@ async function main() {
     initDrag();
 }
 // ---- Search / filter ----
-// Single shared implementation used by both the text search box and the
-// clickable skill/title buttons (previously duplicated almost verbatim).
 function projectMatches(project, termUpper) {
     if (termUpper === "")
         return true;
@@ -165,11 +164,19 @@ window.buttonSearch = function buttonSearch(skill) {
     filterProjects(skill);
 };
 // ---- Expanded project overlay ----
-document.addEventListener("change", (e) => {
+const modal = document.querySelector('#modal');
+
+modal.addEventListener('click', (e) => {
+    const target = e.target;
+
+    if (target.classList.contains('skill')) {
+        modal.close();
+    }
+});
+
+document.addEventListener("click", (e) => {
     const target = e.target;
     if (!target.classList.contains("cb"))
-        return;
-    if (!dom.floater)
         return;
     if (target.checked) {
         const parent = target.closest(".project");
@@ -180,7 +187,7 @@ document.addEventListener("change", (e) => {
         const image = project.image === "assets/projectimages/.png"
             ? "assets/projectimages/Placeholder.png"
             : project.image;
-        dom.floater.innerHTML = `
+        modal.innerHTML = `
             <label class="projectMax">
                 <input type="checkbox" class="cb" checked>
                 <div class="maxSpacer">
@@ -194,19 +201,16 @@ document.addEventListener("change", (e) => {
                         <p class="subtext">${project.info}</p>
                     </div>
                 </div>
+                <button class="skill">Close</button>
             </label>`;
+        modal.showModal();
     }
     else {
         dom.floater.innerHTML = "";
     }
     target.checked = false;
 });
-// Max proj small screens code
-window.addEventListener('scroll', () => {
-    if (dom.floater) {
-        dom.floater.style.transform = `translateY(${window.scrollY - 550}px)`;
-    }
-});
+
 // Drag code for project list
 let isDown = false;
 let startX = 0;
